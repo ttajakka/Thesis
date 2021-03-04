@@ -1,0 +1,239 @@
+%  ========================================================================
+%  Copyright (c) 1985 The University of Washington
+%
+%  Licensed under the Apache License, Version 2.0 (the "License");
+%  you may not use this file except in compliance with the License.
+%  You may obtain a copy of the License at
+%
+%      http://www.apache.org/licenses/LICENSE-2.0
+%
+%  Unless required by applicable law or agreed to in writing, software
+%  distributed under the License is distributed on an "AS IS" BASIS,
+%  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+%  See the License for the specific language governing permissions and
+%  limitations under the License.
+%  ========================================================================
+%
+
+% Documentation for University of Washington thesis LaTeX document class
+% by Jim Fox
+% fox@washington.edu
+%
+%    Revised 2020/02/24, added \caption()[]{} option.  No ToC.
+%
+%    Revised for version 2015/03/03 of uwthesis.cls
+%    Revised, 2016/11/22, for cleanup of sample copyright and title pages
+%
+%    This document is contained in a single file ONLY because
+%    I wanted to be able to distribute it easily.  A real thesis ought
+%    to be contained on many files (e.g., one for each chapter, at least).
+%
+%    To help you identify the files and sections in this large file
+%    I use the string '==========' to identify new files.
+%
+%    To help you ignore the unusual things I do with this sample document
+%    I try to use the notation
+%       
+%    % --- sample stuff only -----
+%    special stuff for my document, but you don't need it in your thesis
+%    % --- end-of-sample-stuff ---
+
+
+%    Printed in twoside style now that that's allowed
+%
+ 
+\documentclass [11pt, proquest] {uwthesis}[2020/02/24]
+ 
+%
+% The following line would print the thesis in a postscript font 
+
+% \usepackage{natbib}
+% \def\bibpreamble{\protect\addcontentsline{toc}{chapter}{Bibliography}}
+
+\setcounter{tocdepth}{1}  % Print the chapter and sections to the toc
+ 
+
+% ==========   Local defs and mods
+%
+
+% --- sample stuff only -----
+% These format the sample code in this document
+
+\usepackage{alltt}  % 
+\newenvironment{demo}
+  {\begin{alltt}\leftskip3em
+     \def\\{\ttfamily\char`\\}%
+     \def\{{\ttfamily\char`\{}%
+     \def\}{\ttfamily\char`\}}}
+  {\end{alltt}}
+ 
+% metafont font.  If logo not available, use the second form
+%
+% \font\mffont=logosl10 scaled\magstep1
+\let\mffont=\sf
+% --- end-of-sample-stuff ---
+ 
+
+\usepackage{commands}
+
+\begin{document}
+ 
+% ==========   Preliminary pages
+%
+% ( revised 2012 for electronic submission )
+%
+
+\prelimpages
+ 
+%
+% ----- copyright and title pages
+%
+\Title{Projectivity of moduli spaces of complexes}
+\Author{Tuomas Tajakka}
+\Year{2021}
+\Program{Mathematics}
+
+\Chair{Jarod Alper}{Associate Professor}{Department of Mathematics}
+\Signature{Max Lieblich}
+\Signature{Bianca Viray}
+%\Signature{etc}
+
+\copyrightpage
+
+\titlepage  
+
+ 
+%
+% ----- signature and quoteslip are gone
+%
+
+%
+% ----- abstract
+%
+
+
+\setcounter{page}{-1}
+\abstract{%
+Determinantal line bundle techniques provide an alternative to using Geometric Invariant Theory in constructing moduli spaces as projective varieties -- Faltings, Kollar. Something about Bridgeland stability and no GIT. 
+}
+ 
+%
+% ----- contents & etc.
+%
+\tableofcontents
+%\listoffigures
+%\listoftables  % I have no tables
+ 
+%
+% ----- glossary 
+%
+\iffalse
+\chapter*{Glossary}      % starred form omits the `chapter x'
+\addcontentsline{toc}{chapter}{Glossary}
+\thispagestyle{plain}
+%
+\begin{glossary}
+\item[argument] replacement text which customizes a \LaTeX\ macro for
+each particular usage.
+\item[back-up] a copy of a file to be used when catastrophe strikes
+the original.  People who make no back-ups deserve
+no sympathy.
+\item[control sequence] the normal form of a command to \LaTeX.
+\item[delimiter] something, often a character, that indicates
+the beginning and ending of an argument.
+More generally, a delimiter is a field separator.
+\item[document class] a file of macros that tailors \LaTeX\ for
+a particular document.  The macros described by this thesis
+constitute a document class.
+\item[document option] a macro or file of macros
+that further modifies \LaTeX\ for
+a particular document.  The option {\tt[chapternotes]}
+constitutes a document option.
+\item[figure] illustrated material, including graphs,
+diagrams, drawings and photographs.
+\item[font] a character set (the alphabet plus digits
+and special symbols) of a particular size and style.  A couple of fonts
+used in this thesis are twelve point roman and {\sl twelve point roman
+slanted}.
+\item[footnote] a note placed at the bottom of a page, end of a chapter,
+or end of a thesis that comments on or cites a reference
+for a designated part of the text.
+\item[formatter] (as opposed to a word-processor) arranges printed
+material according to instructions embedded in the text.
+A word-processor, on the other hand, is normally controlled
+by keyboard strokes that move text about on a display.
+\item[\LaTeX] simply the ultimate in computerized typesetting.
+\item[macro]  a complex control sequence composed of 
+other control sequences.
+\item[pica] an archaic unit of length.  One pica is twelve points and
+six picas is about an inch.
+\item[point] a unit of length.  72.27 points equals one inch.
+\item[roman]  a conventional printing typestyle using serifs.
+the decorations on the ends of letter strokes.
+This thesis is set in roman type.
+\item[rule] a straight printed line; e.g., \hrulefill.
+\item[serif] the decoration at the ends of letter strokes.
+\item[table] information placed in a columnar arrangement.
+\item[thesis] either a master's thesis or a doctoral dissertation.
+This document also refers to itself as a thesis, although it
+really is not one.
+ 
+\end{glossary}
+\fi
+%
+% ----- acknowledgments
+%
+\acknowledgments{% \vskip2pc
+  % {\narrower\noindent
+  I want to thank mom, dad, friends, Jarod etc.
+  % \par}
+}
+
+%
+% ----- dedication
+%
+\dedication{\begin{center}In memoriam Dave DiMuro\end{center}}
+
+%
+% end of the preliminary pages
+ 
+ 
+ 
+%
+% ==========      Text pages
+%
+
+\textpages
+ 
+% ========== Chapter 1
+ 
+\include{chapter1}
+\include{chapter2}
+\include{chapter3}
+\include{chapter4}
+
+ 
+ 
+
+\printendnotes
+
+%
+% ==========   Bibliography
+%
+\nocite{*}   % include everything in the uwthesis.bib file
+\bibliographystyle{plain}
+\bibliography{bibliography}
+%
+% ==========   Appendices
+%
+\appendix
+\raggedbottom\sloppy
+ 
+% ========== Appendix A
+ 
+%\chapter{Where to find the files}
+ 
+
+
+
+\end{document}
