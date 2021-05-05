@@ -1,0 +1,296 @@
+\chapter{Seshadri's First Main Lemma}\label{chapter:seshadri}
+
+\section{Introduction}
+Let $C$ be a smooth, projective, connected curve of genus $g \ge 2$ over an algebraically closed field $k$. A vector bundle $F$ on $C$ is called \textit{stable}, respectively \textit{semistable}, if for all proper nonzero subsheaves $F' \subs F$, we have
+\[ \mu(F') < \mu(F), \quad \text{respectively} \quad \mu(F') \leq \mu(F), \]
+where 
+\[ \mu(F) \coloneqq \frac{\deg(F)}{\rk(F)} \]
+is the \textit{slope} of $F$. The moduli space $M^{\mu}_C(r,d)$ of semistable vector bundles of rank $r$ and degree $d$ on $C$ was constructed as a normal projective variety by Seshadri \cite{seshadri-space-of-unitary} using Mumford's GIT \cite{GIT}. 
+
+Following ideas of Faltings \cite{faltings}, Seshadri offered an alternative approach to constructing $M^{\mu}_C(r,d)$ as a projective variety in \cite{seshadri}. Roughly, the strategy is to construct a determinantal line bundle $\sL$ on the moduli stack and use its ring of sections to construct the moduli space $M^{\mu}_C(r,d)$. A key step in the proof, ensuring the global generation of $\sL^{\otimes n}$ for large $n$, is the following characterization of semistability.
+\begin{thm}[{\cite[Theorem 6.2]{seshadri}}]
+    A vector bundle $F$ on $C$ is semistable if and only if there exists a vector bundle $E$ on $C$ such that
+    \[ H^0(C, E \otimes F) = H^1(C, E \otimes F) = 0. \]
+\end{thm}
+The backwards implication is a simple exercise, see for example \cite[Theorem 2.13]{MS}. The goal of this note is to prove the following refinement of the forward implication \cite[Lemma 3.1 ("First Main Lemma")]{seshadri}.
+
+\begin{thm}\label{mainlemma1}
+    Let $F$ be a semistable vector bundle on $C$. Let $r$ be an integer greater than $\rk(F)$ and invertible in $k$, let $\sL$ be a line bundle on $C$, and assume that
+    \begin{equation}\label{eqn:rk-deg-condition}
+        \deg(\sL) \rk(F) + r \deg(F) + r \rk(F) (1-g) = 0.
+    \end{equation}
+    There exists a vector bundle $E$ on $C$ such that $\rk(E) = r, \det(E) = \sL$, and 
+    \[ H^0(C, E \otimes F) = H^1(C, E \otimes F) = 0. \]
+\end{thm}
+\begin{rmk}
+    Since $\deg(E) = \deg(\sL)$ in the statement of the theorem, the condition \eqref{eqn:rk-deg-condition} becomes
+    \[ \deg(E) \rk(F) + \rk(E) \deg(F) + \rk(E) \rk(F) (1-g) = 0, \]
+    which by the Riemann-Roch theorem is equivalent to
+    \[ \chi(C, E \otimes F) = H^0(C, E \otimes F) - H^1(C, E \otimes F) = 0. \]
+\end{rmk}
+
+The argument in \cite{seshadri} gives the existence of $E$ only when $\rk(E) \gg 0$. Moreover, since the class of $E$ in the Grothendieck group $K(C)$ is determined by its rank and determinant, it is useful to be able to specify these invariants of $E$ in Theorem \ref{mainlemma1}, for example in the following situation. Let $Y$ be a projective variety and $w \in K(Y)$ a class with $\rk(w) > 0$. Suppose $\sF \in D^b(Y)$ is a sheaf or a complex whose restrictions $F_i = \sF|_{C_i}$ to suitably chosen curves $C_i \subs Y$ are semistable vector bundles on each $C_i$. We can now apply Theorem \ref{mainlemma1} to each $F_i$ and choose the vector bundles $E = E_i$ consistently for each $i$ in the sense that $[E_i] = w|_{C_i} \in K(C_i)$. This method is used in Chapters \ref{chapter:uhlenbeck} and \ref{chapter:pt} to construct globally generated determinantal line bundles.
+
+\subsection*{Acknowledgements} 
+The author would like to thank the organizers of The Stacks Project Workshop 2020, as well as other members of Team Alper at the workshop: Jarod Alper, Pieter Belmans, Daniel Bragg, Hannah Larson, Shizhang Li, and Jason Liang.
+
+\section{Proof of the Main Lemma}
+We begin by reducing Theorem \ref{mainlemma1} to the case of stable vector bundles. Let $r \ge 1$ be an integer and $\sL \in \Pic(C)$ a line bundle. Let $S$ be a \textit{miniversal deformation space} of simple vector bundles of rank $r$ and determinant $\sL$ on $C$. The scheme $S$ is smooth over $k$, irreducible, has dimension $(r^2 - 1)(g - 1)$, and parameterizes a \textit{universal vector bundle} $\sE \in \Coh(S \times C)$. 
+\begin{center}
+    \begin{tikzpicture}
+    \matrix (m) [matrix of math nodes, row sep=2em, column sep=2em]
+    { & \sE & \\ 
+    & S \times C & \\
+    S & & C \\};
+    \path[dotted,-]
+    (m-1-2) edge node[auto,swap] {$  $} (m-2-2)
+    ;
+    \path[->] 
+    (m-2-2) edge node[auto,swap] {$ p $} (m-3-1)
+    (m-2-2) edge node[auto] {$ q $} (m-3-3)
+    ;
+    \end{tikzpicture}
+\end{center}
+Denote by $p: S \times C \to S$ and $q: S \times C \to C$ the projections, and for a coherent sheaf $\sF$ on $S \times C$ flat over $S$, denote by $\sF_t$ the the restriction of $\sF$ to the fiber $p^{-1}(t) \cong C$ over a closed point $t \in S$. Below, we will prove the following slightly stronger result.
+\begin{thm}\label{mainlemmastable}
+    Let $F$ be a stable vector bundle on $C$, let $r > \rk(F)$ be an integer, and let $\sL \in \Pic(C)$ be a line bundle. Let $S$ be a miniversal deformation space of vector bundles of rank $r$ and determinant $\sL$. There is a nonempty open subset $U \subs S$ such that for any $k$-point $t \in S$, the vector bundle $\sE_t$ on $C$ satisfies
+    \[ H^0(C, \sE_t \otimes F) = H^1(C, \sE_t \otimes F) = 0. \]
+\end{thm}
+
+\begin{proof}[Proof of Theorem \ref{mainlemma1}]
+    Any semistable sheaf $F$ has a Jordan-H\"older filtration
+    \[ 0 \subset F_1 \subset F_2 \subset \cdots \subset F_{s-1} \subset F_s = F, \]
+    where each quotient $F'_i = F_i/F_{i-1}$ is stable of slope
+    \[ \mu(F'_i) = \frac{\deg(F'_i)}{\rk(F'_i)} = \frac{\deg(F)}{\rk(F)} = \mu(F). \]
+    It follows that equation (\ref{eqn:rk-deg-condition}) holds for $F'_i$ as well, and $r > \rk(F) > \rk(F'_i)$. Let $U_i \subs S$ denote the open set of Theorem \ref{mainlemmastable} applied to $F'_i$. Since $S$ is irreducible, the intersection $U = U_1 \cap \ldots \cap U_s$ is nonempty. For any $k$-point $t \in U$, the sheaf $\sE_t$ satisfies
+    \[ H^0(C, \sE_t \otimes F'_i) = H^1(C, \sE_t \otimes F'_i) = 0 \]
+    for $i = 1, \ldots, s$. Using the long exact sequence in sheaf cohomology associated to the short exact sequences
+    \[ 0 \to F_{i-1} \to F_i \to F'_i \to 0, \]
+    it follows by induction that 
+    \[ H^0(C, E \otimes F_i) = H^1(C, E \otimes F_i) = 0 \]
+    for $i = 1, \ldots, s$ as well.
+\end{proof}
+
+\begin{proof}[Proof of Theorem \ref{mainlemmastable}]
+We prove the contrapositive of Theorem \ref{mainlemmastable}. In other words, we assume that \emph{there does not exist a vector bundle $E$ of rank $r$ and determinant $\sL$ such that} 
+\[ H^0(C, E \otimes F) = H^1(C, E \otimes F) = 0, \]
+and construct a destabilizing subsheaf of $F$. In fact, we obtain a family of destabilizing subsheaves as the image $\sG$ of the natural map
+\[ \left(p^* p_*\sHom(\sE^\vee, q^*F)\right) \otimes \sE^\vee  \longrightarrow q^*F \]
+over a suitable open subset $U \subs S$.
+
+If $\sF$ be a coherent sheaf on $S \times C$ flat over $S$, there is a canonical linear map
+\begin{equation}\label{kap1}
+    \ka: T_{S,t} \otimes H^0(C, \sF_t) \to H^1(C, \sF_t)
+\end{equation}
+defined as follows. View a tangent vector $v \in T_{S,t}$ as a morphism $v: \Spec k[\eps] \to S$ that takes the unique point of $\Spec k[\eps]$ to $t$. Denote by $j: C \to C_\eps \coloneqq C \times \Spec k[\eps]$ the closed embedding given by $\eps \mapsto 0$, and by $v_C = v \times \id_C: C_\eps \to S\times C$ the product map.
+\begin{center}
+    \begin{tikzpicture}
+    \matrix (m) [matrix of math nodes, row sep=3em, column sep=3em]
+    { \sF_t & v_C^* \sF & \sF & \\ 
+    C & C_\eps & S \times C & C \\
+    \Spec k & \Spec k[\eps] & S & \\};
+    \path[->] 
+    (m-2-1) edge node[auto] {$ j $} (m-2-2)
+    (m-2-1) edge node[auto] {$  $} (m-3-1)
+    (m-2-2) edge node[auto] {$ v_C $} (m-2-3)
+    (m-2-2) edge node[auto] {$ $} (m-3-2)
+    (m-2-3) edge node[auto] {$ q $} (m-2-4)
+    (m-2-3) edge node[auto] {$ p $} (m-3-3)
+    (m-3-1) edge node[auto] {$ \eps \mapsto 0 $} (m-3-2)
+    (m-3-2) edge node[auto] {$ v $} (m-3-3)
+    ;
+    \path[dotted,-]
+    (m-1-1) edge node[auto] {$  $} (m-2-1)
+    (m-1-2) edge node[auto] {$  $} (m-2-2)
+    (m-1-3) edge node[auto] {$  $} (m-2-3)
+    ;        
+    \end{tikzpicture}
+\end{center}
+Now $v_C^*\sF$ is flat over $\Spec k[\eps]$ and so fits in an exact sequence
+\[ 0 \to j_* \sF_t \to v_C^*\sF \to j_* \sF_t \to 0 \]
+of sheaves on $C_\eps$. The connecting homomorphism in the exact sequence in sheaf cohomology
+\[ H^0(C, \sF_t) = H^0(C_\eps, j_*\sF_t) \to H^1(C_\eps, j_*\sF_t) = H^1(C, \sF_t) \]
+gives the map $\ka(v, -)$ in \eqref{kap1}. If $p_*\sF$ is locally free on $S$ and its formation commutes with arbitrary base change, then the map
+\[ H^0(C_\eps, v_C^*\sF) \to H^0(C, \sF_t) \]
+is identified with the \emph{surjective} evaluation-at-$t$ map $(p_*\sF) \otimes k[\eps] \to (p_* \sF) \otimes k$, and so the connecting homomorphism above is the zero map, and hence so is $\ka$. 
+
+Recall that $\sE$ denotes the universal vector bundle on $S \times C$. The canonical evaluation map $\sE^\vee \otimes \sE \to \Oh_{S \times C}$, also called the trace map, has a section $\Oh_{S \times C} \to \sHom(\sE, \sE) \cong \sE^\vee \otimes \sE$ given by $1 \mapsto 1/r \cdot \id_{\sE}$. (This is where we use the assumption that $r$ is invertible in $k$). Thus, we have a split exact sequence
+\[ 0 \to \sA \to \sE^\vee \otimes \sE \xrightarrow{\mathrm{tr}} \Oh_{S \times C} \to 0, \]
+where $\sA$, the "sheaf of traceless endomorphisms", is locally free. For a closed point $t \in S$, we obtain a split exact sequence
+\[ 0 \to \sA_t \to \sE_t^\vee \otimes \sE_t \to \Oh_C \to 0, \]
+and in cohomology
+\begin{equation} \label{H1exact}
+    0 \to H^1(C, \sA_t) \to H^1(C, \sE_t^\vee \otimes \sE_t) \to H^1(C, \Oh_C) \to 0.
+\end{equation}
+The vector space $H^1(C, \sA_t)$ \emph{is naturally isomorphic to the tangent space} $T_{S,t}$.
+
+Now consider the sheaf $\sE \otimes q^*F$ on $S \times C$, where $F$ is the stable vector bundle in the statement of the theorem. Recall that the assumption
+\[ d \rk(F) + r \deg(F) + r \rk(F) (1-g) = 0 \]
+implies that 
+\[ \chi(C, \sE_t \otimes F) = H^0(C, \sE_t \otimes F) - H^1(C, \sE_t \otimes F) = 0 \] 
+for all $t \in S$. The function $S \to \N, t \mapsto \dim H^0(C, \sE_t \otimes F) = \dim H^1(C, \sE_t \otimes F)$ is upper semicontinuous and so takes a constant minimal value over an open subspace of $S$. \emph{We replace $S$ by this open subspace.} After this replacement, Grauert's theorem implies that the sheaves $p_*(\sE \otimes q^*F)$ and $R^1 p_*(\sE \otimes q^*F)$ are locally free and their formation commutes with base change. In particular, their fibers at $t \in S$ are naturally identified with 
+\[ H^0(C, \sE_t \otimes F) \qquad \mathrm{and} \qquad H^1(C, \sE_t \otimes F) \] respectively.
+
+For the sheaf $\sE \otimes q^*F$, the map
+\begin{equation}\label{kappa}
+    \ka: H^1(C, \sA_t) \otimes H^0(C, \sE_t \otimes F) \to H^1(C, \sE_t \otimes F)
+\end{equation}
+constructed in \eqref{kap1} coincides with the composition
+\begin{align*}
+    H^1(C, \sA_t) \otimes H^0(C, \sE_t \otimes F) & \to H^1(C, \sE_t^\vee \otimes \sE_t) \otimes H^0(C, \sE_t \otimes F) \\
+    & \to H^1(C, \sE_t \otimes F) 
+\end{align*}
+under the identification of $T_{S,t}$ with $H^1(C, \sA_t)$, where the first map is induced by the inclusion 
+\[ H^1(C, \sA_t) \hookrightarrow H^1(C, \sE_t^\vee \otimes \sE_t) \] 
+and the second map can be expressed using the derived category as
+\begin{center}
+    \begin{tikzpicture}
+    \matrix (m) [matrix of math nodes, row sep=1em, column sep=1em]
+    { H^1(C, \sE_t^\vee \otimes \sE_t) \otimes H^0(C, \sE_t \otimes F) \\
+    \Hom(\sE_t^\vee, \sE_t^\vee[1]) \otimes \Hom(\sE_t^\vee[1], F[1]) \\
+    \Hom(\sE_t^\vee, F[1]) \\
+    H^1(C, \sE_t \otimes F). \\};
+    \path[->] 
+    (m-1-1) edge node[auto] {$ \sim $} (m-2-1)
+    (m-2-1) edge node[auto] {$ _\mathrm{composition} $} (m-3-1)
+    (m-3-1) edge node[auto] {$ \sim $} (m-4-1)
+    ;
+    \end{tikzpicture}
+\end{center}
+As we saw above, since $p_*(\sE \otimes q^*F)$ is locally free and its formation commutes with base change, the map (\ref{kappa}) is the zero map. 
+
+For the rest of the proof, we occasionally denote $V = \Hom(\sE_t^\vee, F)$. Using Serre duality and tensor-hom adjunction, we see that (\ref{kappa}) is adjoint to the map
+\[ V \otimes \Hom(F, \sE_t^\vee \otimes \om_C) \to H^0(C, \sA_t^\vee \otimes \om_C) \]
+fitting in the diagram
+\begin{center}
+    \begin{tikzpicture}
+    \matrix (m) [matrix of math nodes, row sep=3em, column sep=0.7em]
+    { & & V \otimes \Hom(F, \sE_t^\vee \otimes \om_C) & & \\
+      & & \Hom(\sE_t^\vee, \sE_t^\vee \otimes \om_C) & & \\
+    0 & H^0(C, \om_C) & H^0(C, \sE_t \otimes \sE_t^\vee \otimes \om_C) & H^0(C, \sA_t^\vee \otimes \om_C) & 0 \\};
+    \path[->] 
+    (m-1-3) edge node[auto,swap] {$ _\mathrm{composition} $} (m-2-3)
+    (m-1-3) edge node[auto] {$ 0 $} (m-3-4)
+    (m-2-3) edge node[auto] {$ \sim $} (m-3-3)
+    (m-3-1) edge node[auto] {$  $} (m-3-2)
+    (m-3-2) edge node[auto] {$  $} (m-3-3)
+    (m-3-3) edge node[auto] {$  $} (m-3-4)
+    (m-3-4) edge node[auto] {$  $} (m-3-5)
+    ;        
+    \end{tikzpicture}
+\end{center}
+where the bottom sequence is Serre dual to (\ref{H1exact}). This diagram says that every composition $\sE_t^\vee \to F \to \sE_t^\vee \otimes \om_C$ arises uniquely from a section $\si: \Oh_C \to \om_C$ as 
+\[ \sE_t^\vee \xrightarrow{\id \otimes \si} \sE_t^\vee \otimes \om_C. \] 
+\emph{Now we use the assumption that $\rk(\sE) > \rk(F)$.} Notice that any nonzero section $\Oh_C \to \om_C$ is injective, and since $\sE_t$ is locally free, also $\sE_t^\vee \to \sE_t^\vee \otimes \om_C$ is injective. But $\sE_t^\vee \to F$ cannot be injective, hence neither can $\sE_t^\vee \to F \to \sE_t^\vee \otimes \om_C$. We conclude that \emph{the map}
+\[ \Hom(\sE_t^\vee, F) \otimes \Hom(F, \sE_t^\vee \otimes \om_C) \to \Hom(\sE_t^\vee, \sE_t^\vee \otimes \om_C) \]
+\emph{is the zero map.}
+
+Let $\sG$ and $\sQ$ denote respectively the image and cokernel of the canonical evaluation map
+\[ p^*p_*\sHom(\sE^\vee, q^*F) \otimes \sE^\vee \longrightarrow q^*F \]
+adjoint to $p_*(\sE \otimes q^*F) \xrightarrow{\id} p_*(\sE \otimes q^*F)$. There is a nonempty open subscheme of $S$ over which 
+\begin{enumerate}[(i)]
+    \item $\sG$ and $\sQ$ are flat, and
+    \item the dimension of $H^0(C, \sE_t \otimes \sG_t)$ remains constant.
+\end{enumerate} 
+\emph{We replace $S$ by this open subscheme.} As a result, $\sG$ and $\sQ$ are flat over $S$, and $p_*(\sE \otimes \sG)$ is locally free on $S$ and its formation commutes with base change. Moreover, the restriction $\sG_t$ of $\sG$ to the fiber over $t \in S$ is identified with the image of the evaluation map $\Hom(\sE_t^\vee, F) \otimes \sE_t^\vee \to F$. 
+
+By assumption we have $H^0(C, \sE_t \otimes F), H^1(C, \sE_t \otimes F) \neq 0$. Now by construction
+\[ \Hom(\sE_t^\vee, \sG_t) \cong \Hom(\sE_t^\vee, F) \cong H^0(C, \sE_t \otimes F) \neq 0, \]
+so in particular $\sG_t \neq 0$. Moreover, denoting $V = \Hom(\sE_t^\vee, F)$ as before and applying $\Hom(-, \sE^\vee \otimes \om_C)$ to the diagram
+\begin{center}
+    \begin{tikzpicture}
+    \matrix (m) [matrix of math nodes, row sep=3em, column sep=3em]
+    { & V \otimes \sE_t^\vee & & & \\
+    0 & \sG_t & F & \sQ_t & 0 \\};
+    \path[->>] 
+    (m-1-2) edge node[auto,swap] {$  $} (m-2-2)
+    ;
+    \path[->]
+    (m-2-1) edge node[auto,swap] {$  $} (m-2-2)
+    (m-2-2) edge node[auto,swap] {$  $} (m-2-3)
+    (m-2-3) edge node[auto,swap] {$  $} (m-2-4)
+    (m-2-4) edge node[auto,swap] {$  $} (m-2-5)
+    ;        
+    \end{tikzpicture}
+\end{center}
+where the horizontal sequence is exact and the vertical map is surjective, we obtain a diagram
+\begin{center}
+    \begin{tikzpicture}
+    \matrix (m) [matrix of math nodes, row sep=3em, column sep=0.4em]
+    { 0 & \Hom(\sQ_t, \sE_t^\vee \otimes \om_C) & \Hom(F, \sE_t^\vee \otimes \om_C) & \Hom(\sG_t, \sE_t^\vee \otimes \om_C) \\
+    & & & \Hom(V \otimes \sE_t^\vee, \sE_t^\vee \otimes \om_C)\\
+    };
+    \path[->] 
+    (m-1-1) edge node[auto,swap] {$  $} (m-1-2)
+    (m-1-2) edge node[auto,swap] {$  $} (m-1-3)
+    (m-1-3) edge node[auto,swap] {$  $} (m-1-4)
+    ;
+    \path[right hook ->]
+    (m-1-4) edge node[auto,swap] {$  $} (m-2-4)
+    ;
+    \end{tikzpicture}
+\end{center}
+where the horizontal sequence is exact and the vertical map is injective. Here the composition
+\[ \Hom(F, \sE_t^\vee \otimes \om_C) \to \Hom(\sG_t, \sE_t^\vee \otimes \om_C) \hookrightarrow \Hom(V \otimes \sE_t^\vee, \sE_t^\vee \otimes \om_C) \]
+is given by precomposing a morphism $F \to \sE_t^\vee \otimes \om_C$ with the canonical map $V \otimes \sE_t^\vee \to F$, and so is the zero map. Thus, also the map
+\[ \Hom(F, \sE_t^\vee \otimes \om_C) \to \Hom(\sG_t, \sE_t^\vee \otimes \om_C) \]
+given by restricting to $\sG_t$ is zero, and thus 
+\begin{align*}
+    \Hom(\sQ_t, \sE_t^\vee \otimes \om_C) & \cong \Hom(F, \sE_t^\vee \otimes \om_C) \\
+    & \cong \Ext^1(\sE_t^\vee, F)^\vee \\
+    & \cong H^1(C, \sE_t \otimes F)^\vee \neq 0.
+\end{align*}
+This implies that $\sQ_t$ is nonzero. We conclude that \emph{$\sG$ is a family of proper, nonzero subsheaves of $F$}.
+
+Now we consider the map $\ka$ constructed in \eqref{kap1} and repeat the same argument for the sheaf $\sE \otimes \sG$. Recall that $p_*(\sE \otimes \sG)$ is locally free and commutes with arbitrary base change. We see again that any composition $\sE_t^\vee \to \sG_t \to \sE_t^\vee \otimes \om_C$ arises from a unique section $\Oh_C \to \om_C$, and while nonzero such sections are injective, no map $\sE_t^\vee \to \sG_t$ is injective since $\rk(\sE_t) > \rk(F) \ge \rk(\sG_t)$. Thus, the composition homomorphism
+\[ \Hom(\sE_t^\vee, \sG_t) \otimes \Hom(\sG_t, \sE_t^\vee \otimes \om_C) \to \Hom(\sE_t^\vee, \sE_t^\vee \otimes \om_C) \]
+is zero. 
+
+We claim that in fact $\Hom(\sG_t, \sE_t^\vee \otimes \om_C) = 0$. Applying the functor $\Hom(-, \sE_t^\vee \otimes \om_C)$ to the surjection $V \otimes \sE_t^\vee \twoheadrightarrow \sG_t$ we get an inclusion
+\[ \Hom(\sG_t, \sE_t^\vee \otimes \om_C) \hookrightarrow \Hom(V \otimes \sE_t^\vee, \sE_t^\vee \otimes \om_C) \cong \Hom(\sE_t^\vee, \sE_t^\vee \otimes \om_C)^{\oplus l} \]
+where the isomorphism is obtained by choosing a basis $\phi_1, \ldots, \phi_l$ for $\Hom(\sE_t^\vee, \sG_t) \cong \Hom(\sE_t^\vee, F) = V$. But composing the inclusion with the projection onto the $i$th factor is given by precomposing a map $\sG_t \to \sE_t^\vee \otimes \om_C$ with $\phi_i: \sE_t^\vee \to \sG_t$, and any such composition is zero. Thus, $\Hom(\sG_t, \sE_t^\vee \otimes \om_C) = 0$ as claimed.
+
+We can now show that $\sG_t$ is a destabilizing subsheaf for every $t \in S$. Since $\sG_t$ is nonzero and torsion-free as a subsheaf of $F$, we have $\rk(\sG_t) > 0$. Now on the one hand
+\[ H^1(C, \sE_t \otimes \sG_t) \cong \Ext^1(\sE_t^\vee, \sG_t) \cong \Hom(\sG_t, \sE_t^\vee \otimes \om_C)^\vee = 0 \]
+and so
+\[ -\chi(C, \sE_t \otimes \sG_t) = -\dim H^0(C, \sE_t \otimes \sG_t) \le 0. \]
+On the other hand, by Riemann-Roch we obtain
+\begin{align*}
+    -\frac{\chi(C, \sE_t \otimes \sG_t)}{\rk(\sE_t) \rk(\sG_t)} & = -\frac{\deg(\sE_t \otimes \sG_t) + \rk(\sE_t \otimes \sG_t)(1-g)}{\rk(\sE_t) \rk(\sG_t)} \\
+    & = -\frac{\deg(\sE_t)\rk(\sG_t) + \deg(\sG_t)\rk(\sE_t) + \rk(\sE_t)\rk(\sG_t)(1-g)}{\rk(\sE_t) \rk(\sG_t)} \\
+    & = -\mu(\sE_t) - \mu(\sG_t) + g - 1 \\
+    & = (-\mu(\sE_t) - \mu(F) + g - 1) + \mu(F) - \mu(\sG_t) \\
+    & = -\frac{\chi(C, \sE_t \otimes F)}{\rk(\sE_t)\rk(F)} + \mu(F) - \mu(\sG_t) \\
+    & = \mu(F) - \mu(\sG_t)
+\end{align*}
+since by assumption $\chi(C, \sE_t \otimes F) = 0$. Thus, $\mu(F) \le \mu(\sG_t)$ so $\sG_t$ destabilizes $F$.
+\end{proof}
+
+
+\section{Comments}
+\begin{enumerate}[(i)]
+    \item We can remove the assumption $\rk(E) > \rk(F)$ and obtain a weaker result: 
+    \begin{thm}
+        Let $r > 0$ and $d$ be integers satisfying
+        \[ d \rk(F) + r \deg(F) + r \rk(F) (1-g) = 0. \]
+        There exists a vector bundle $E$ on $C$ such that $\rk(E) = r, \deg(E) = d$, and 
+        \[ H^0(C, E \otimes F) = H^1(C, E \otimes F) = 0. \]
+    \end{thm}
+    Note that the determinant of $E$ is not specified. To obtain this result, we take $S$ to be a finite type miniversal deformation space of simple vector bundles of rank $r$ and degree $d$ on $C$ with universal bundle $\sE$. The space $S$ is smooth and irreducible of dimension $r^2(g-1)+1$, and the tangent space at $t \in S$ is canonically isomorphic to $H^1(C, \sE_t^\vee \otimes \sE_t)$, and so the morphism $\ka$ becomes the map
+    \[ H^1(C, \sE_t^\vee \otimes \sE_t) \otimes H^0(C, \sE_t \otimes F) \to H^1(C, \sE_t \otimes F) \]
+    which is similarly as above seen to be zero on the locus where $\dim H^0(C, \sE_t \otimes F)$ remains constant. Defining $\sG$ and $\sQ$ the same way as above, we see that also
+    \[ H^1(C, \sE_t^\vee \otimes \sE_t) \otimes H^0(C, \sE_t \otimes \sG_t) \to H^1(C, \sE_t \otimes \sG_t) \]
+    is the zero map, and the argument proceeds the same way. 
+    
+    This is closer to the statement of Lemma 3.1 in \cite{seshadri} in that the determinant of $E$ is not specified. However, our statement is stronger in that we can specify the rank of $E$, whereas the proof in \cite{seshadri} only gives existence when the rank of $E$ is large without obtaining an explicit bound.
+ 
+    \item Our argument is simpler that in \cite{seshadri} in that we have avoided the use of the Quot scheme. In \cite{seshadri}, Seshadri considers the scheme $T$ of quotients of $F$ with Hilbert polynomial that of the fibers $\sQ_t$ of the sheaf $\sQ$ defined above. The quotient $q^*F \to \sQ$ gives a morphism $\phi: S \to T$, and Seshadri studies the fiber $S_x$ of this morphism over a point $x = \phi(t) \in T$ to conclude that the restriction of
+    \[ T_{S,t} \otimes H^0(C, \sE_t \otimes \sG_t) \to H^1(\sE_t \otimes \sG_t) \]
+    to the tangent space $T_{S_x, t} \subs T_{S,t}$ is zero, and uses this to obtain bounds on $\dim \Hom(\sG_t, \sE_t^\vee \otimes \om_C)$. We get around this by shrinking $S$ so that 
+    \[ T_{S,t} \otimes H^0(C, E_t \otimes G_t) \to H^1(E_t \otimes G_t) \]
+    is zero on the nose.
+    
+    \item Remark 3.2.(a) in \cite{seshadri} states the existence of $E$ with specified determinant. However, the reasoning therein seems to suggest that this is only possible for a generic determinant, since at the first instance of shrinking $S$, it is possible that for a given line bundle $\sL$, the whole locus of bundles $E$ with determinant $\sL$ gets removed.
+    
+    \item The assumption in Theorem \ref{mainlemma1} that $r$ is invertible in the base field $k$ can likely be removed by more carefully understanding the tangent space of the miniversal deformation space of simple vector bundles of rank $r$ in the case when the characteristic of $k$ divides $r$.
+\end{enumerate}

@@ -1,39 +1,47 @@
-\chapter{Projective moduli space for higher rank PT-stable objects}
+\chapter{Projective moduli space for higher rank PT-stable objects}\label{chapter:pt}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{PT-semistable objects}
+%\section{Introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-In this section we recall definitions and basic properties of PT-stability conditions. They are examples of polynomial stability conditions defined in \cite{bayer-polynomial} as a generalization of Bridgeland stability conditions in order to understand the large volume limit of Bridgeland stability, as well as to study relations between various curve counting invariants. We largely follow \cite{lo-PT1} and \cite{lo-PT2} in our presentation, except that we use a slightly different convention for the category of perverse sheaves that appears as the heart of a PT-stability condition.
 
-Let $(X, H)$ be a smooth, projective, polarized 3-fold. Polynomial stability on $X$ is defined as a stability condition on a heart $\sA^p(X) \subs D^b(X)$. The heart $\sA^p(X)$ is defined using tilting as follows. Define full subcategories
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{PT-stability}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+In this section we recall definitions and basic properties of PT-stability conditions. They are examples of polynomial stability conditions defined in \cite{bayer-polynomial} as a generalization of Bridgeland stability conditions in order to understand the large volume limit of Bridgeland stability, as well as to study relations between various curve counting invariants. We largely follow \cite{lo-PT1} and \cite{lo-PT2} in our presentation, except that we use a slightly different convention for the heart that in the definition of a PT-stability condition.
+
+Let $(X, H)$ be a smooth, projective, polarized 3-fold, where $H \subs X$ is a very ample divisor. Polynomial stability on $X$ will be defined as a type of stability condition on a heart $\sA^p \subs D^b(X)$ which is obtained by tilting as follows. Define full subcategories
 \[ \Coh_{\le 1}(X) = \{ E \in \Coh(X) \;|\; \dim(\Supp(X)) \le 1 \} \]
 and
-\[ \Coh_{\ge 2}(X) = \{ E \in \Coh(X) \;|\; \Hom(T,E) = 0 \; \forall \; T \in \Coh_{\le 1}(X) \}. \]
+\[ \Coh_{\ge 2}(X) = \{ E \in \Coh(X) \;|\; \Hom(T,E) = 0 \quad \forall \; T \in \Coh_{\le 1}(X) \}. \]
 For any coherent sheaf $E$ on $X$ there exists a unique short exact sequence
-\begin{equation}\label{torsionses}
-    0 \to T \to E \to F \to 0
-\end{equation} 
-where $T \in \Coh_{\le 1}(X)$ and $F \in \Coh_{\ge 2}(X)$. Here the subsheaf $T \subs E$ is the union of all subsheaves $T' \subs E$ with $\dim(\Supp(T')) \le 1$. The exact sequence \eqref{torsionses} shows that the pair $(\Coh_{\le 1}(X), \Coh_{\ge 2}(X))$ is a \emph{torsion pair} on $\Coh(X)$. We define the heart $\sA^p(X) \subs D^b(X)$ as the tilt with respect to this torsion pair, that is,
+\[ 0 \to T \to E \to F \to 0 \]
+where $T \in \Coh_{\le 1}(X)$ and $F \in \Coh_{\ge 2}(X)$. Here the subsheaf $T \subs E$ is the union of all subsheaves $T' \subs E$ with $\dim(\Supp(T')) \le 1$. This shows that the pair $(\Coh_{\le 1}(X), \Coh_{\ge 2}(X))$ is a torsion pair on $\Coh(X)$. We define the heart $\sA^p \subs D^b(X)$ as the tilt with respect to this torsion pair, that is,
 \begin{align}\label{perverseheart}
-    \sA^p(X) & = \langle \Coh_{\ge 2}(X), \Coh_{\le 1}(X)[-1] \rangle \\
-             & = \{ E \in D^b(X) \;|\; \sH^0(E) \in \Coh_{\le 1}(X), \sH^1(E) \in \Coh_{\ge 2}(X), \sH^i(E) = 0 \;\forall i \neq 0,1 \}. \nonumber
+    \sA^p & = \langle \Coh_{\ge 2}(X), \Coh_{\le 1}(X)[-1] \rangle \\
+    & = \{ E \in D^b(X) \;|\; \sH^0(E) \in \Coh_{\ge 2}(X), \sH^1(E) \in \Coh_{\le 1}(X), \sH^i(E) = 0 \;\forall i \neq 0,1 \}. \nonumber
 \end{align}
-Equivalently, $\sA^p(X)$ is the full subcategory of $D^b(X)$ consisting of objects $E$ that fit into an exact sequence
-\[ 0 \to F \to E \to T[-1] \to 0, \]
+Equivalently, $\sA^p$ is the full subcategory of $D^b(X)$ consisting of objects $E$ that fit into an exact triangle
+\[ F \to E \to T[-1], \]
 where $F \in \Coh_{\ge 2}(X), T \in \Coh_{\le 1}(X)$.
 
 \begin{rmk}
-    The heart $\sA^p(X)$ is not noetherian. Consider an increasing sequence of 2-dimensional sheaves
+    The heart $\sA^p$ is not noetherian. Consider the increasing sequence of 2-dimensional sheaves
     \[ \Oh_H \hookrightarrow \Oh_H(1) \hookrightarrow \Oh_H(2) \hookrightarrow ... \]
     The cokernels $Q_i = \Oh_H(i)/\Oh_H$ form an increasing sequence of 1-dimensional sheaves
     \[ Q_1 \hookrightarrow Q_2 \hookrightarrow Q_3 \hookrightarrow ... \]
-    By rotating the triangle $\Oh_H \to \Oh_H(i) \to Q_i$, we see that in $\sA^p(X)$, we have an increasing sequence of subobjects
+    By rotating the triangle $\Oh_H \to \Oh_H(i) \to Q_i$, we see that in $\sA^p$, we have an increasing sequence of subobjects
     \[ Q_1[-1] \hookrightarrow Q_2[-1] \hookrightarrow Q_3[-1] \hookrightarrow ... \hookrightarrow \Oh_H. \]
-    However, by \cite[Lemma 2.16]{toda-limitstable}, $\sA^p(X)$ contains a torsion pair $(\sA^p_1, \sA^p_{1/2})$ defined by
+    However, by \cite[Lemma 2.16]{toda-limitstable}, $\sA^p$ contains a torsion pair $(\sA^p_1, \sA^p_{1/2})$ defined by
     \begin{align*}
         \sA^p_1 & \coloneqq \langle F, \Oh_x[-1] \,|\, F \text{ is a sheaf of pure dimension 2, } x \in X \rangle, \\
         \sA^p_{1/2} & \coloneqq \{ E \in \sA^p \;|\; \Hom(F, E) = 0 \text{ for any } F \in \sA^p_1 \},
@@ -41,46 +49,82 @@ where $F \in \Coh_{\ge 2}(X), T \in \Coh_{\le 1}(X)$.
     and both categories $\sA^p_1, \sA^p_{1/2}$ have finite length in the sense that any sequence of strict monomorphisms or strict epimorhpisms terminates \cite[Lemma 2.19]{toda-limitstable}.
 \end{rmk}
 
-We come to the definition of a PT-stability condition. Recall that $H \subs X$ denotes an ample divisor.
+For the following definition, we let $\Hh \subs \C$ denote the open upper half-plane and 
+\[ \Hb = \Hh \cup \R_{<0} = \{ r e^{i\phi} \in \C \;|\; r > 0, \; 0 < \phi \le \pi \} \]
+the extended upper half-plane. For $z \in \Hb$, we denote by $\phi(z) \in (0, \pi]$ the argument of $z$.
 \begin{defn}\label{defn:PTstab}
     A \textbf{PT-stability condition} on $X$ consists of the data of
     \begin{enumerate}[(1)]
-        \item the heart $\sA^p(X) = \langle \Coh_{\ge 2}(X), \Coh_{\le 1}(X) \rangle$, and
+        \item the heart $\sA^p = \langle \Coh_{\ge 2}(X), \Coh_{\le 1}(X) \rangle$, and
         \item a group homomorphism $Z: \Kn(X) \to \C[m]$, called the \emph{central charge}, of the form
         \[ Z(E)(m) = \sum_{d=0}^3 \rho_d \left(\int_X H^d \cdot \ch(E) \cdot U\right) m^d, \]
         where
         \begin{enumerate}[(a)]
             \item the $\rho_d \in \C^*$ are nonzero complex numbers such that $-\rho_0, -\rho_1, \rho_2, \rho_3 \in \Hh$, and whose phases satisfy
             \[ \phi(\rho_2) > \phi(-\rho_0) > \phi(\rho_3) > \phi(-\rho_1). \]
+            %\tuomas{Add a picture!!}
             \item $U = 1 + U_1 + U_2 + U_3 \in A^*(X)$ is a class with $U_i \in A^i(X)$ for $i = 1, 2, 3$.
         \end{enumerate}
     \end{enumerate}
 \end{defn}
-The configuration of the complex numbers $\rho_i$ is compatible with the heart $\sA^p(X)$ in the sense that for any nonzero $E \in \sA^p(X)$, we have $Z(E)(m) \in \Hh$ for $m \gg 0$. This allows us to define a notion of stability on $\sA^p(X)$: an object $E \in \sA^p(X)$ is called Z-\textbf{stable} (resp. Z-\textbf{semistable}) if for every proper nonzero subobject $F \subs E$, we have 
-\[ \phi(Z(F)(m)) < \phi(Z(E)(m) \quad (\mathrm{resp.} \quad \phi(Z(F)(m)) \le \phi(Z(E)(m)) \quad \mathrm{for} \quad m \gg 0.  \]
+The configuration of the complex numbers $\rho_i$ is compatible with the heart $\sA^p$ in the sense that for any nonzero $E \in \sA^p$, we have $Z(E)(m) \in \Hh$ for $m \gg 0$. This allows us to define a notion of stability on $\sA^p$: an object $E \in \sA^p$ is called Z-\textbf{stable} (resp. Z-\textbf{semistable}) if for every proper nonzero subobject $F \subs E$, we have 
+\[ \phi(Z(F)(m)) < \phi(Z(E)(m) \quad (\mathrm{resp.} \quad \phi(Z(F)(m)) \le \phi(Z(E)(m)) \quad \mathrm{for} \quad m \gg 0. \]
 
 \begin{rmk}
-    Our definition of the heart $\sA^p(X)$ differs from that in \cite{lo-PT1}, \cite{lo-PT2}, and \cite{bayer-polynomial} by a shift: the nonzero cohomology sheaves are in degrees $0$ and $1$ rather than $-1$ and $0$. To account for this, also our definition of the charge $Z$ differs in that $-\rho_0, -\rho_1, \rho_2, \rho_3$, rather than $\rho_0, \rho_1, -\rho_2, -\rho_3$, are in the open upper half plane $\Hh$.
-    
-    The reason for this choice is purely psychological: if $E \in \Coh(X)$ is a torsion-free sheaf, then $E$, rather than $E[1]$, is contained in $\sA^p(X)$. This will let us view the moduli of PT-semistable objects as an enlargement of the moduli of $\mu$-stable vector bundles without having to perform a shift.
+    Our definition of the heart $\sA^p$ differs from that in \cite{lo-PT1}, \cite{lo-PT2}, and \cite{bayer-polynomial} by a shift: the nonzero cohomology sheaves are in degrees $0$ and $1$ rather than $-1$ and $0$. To account for this, also our definition of the charge $Z$ differs in that $-\rho_0, -\rho_1, \rho_2, \rho_3$, rather than $\rho_0, \rho_1, -\rho_2, -\rho_3$, are in the open upper half plane $\Hh$. The reason for this choice is purely psychological: if $E \in \Coh(X)$ is a torsion-free sheaf, then $E$, rather than $E[1]$, is contained in $\sA^p$. This will let us view the moduli of PT-semistable objects as an enlargement of the moduli of $\mu$-stable vector bundles without having to perform a shift.
 \end{rmk} 
+
+A convenient way to rephrase the stability condition given by $Z$ is as follows. Notice that for complex numbers $z, w \in \Hb$ lying in the extended upper half plane, we have
+\[ \phi(z) > \phi(w) \quad \Leftrightarrow \quad  \im(z) \re(w) - \re(z) \im(w) > 0. \]
+Thus, if we define
+\begin{equation}\label{realvaluedcharge}
+    p_v: \Kn(X) \to \R[m], \quad p_v(F) = \im Z(v) \re Z(F) - \re Z(v) \im Z(F),
+\end{equation}
+and give the polynomial ring $\R[m]$ the natural ordering by asymptotic inequality, then an object $E \in \sA^p$ of class $v$ is semistable if and only if for every subobject $F \subs E$, we have $p_v(F) \le 0$.
 
 In \cite{PT}, Pandharipande and Thomas define a \emph{stable pair} on $X$ to be a map of the form
 \[ \Oh_X \xrightarrow{s} F, \]
-where $F$ is a sheaf of pure dimension 1 and $s$ has $0$-dimensional kernel. In \cite[Proposition 6.1.1]{bayer-polynomial}, Bayer shows that for any PT-stability condition, the stable objects in $\sA^p(X)$ with numerical invariants $\ch = (1, 0, -\be, -n)$ and trivial determinant coincide precisely with these stable pairs. The following partial characterization of PT-semistable objects generalizes this fact to higher rank. 
+where $F$ is a sheaf of pure dimension 1 and $s$ has $0$-dimensional kernel. In \cite[Proposition 6.1.1]{bayer-polynomial}, Bayer shows that for any PT-stability condition, the stable objects in $\sA^p$ with numerical invariants $\ch = (1, 0, -\be, -n)$ and trivial determinant coincide precisely with these stable pairs. The following partial characterization of PT-semistable objects generalizes this fact to higher rank. 
 
-\begin{prop}[{\cite[Lemma 3.3]{lo-PT1},\cite[Proposition 2.24]{lo-PT2}}]
-    If $v \in \Kn(X)$ is class of rank $\rk(v) > 0$, then any PT-semistable object $E \in \sA^p(X)$ of class $v$ satisfies the following conditions:
+\begin{prop}[\hspace{-0.01em}{\cite[Lemma 3.3]{lo-PT1},\cite[Proposition 2.24]{lo-PT2}}]
+    If $v \in \Kn(X)$ is class of rank $\rk(v) > 0$, then any PT-semistable object $E \in \sA^p$ of class $v$ satisfies the following conditions:
     \begin{enumerate}[(i)]
         \item $\sH^0(E)$ is torsion-free and $\mu$-semistable,
         \item $\sH^1(E)$ is 0-dimensional,
         \item $\Hom_{D^b(X)}(T[-1], E) = 0$ for any 0-dimensional sheaf $T$.
     \end{enumerate}
-    If moreover $\rk(v)$ and $H^2 \cdot \ch_1(v)$ are coprime, then any object of class $v$ in $\sA^p(X)$ satisfying these conditions is PT-stable and there are now strictly semistable objects.
+    If moreover $\gcd(\rk(v), H^2 \cdot \ch_1(v)) = 1$, then any object of class $v$ in $\sA^p$ satisfying these conditions is PT-stable and there are no strictly semistable objects.
 \end{prop}
-We will need the following observation.
+Note that $\ch_i(E) = \ch_i(\sH^0(E))$ for $i = 0, 1$ when $E \in \sA^p$, so if $\gcd(\rk(v), H^2 \cdot \ch_1(v)) = 1$ and $E \in \sA^p$ is PT-stable of class $v$, then $\sH^0(E)$ is $\mu$-stable.
+
+We make some observations regarding PT-semistable objects.
+\begin{lem}\label{Qpure1dim-suppT}
+Let $E \in \sA^p$ be a PT-semistable object fitting in a triangle
+\[ F \to E \to T[-1] \]
+where $F$ is $\mu$-semistable and $T$ is 0-dimensional.
+\begin{enumerate}[(i)]
+    \item The sheaf $Q = F^\dd/F$ is pure of dimension 1.
+    \item The support of $T$ is contained in the union of $\Supp(Q)$ and the finitely many points where $F^\dd$ is not locally free.
+\end{enumerate}
+\end{lem}
+\begin{proof}
+\begin{enumerate}[(i)]
+    \item Since $F$ is torsion-free, it embeds into its double dual $F^\dd$ and the quotient $Q \coloneqq F^\dd/F$ is 1-dimensional. If $Q$ is not pure, the maximal 0-dimensional subsheaf $Q_0 \subs Q$ is nonzero. We have exact sequences
+    \[ 0 \to Q[-1] \to F \to F^\dd \to 0 \qquad \text{and} \qquad 0 \to Q_0[-1] \to Q[-1] \to Q/Q_0[-1] \to 0 \]
+    in $\sA^p$. Thus, we get a nonzero map
+    \[ Q_0[-1] \to Q[-1] \to F \to E \]
+    as a composition of inclusions $\sA^p$. But $\Hom(Q_0[-1], E) = 0$ since $E$ is PT-semistable, a contradiction.
+    
+    \item The object $E$ is represented by class in
+    \[ \Ext^1(T[-1], F) = \bigoplus_{p \in X} \Ext^1(T_p[-1], F), \]
+    where $T_p$ denotes the stalk of $T$ at $p \in X$. If $p \notin \Supp(Q)$, then $\Ext^i(T_p[-1], Q) = 0$ for all $i$, so that $\Ext^1(T_p[-1], F) = \Ext^1(T_p[-1], F^\dd)$. If $F^\dd$ is locally free at $p$, then by Serre duality, we have
+    \[ \Ext^1(T_p[-1], F^\dd) = \Ext^2(F^\dd, T_p[-1] \otimes \om_X)^\vee = H^1(X, F^\vee \otimes T_p) = 0 \]
+    since $F^\vee \otimes T_p$ is a 0-dimensional sheaf. Thus, if $T_p \neq 0$, we see that $T_p[-1]$ must be direct summand of $E$, contradicting the fact that $\Hom(T_p[-1], E) = 0$.
+\end{enumerate}
+\end{proof}
+
 \begin{lem}\label{subobjposrank}
-    Let $E \in \sA^p$ be a PT-semistable object with respect to a charge $Z: \Kn(X) \to \C[m]$ as in Definition \ref{defn:PTstab}, and assume $\rk(E) > 0$. If $F \subs E$ is a subobject in $\sA^p$ such that 
+    Let $E \in \sA^p$ be a PT-semistable object with respect to $Z: \Kn(X) \to \C[m]$ and assume $\rk(E) > 0$. If $F \subs E$ is a subobject in $\sA^p$ such that 
     \[ \phi(Z(F)(m)) = \phi(Z(E)(m)) \quad \text{for } m \gg 0, \]
     then $\rk(F) > 0$.
 \end{lem}
@@ -107,166 +151,165 @@ We will need the following observation.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-The theory of moduli of PT-semistable objects was developed by Lo in \cite{lo-PT1} and \cite{lo-PT2}, culminating in \cite[Theorem 1.1]{lo-PT2}, where the author constructs the moduli stack of PT-semistable objects of fixed Chern character as a universally closed Artin stack of finite type, and, in the absence of strictly semistable objects, as a proper algebraic space. In this section we prove our first main result that extends \cite[Theorem 1.1(2)]{lo-PT2} by removing the assumption on the nonexistence of strictly semistable objects. Our method employs technology developed in \cite[Section 7]{AHLH} for constructing good moduli spaces of objects in an abelian category. 
+The theory of moduli of PT-semistable objects was developed by Lo in \cite{lo-PT1} and \cite{lo-PT2}, culminating in \cite[Theorem 1.1]{lo-PT2}, where the author constructs the moduli stack of PT-semistable objects of fixed Chern character as a universally closed algebraic stack of finite type, and, in the absence of strictly semistable objects, as a proper algebraic space. 
 
-\subsection{Good moduli spaces}
-The definition and basic properties of a good moduli space were developed in \cite{AlperGMS}. Let $\sM$ be an algebraic stack. A quasi-compact, quasi-separated morphism $\pi: \sM \to M$ to an algebraic space $M$ is called a {\bf good moduli space}, if 
-\begin{enumerate}[(i)]
-    \item the pushforward functor $\pi_*: \Qcoh(\sM) \to \Qcoh(M)$ is exact, and
-    \item the natural map $\Oh_M \to \pi_*\Oh_\sM$ is an isomorphism.
+Let $(X, H)$ be a smooth, projective, polarized variety over $\C$, let $v \in \Kn(X)$ be a class of positive rank, and let $Z: \Kn(X) \to \C[m]$ define a PT-stability condition on the heart $\sA^p$. The moduli stack of PT-semistable objects of class $v$ is defined to be the category fibered in groupoids $\sM^{\text{PT}}_Z(v)$ over the category of $\C$-schemes that to a scheme $S$ of finite type over $\C$ associates the groupoid of objects $E \in D^b(S \times X)$ such that
+\begin{enumerate}[(a)]
+    \item $E$ is relatively perfect over $S$, and
+    \item  for all $\C$-points $s \in S$, the derived restriction $E|^\LL_{\{s\}\times X}$ to the fiber over $s$ lies in $\sA^p$, is semistable with respect to $Z$, and has numerical class $v \in \Kn(X)$.
 \end{enumerate}
-We list a few basic properties of good moduli spaces.
-\begin{prop}
-    If $\pi: \sM \to M$ is a good moduli space, then the following hold. \begin{itemize}
-        \item $\pi$ is surjective and universally closed.
-        \item $\pi$ induces a bijection of closed points.
-        \item $\pi$ is universal for maps to algebraic spaces.
-        \item For every geometric point $x: \Spec \overline{k} \to \sM$ with closed image, the stabilizer group $G_x$ is linearly reductive.
-        \item If $\sM$ is locally Noetherian, then so is $M$, and $\pi_*$ preserves coherence.
-        \item If $\sM$ is of finite type over a field, then so is $M$.
-    \end{itemize}
-\end{prop}
+By \cite[Theorem 1.1]{lo-PT2}, the stack $\sM^{\text{PT}}_Z(v)$ is universally closed and of finite type over $\C$, and moreover, in the case when $\rk(v)$ and $H^2 \cdot \ch_1(v)$ are coprime, admits a proper good moduli space $M^{\text{PT}}_Z(v)$ that parameterizes isomorphism classes of PT-stable objects.
 
-We recall the following criterion \cite[Theorem 10.3]{AlperGMS} for a locally free sheaf $\sF$ on $\sM$ to descend to the good moduli space $M$. 
-\begin{prop}\label{vbtogms}
-    If $\pi: \sM \to M$ is a good moduli space and $\sM$ is locally Noetherian, then the pullback morphism $\pi^*: \Coh(M) \to \Coh(\sM)$ induces an equivalence of categories between locally free sheaves on $M$ and those locally free sheaves $\sF$ on $\sM$ such that for every geometric point $x: \Spec k \to \sM$ with closed image, the induced representation $x^*\sF$ of the stabilizer $G_x$ is trivial.
-\end{prop}
+We conjecture that $\sM^{\text{PT}}_Z(v)$ admits a good moduli space even without the coprime assumption. However, since the heart $\sA^p$ is not noetherian as remarked above, the tools developed in \cite[Section 7]{AHLH} do not immediately apply. We will nevertheless assume the existence of a good moduli space and use this assumption in our arguments in Section \ref{section:studyoffibers}.
 
-\subsection{Moduli of objects in an abelian category}\label{subsect:moduliabcat}
-We recall the setup and main results of \cite[Section 7]{AHLH}. Let $k$ be a commutative algebra over $\C$, and let $\sA$ be a cocomplete $k$-linear abelian category, meaning that arbitrary small colimits exist. We make a number of definitions that all agree with the usual ones if $\sA = \Mod_R$ for a $k$-algebra $R$ or $\sA = \Qcoh(X)$ for a $k$-scheme $X$. 
-
-An object $E \in \sA$ is
-\begin{itemize}
-    \item \textbf{finitely presented} if the natural map
-    \begin{equation}\label{finpres}
-        \colim_{\al \in I} \Hom(E, F_\al) \to \Hom(E, \colim_{\al \in I} F_\al)
-    \end{equation}
-    is an isomorphism for any filtered system $\{F_\al\}_\al$ in $\sA$,
-    \item \textbf{finitely generated} if \eqref{finpres}
-    is an isomorphism for any filtered system of monomorphisms in $\sA$, and
-    \item \textbf{noetherian} if every subobject of $E$ is finitely generated.
-\end{itemize}
-We say that $\sA$ is \textbf{locally noetherian} if it has a set of noetherian generators. An object $E \in \sA$ induces a $k$-linear functor
-\[ (-) \otimes_k E: \Mod_k \to \sA \]
-characterized by the formula
-\[ \Hom_\sA(M \otimes_\C E, F) = \Hom_{\Mod_k}(M, \Hom_\sA(E, F)). \]
-We say that $E \in \sA$ is \textbf{flat} if this functor is exact. 
-
-If $R$ is a $k$-algebra, we denote by $\sA_R$ the \textbf{category of} $R$\textbf{-module objects} in $\sA$, defined to be the category of pairs $(E, \xi)$ where $E \in \sA$ and $\xi: R \to \End_\sA(E)$. A morphism $(E, \xi) \to (E', \xi')$ is a morphism $E \to E'$ in $\sA$ compatible with the actions of $\xi$ and $\xi'$. The category $\sA_R$ is $R$-linear, and if $\phi: R_1 \to R_2$ is a map of $k$-algebras, we have an adjoint pair
-\[ \phi^*: \sA_{R_1} \to \sA_{R_2}, \quad \phi_*: \sA_{R_2} \to \sA_{R_1}, \]
-where $\phi_*$ forgets the action of $R_2$, and $\phi^* = R_2 \otimes_{R_1} (-)$.
-
-We define the category fibered in groupoids $\sM_\sA$ over the category of $k$-algebras by setting
-\[ \sM_\sA(R) \coloneqq \{\text{objects } E \in \sA_R \text{ which are flat and finitely presented} \} \]
-for a $k$-algebra $R$.
-
-\begin{lem}[{\cite[Lemma 7.9]{AHLH}}]
-    The category fibered in groupoids $\sM_\sA$ is a stack in the big fppf topology on the category of $k$-algebras and extends naturally to a stack on the big fppf topology on $k$-schemes.
-\end{lem}
-
-Next we define a general notion of stability on the abelian category $\sA$. Let $\sM^\nu_\sA \subs \sM_\sA$ be an open and closed substack, and let 
-\[ p_\nu: |\sM_\sA| \to V \]
-be a locally constant function from the underlying topological space of $\sM_\sA$ to a totally ordered abelian group $V$ such that 
-\begin{itemize}
-    \item $p_\nu(E) = 0$ for any $E \in \sM^\nu_\sA$, and
-    \item $p_\nu$ is additive, meaning that $p_\nu(E \oplus F) = p_\nu(E) + p_\nu(F)$ for $E, F \in \sA$.
-\end{itemize}
-We say that a point of $\sM^\nu_\sA$ represented by $E \in \sA_\ka$ for some algebraically closed field $\ka$ over $k$ is \textbf{semistable} if $p_\nu(F) \le 0$ for any subobject $F \subs E$, and \textbf{unstable} otherwise. {(\color{red} Understand the footnote 5 on page 57 in \cite{AHLH}!)}
-
-\begin{thm}[{\cite[Theorem 7.25]{AHLH}}]\label{moduli-of-ss-in-abelian}
-    Let $\sA$ be a noetherian, cocomplete, $\C$-linear abelian category, and assume that $\sM_\sA$ is an algebraic stack locally of finite type over $\C$. Let 
-    \[ p_\nu: |\sM_\sA| \to V \]
-    define a notion of semistability on $\sM^\nu_\sA \subs \sM_\sA$ as above. If the substack $\sM^{\nu\text{,ss}}_\sA \subs \sM^\nu_\sA$ of semistable objects is open and quasi-compact, then $\sM^{\nu\text{,ss}}_\sA$ admits a separated good moduli sapce.
-\end{thm}
-
-Below we will show the existence of a good moduli space of PT-semistable objects by verifying the conditions of Theorem \ref{moduli-of-ss-in-abelian} for the heart $\sA^p(X) \subs D^b(X)$ and a central charge $Z: \Kn(X) \to \C$ defining a PT-stability condition.
-
-\subsection{Moduli of objects in the heart of a bounded t-structure} 
-In this section:
-\begin{itemize}
-    \item State Max's result that the stack of tilted hearts is an algebraic stack locally of finite type.
-    \begin{itemize}
-        \item The fact that $\Coh_{\le 1}(X)$ is defines an open substack of the stack of finitely presented quasicoherent sheaves on $X$ should follow from the fact that the Hilbert polynomial is constant in flat families, and the degree of the Hilbert polynomial equals the dimension of the support.
-        \item According to \cite[page 36]{HL}, being of pure dimension is an open property. 1) What is the proof? 2) Does it generalize to showing that $\Coh_{\ge 2}(X)$ gives an open substack?
-    \end{itemize}
-    \item Verify openness of the torsion pair $(\Coh_{\le 1}(X), \Coh_{\ge 2}(X))$, and conclude that $\sM_{\sA^p(X)}$ is an algebraic stack locally of finite type.
-    \begin{itemize}
-        \item This is actually done in \cite[Lemma 3.14]{toda-limitstable}, but no details for the openness of $\Coh_{\ge 2}(X)$ are provided.
-    \end{itemize}
-    \item Show that taking $\sA = \Ind(\sA^p(X))$ gives the right moduli problem $\sM_\sA$.
-    \item In \cite{AP06}, a \textit{family of objects in } a heart $\sC \subs D^b(X)$ \textit{parameterized by} a finite type scheme $S$ is simply an object $E \in D^b(S \times X)$ such that $\LL i^*_s E \in \sC$ for every closed point $s \in S$. Where is the ``relatively perfect'' assumption?
-\end{itemize}
-
-\subsection{Moduli of PT-semistable objects}
-Let $(X, H)$ be a smooth, projective, polarized variety over $\C$, let $v \in \Kn(X)$ be a class of positive rank, and let $Z: \Kn(X) \to \C[m]$ define a PT-stability condition on the heart $\sA^p(X)$.
-
-The moduli stack of PT-semistable objects of class $v$ is defined to be the category fibered in groupoids $\sM^{\text{PT}}_Z(v)$ over the category of $\C$-schemes that to a scheme $S$ of finite type over $\C$ associates the groupoid of objects $E \in D^b(S \times X)$ such that $E$ is relatively perfect over $S$, and for all $\C$-points $s \in S$, the derived restriction $E|^\LL_{\{s\}\times X}$ to the fiber over $s$ lies in $\sA^p$, is semistable with respect to $Z$, and has numerical class $v \in \Kn(X)$. By \cite[Theorem 1.1]{lo-PT2}, the stack $\sM^{\text{PT}}_Z(v)$ is universally closed and of finite type over $\C$, and moreover admits a proper good moduli space in the case when $\rk(v)$ and $H^2 \cdot \ch_1(v)$ are coprime.
-
-Our goal in to remove the coprime assumption in the existence of the good moduli space. In order to apply the techniques of section \ref{subsect:moduliabcat}, we must recast the stability condition defined by $Z$ as an additive function taking values in a totally ordered abelian group. Recall that 
-\[ Z: \Kn(X) \to \C[m], \quad Z(F) = \sum_{d=0}^3 \rho_d \left(\int_X H^d \cdot \ch(F) \cdot U \right) m^d \]
-defines stability on $\sA^p$ as follows: an object $E \in \sA^p$ is semistable if for all nonzero proper subobjects $F \subs E$, we have
-\[ \phi(Z(F)(m)) \le \phi(Z(E)(m)). \]
-Notice that for complex numbers $z, w \in \Hb$ lying in the extended upper half plane, we have
-\[ \phi(z) > \phi(w) \quad \Leftrightarrow \quad  \im(z) \re(w) - \re(z) \im(w) > 0. \]
-Thus, if we define
-\begin{equation}\label{realvaluedcharge}
-    p_v: |\sM_{\sA_p}| \to \R[m], \quad p_v(F) = \im Z(v) \re Z(F) - \re(Z(v)) \im(Z(F)),
-\end{equation}
-and give the polynomial ring $\R[m]$ the natural ordering by asymptotic inequality, then an object $E \in \sA^p$ of class $v$ is semistable if and only if for every subobject $F \subs E$, we have $p_v(F) \le 0$. Moreover, since $Z$ is additive on short exact sequences, and taking real and imaginary parts are group homomorphisms, the function $p_v$ is additive on short exact sequences.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Determinantal line bundles}
+\section{Restrictions of semistable objects to curves}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-In this section we review the construction and properties of determinantal line bundles, as well as construct a certain determinantal line bundle on the moduli stack of PT-semistable objects and show that it descends to the good moduli space. In the next section we moreover prove that this line bundle is semiample, and study the morphism it provides.
 
-\subsection{Preliminaries on determinantal line bundles}
+In this section we collect various results concerning the restriction of a PT-semistable object $E \in \sA^p$ to smooth curves $C \subs X$.
 
-Let $X$ be a smooth, proper variety over $\C$, let $S$ be a scheme or an algebraic stack of finite type over $\C$, and let $\sE \in D^b(S \times X)$ is a complex relatively perfect over $S$. Consider the diagram
+For integers $a, b > 0$, we set $S_{a,b} = |\Oh_X(a)| \times |\Oh_X(b)|$, where $|\Oh_X(a)| = \p(H^0(X, \Oh_X(a)))$ is the complete linear system of $\Oh_X(a)$. Let $Z^{a,b} \subs S_{a,b} \times X$ denote the incidence correspondence
+\[ Z^{a,b} = \{ (x, D_1, D_2) \;|\; (D_1, D_2) \in S_{a,b}, x \in D_1 \cap D_2 \subs X \} \]
+and consider the diagram
 \begin{center}
     \begin{tikzpicture}
-    \matrix (m) [matrix of math nodes, row sep=1em, column sep=1em]
-    { & S \times X & \\
-    S & & X \\};
-    \path[->] 
-    (m-1-2) edge node[auto,swap] {$ p $} (m-2-1)
-    (m-1-2) edge node[auto] {$ q $} (m-2-3)
-    ;
+    \matrix (m) [matrix of math nodes, row sep=3em, column sep=3em]
+    { Z^{a,b} & X \\
+    S_{a,b} & \\};
+    \path[->]
+    (m-1-1) edge node[auto] {$ q $} (m-1-2)
+    (m-1-1) edge node[auto,swap] {$ p $} (m-2-1)
+    ;        
     \end{tikzpicture}
 \end{center}
-We obtain a group homomorphism
-\[ \la_\sE: K(X) \to \Pic(S), \]
-called the \textbf{Donaldson morphism}, defined by sending a vector bundle $F$ on $X$ to the line bundle
-\[ \la_\sE(F) = \det( R p_* (\sE \otimes q^*F)) \]
-and extending linearly to $K(X)$. Moreover, if the complex $R p_*(\sE \otimes q^* F)$ can be locally on $S$ expressed as a 2-term complex
-\[ \cdots \to 0 \to \sG_0 \xrightarrow{f} \sG_1 \to 0 \to \cdots \]
-with $\rk(\sG_0) = \rk(\sG_1)$, then the local sections $f: \Oh_S \to \det(\sG_1) \otimes \det(\sG_0)^\vee$ glue to a global section of $\la_\sE(F)^\vee$. This is for example the case when
-\[ \dim \Hh^0(X, \sE_t) = \dim \Hh^1(X, \sE_t), \quad \Hh^i(X, \sE_t) = 0 \text{ for } i \neq 0, 1 \]
-for all $\C$-points $t \in S$, where $\sE_t$ denotes the derived restriction of $\sE$ to the fiber of $p$ over $t$, and $\Hh^i = H^i(R\Ga(X, -)), i \in \Z$ are the hypercohomology functors on $D^b(X)$.
-\begin{lem}\label{detsection}
-    Let $X$ be a smooth, projective variety and $S$ a scheme or an algebraic stack of finite type over $\C$. Let $\sE \in D^b(S \times X)$ be an $S$-perfect family of objects of class $v \in \Kn(X)$, and let $F$ be a locally free sheaf on $X$.
-    \begin{enumerate}[(a)]
-        \item If for all $\C$-points $t \in S$, we have $\Hh^i(X, \sE_t \otimes F) = 0$ whenever $i \neq 0, 1$, and 
-        \[ \chi(X, \sE_t \otimes F) = \dim \Hh^0(X, \sE_t \otimes F) - \dim \Hh^1(X, \sE_t \otimes F) = 0, \]
-        then the line bundle $\la_\sE(F)^\vee$ on $S$ has a canonical section $\de_F$.
-        \item In addition, if for some $t \in S$ we have 
-        \[ \Hh^0(X, \sE_t \otimes F) = \Hh^1(X, \sE_t \otimes F) = 0, \]
-        then the section $\de_F$ is nonzero at $t$.
-    \end{enumerate}
+If $s \in S_{a,b}$ corresponds to the pair divisors $D_1, D_2 \subs X$, the fiber $Z_s^{a,b} \coloneqq p^{-1}(s) \subs Z^{a,b}$ is the scheme-theoretic intersection $D_1 \cap D_2 \subs X$.
+
+\begin{lem}\label{codim2union}
+    If $U \subs S_{a,b}$ is a nonempty open set, then $\bigcup_{s \in U} Z^{a,b}_s = q(p^{-1}(U)) \subs X$ is an open subset whose complement has codimension at least 2.
 \end{lem}
+\begin{proof}
+    The map $q: Z^{a,b} \to X$ is a product of projective bundles (see for example \cite[Section 3.1]{HL}), hence flat, and in particular open, and so $q(p^{-1}(U))$ is open. If $\eta \in X$ is a point of codimension 1 with closure $Y \subs X$, then the intersection $D_1 \cap D_2 \cap Y$ is nonempty for any $D_1, D_2 \in |\Oh_X(a)|$ since $\Oh_X(a)$ is ample. Thus, $q(p^{-1}(U)) \cap Y$ is nonempty and open in $Y$, hence contains $\eta$ since $Y$ is irreducible.
+\end{proof}
 
-\subsection{Determinantal line bundles on PT-moduli spaces}
+\begin{lem}\label{nocomponent}
+    Let $v \in \Kn(X)$ be a numerical class. There exists $a_1 > 0$ such that for any $a, b \ge a_1$ there exists a nonempty open subset $U \subs S_{a,b}$ with the following property. For every $s \in U$, the fiber $Z^{a,b}_s$ is a smooth, connected curve, and if $E \in \sA^p$ is any PT-semistable object of class $v$, then $Z^{a,b}_s$ contains no associated points of $\Supp(\sH^0(E)^\dd/\sH^0(E))$.
+\end{lem}
+\begin{proof}
+    Since the set of isomorphism classes of PT-semistable objects $E$ of class $v$ is bounded, so is the set of isomorphism classes of the quotients $Q = \sH^0(E)^\dd/\sH^0(E)$, and hence the degree of $\Supp(Q)$ is bounded by some $m > 0$. 
+    
+    Choose any $a_1 > \sqrt{\frac{m}{\deg(X)}}$. Since $Z^{a,b}_s$ is the intersection of divisors of degree $a$ and $b$ in $X$, we have $\deg(Z^{a,b}_s) = a b \deg(X)$, so that if $a, b \ge a_1$, we have $\deg(Z^{a,b}_s) > m$. By Bertini's theorem, there is a nonempty open subset $U \subs S_{a,b}$ such that for every $s \in U$, the fiber $Z^{a,b}_s$ is a smooth, connected curve, and since $\deg(Z^{a,b}_s) > \deg(\Supp(Q))$, the curve $Z^{a,b}_s$ cannot contain any 1-dimensional components of $\Supp(Q)$. But since $Q$ is pure of dimension 1, its only associated points are the generic points of the components of its support.
+\end{proof}
 
-We now specialize to the situation of PT-semistability. Let $(X, H)$ be a smooth, projective, polarized 3-fold over $\C$, and let $v \in \Kn(X)$ be a class of positive rank. Let $Z: \Kn(X) \to \C[m]$ be a PT-stability function, let $\sM^{\text{PT}}_Z(v)$ be the stack of PT-semistable objects with respect to $Z$ of class $v$ in $\sA^p$, and let $\sE$ be the universal complex on $\sM^{\text{PT}}_Z(v) \times X$, so that we have the diagram
+\begin{lem}\label{flenner-PT}
+    There exists $a_2 > 0$ such that for any $a \ge a_2$ and any PT-semistable object $E \in \sA^p$ of class $v$, there exists a nonempty open subset $U \subs S_{a,a}$ such that for every $s \in U$, the fiber $Z^{a,a}_s$ is a smooth, connected curve and the restriction $E|^\LL_{Z^{a,a}_s}$ is a $\mu$=semistable sheaf on $Z^{a,a}_s$.
+\end{lem}
+\begin{proof}
+    Recall that $E$ fits in an exact triangle
+    \[ F \to E \to T[-1], \]
+    where $F$ is a $\mu$-semistable torsion-free sheaf and $T$ is a 0-dimensional sheaf. Denote $r = \rk(E) = \rk(F)$. By Flenner's Theorem \cite[Theorem 7.1.1]{HL}, if $a_2 \in \N$ satisfies
+    \[ \frac{\binom{a_2+3}{a_2} - 2 a_2 - 1}{a_2} > \deg(X)\cdot \max\{\frac{r^2 - 1}{4}, 1\}, \]
+    then for any $a \ge a_2$, there exists a nonempty open subset $U' \subs S_{a,a}$ such that for any $s \in U'$, the fiber $Z^{a,a}_s$ is a smooth, connected curve, and the restriction $F|_{Z^{a,a}_s}$ is a semistable sheaf. Now the set of those $s \in U'$ such that $Z^{a,a}_s$ intersects $\Supp(T)$ is a proper, closed subset of $U'$, and if we take $U$ to be the complement of this subset, then for any $s \in U$, we have $E|^\LL_{Z^{a,a}_s} = F|_{Z^{a,a}_s}$.
+\end{proof}
+
+The following is a key technical tool in the following sections. Although we will apply it to PT-semistable objects, we state it in a slightly broader generality.
+\begin{prop}\label{restprop} %old label: supportintersection
+Let $E \in D^b(X)$ be an object fitting in a triangle
+\[ F \to E \to T[-1] \]
+where $F \in \Coh(X)$ is torsion-free and $T \in \Coh(X)$ is 0-dimensional, and assume that $\Hom(\Oh_p[-1], E) = 0$ for all closed points $p \in X$. Denote $Q = F^\dd/F$. Let $C \subs X$ be a smooth, proper curve and $G$ a nonzero vector bundle on $C$. Assume that $C$ does not contain any associated points of $Q$, 
+\begin{enumerate}[(a)]
+    \item The derived restriction $E|^\LL_C$ fits in a triangle
+    \[ \sH^0(E|^\LL_C) \to E|^\LL_C \to \sH^1(E|^\LL_C)[-1] \]
+    in $D^b(C)$, where $\sH^1(E|^\LL_C)$ is 0-dimensional.
+    \item If $C$ meets $\Supp(T)$, then $\sH^1(E|^\LL_C)$ is a nonzero torsion sheaf, and $\Hh^1(C, E|^\LL_C \otimes G) \neq 0$.
+    \item If $C$ does not meet $\Supp(T)$ but does meet $\Supp(Q)$, then $\sH^0(E|^\LL_C)$ has a nonzero torsion subsheaf, and $\Hh^0(C, E|^\LL_C \otimes G) \neq 0$.
+    \item If $C$ meets neither $\Supp(T)$ nor $\Supp(Q)$, then $E|^\LL_C = F^\dd|_C$ is a sheaf.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+    \begin{enumerate}[(a)]
+    \item We will show below that the restriction $F|^\LL_C = F|_C$ is underived, and that the cohomology sheaf $\sH^i(T|^\LL_C)$ is 0-dimensional for $i = -2, -1, 0$ and vanishes otherwise. Assuming this, we obtain the claim as follows. The triangle $F|_C \to E|^\LL_C \to T|^\LL_C[-1]$ gives the exact sequence
+    \[ 0 \to \sH^{-1}(E|^\LL_C) \to \sH^{-2}(T|^\LL_C) \to F|_C \to \sH^0(E|^\LL_C) \to \sH^{-1}(T|^\LL_C) \to 0 \]
+    and an isomorphism $\sH^1(E|^\LL_C) \xrightarrow{\sim} \sH^0(T|^\LL_C)$. The latter implies that $\sH^1(E|^\LL_C)$ is a 0-di\-men\-sion\-al sheaf as claimed. 
+    
+    We must show that $\sH^{-1}(E|^\LL_C) = 0$. If not, then as a subsheaf of $\sH^{-2}(T|^\LL_C)$, it is 0-dimensional, so for some $p \in C$, we have $\Hom(\Oh_p, \sH^{-1}(E|^\LL_C)) \neq 0$, and since
+    \[ \Hom(\Oh_p, \sH^{-1}(E|^\LL_C)) \hookrightarrow \Hom(\Oh_p, E|^\LL_C[-1]) \] 
+    is injective as $\sH^i(E|^\LL_C) = 0$ for $i < -1$, also $\Hom(\Oh_p, E|^\LL_C[-1]) \neq 0$. We can see that this is impossible as follows.
+    
+    Let $\om_C$ and $\om_X$ denote the dualizing sheaves of $C$ and $X$ respectively. Using Serre duality and the adjunction of the derived restriction and pushforward along the inclusion $C \hookrightarrow X$, we get
+    \begin{align*}
+        \Hom_{D^b(C)}(\Oh_p, E|^\LL_C[-1]) & \cong \Hom_{D^b(C)}(E|^\LL_C[-1], \Oh_p \otimes \om_C [1])^\vee \\
+        & \cong \Hom_{D^b(C)}(E|^\LL_C, \Oh_p[2])^\vee \\
+        & \cong \Hom_{D^b(X)}(E, \Oh_p[2])^\vee \\
+        & \cong \Hom_{D^b(X)}(\Oh_p[2], E \otimes \om_X[3]) \\
+        & \cong \Hom_{D^b(X)}(\Oh_p \otimes \om_X^\vee[-1], E) \\
+        & \cong \Hom_{D^b(X)}(\Oh_p[-1], E).
+    \end{align*}
+    But by assumption $\Hom_{D^b(X)}(\Oh_p[-1], E) = 0$. Thus, we must have $\sH^{-1}(E|^\LL_C) = 0$.
+    
+    We return to the claims at the beginning of the proof. To see that the restriction $F|_C$ is underived, we may work Zariski-locally on $X$ and express $C$ as the intersection of two smooth surfaces $D_1$ and $D_2$ cut out by functions $f$ and $g$ respectively, neither of which vanishes at the associated points of $Q$. 
+    
+    We first analyze the restriction $Q|^\LL_C$. To begin with, we have an exact triangle
+    \[ Q \xrightarrow{f} Q \to Q|^\LL_{D_1} \]
+    where the map induced by $f$ is an injective map of sheaves, showing that $Q|^\LL_{D_1} = Q|_{D_1}$ is a 0-dimensional sheaf. From the triangle
+    \[ Q|_{D_1} \xrightarrow{g} Q|_{D_1} \to Q|^\LL_C \]
+    we get an exact sequence
+    \[ 0 \to \sH^{-1}(Q|^\LL_C) \to Q|_{D_1} \xrightarrow{g} Q|_{D_1} \to \sH^0(Q|^\LL_C) \to 0 \]
+    which shows that $\sH^{-1}(Q|^\LL_C)$ and $\sH^0(Q|^\LL_C)$ are torsion sheaves on $C$.
+    
+    Next, as $F^\dd$ is reflexive, the restriction $F^\dd|^\LL_{D_1} = F^\dd|_{D_1}$ is torsion-free by \cite[Corollary 1.1.14]{HL}, and so the restriction $F^\dd|^\LL_C = F^\dd|_C$ is a sheaf on $C$. From the short exact sequence
+    \[ 0 \to F \to F^\dd \to Q \to 0 \]
+    we get a triangle $F|^\LL_C \to F^\dd|_C \to Q|^\LL_C$, yielding an exact sequence of sheaves
+    \[ 0 \to \sH^{-1}(Q|^\LL_C) \to F|_C \to F^\dd|_C \to \sH^0(Q|^\LL_C) \to 0, \]
+    which shows that the restriction $F|^\LL_C = F|_C$ is a sheaf. For the proof of part (c) we also note that $F|^\LL_C = F|_C$ contains $\sH^{-1}(Q|^\LL_C)$ as a torsion subsheaf.
+    
+    Similarly, we have triangles
+    \[ T \xrightarrow{f} T \to T|^\LL_{D_1} \qquad \text{and} \qquad  T|^\LL_{D_1} \xrightarrow{g} T|^\LL_{D_1} \to T|^\LL_C. \]
+    Combining the associated long exact sequences of cohomology sheaves implies that $\sH^i(T|^\LL_C)$ is 0-dimensional for $i = -2, -1, 0$ and vanishes otherwise.
+    
+    \item Since $C$ passes through the support of $T$, the sheaf $\sH^0(T|^\LL_C)$ is nonzero and torsion. The long exact sequence of cohomology sheaves associated to the triangle
+    \[ F|^\LL_C \to E|^\LL_C \to T|^\LL_C[-1] \]
+    shows that $\sH^1(E|^\LL_C) \cong \sH^1(T|^\LL_C[-1]) = \sH^0(T|^\LL_C)$ is nonzero and torsion, hence so is 
+    \[ \sH^1(E|^\LL_C \otimes G) = \sH^1(E|^\LL_C) \otimes G, \]
+    and thus $H^0(\sH^1(E|^\LL_C \otimes G)) \neq 0$. On the other hand since $\dim(C) = 1$, we have $H^2(C, \sH^0(E|^\LL_C) \otimes G) = 0$, so the long exact sequence of hypercohomology groups associated to the triangle 
+    \[ \sH^0(E|^\LL_C) \otimes G \to E|^\LL_C \otimes G \to \sH^1(E|^\LL_C)[-1] \otimes G \]
+    gives a surjection
+    \[ \Hh^1(C, E|^\LL_C \otimes G) \twoheadrightarrow \Hh^1(C, \sH^1(E|^\LL_C)[-1] \otimes G) = H^0(C, \sH^1(E|^\LL_C) \otimes G) \neq 0. \]
+    
+    \item Since $C$ does not meet $\Supp(T)$ we have $E|^\LL_C = F|_C$, and we saw above that the torsion subsheaf of $F|_C$ contains $\sH^{-1}(Q|^\LL_C)$. On the other hand, as in the proof of (a) let $f$ and $g$ be local equations for $C$ in a neighborhood of a point $x \in C \cap \Supp(Q)$ which exists by assumption. Now in the triangle
+    \[ Q|_{D_1} \xrightarrow{g} Q|_{D_1} \to Q|^\LL_C, \]
+    the first map is not injective at $x$, so $\sH^{-1}(Q|^\LL_C)$ is nonzero.
+    
+    Taking the long exact sequence in hypercohomology associated to the triangle
+    \[ \sH^0(E|^\LL_C) \otimes G \to E|^\LL_C \otimes G \to \sH^1(E|^\LL_C)[-1] \otimes G \]
+    gives an inclusion 
+    \[ \Hh^0(C, \sH^0(E|^\LL_C) \otimes G)) \hookrightarrow \Hh^0(C, E|^\LL_C \otimes G), \]
+    and the first group is nonzero since $\sH^0(E|^\LL_C) \otimes G = F|_C \otimes G$ contains a nonzero torsion subsheaf.
+    
+    \item Since $C \cap \Supp(T) = \emptyset$, we have $E|^\LL_C = F|^\LL_C$, and since $C \cap \Supp(Q) = \emptyset$, we have $F|^\LL_C = F^\dd|^\LL_C$. Working again locally, we saw above that $F^\dd|_{D_1}$ is torsion-free, so the function $g$ acts on it as a nonzero divisor, implying that $F^\dd|^\LL_H = F^\dd|_C$ is a sheaf.
+\end{enumerate}
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Determinantal line bundles on PT-moduli spaces}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Recall that $H \subs X$ denotes a very ample divisor and $v \in \Kn(X)$ is a class of positive rank. Let $Z$ be a PT-stability function on $\sA^p$ and let $\sM^{\text{PT}}_Z(v)$ denote the stack of semistable objects in $\sA^p$ of class $v$ with respect to $Z$. Let $\sE$ be the universal complex on $\sM^{\text{PT}}_Z(v) \times X$, and consider the diagram
 \begin{center}
     \begin{tikzpicture}
     \matrix (m) [matrix of math nodes, row sep=1em, column sep=1em]
     { & \sE &  \\
-    & S \times X & \\
-    S & & X \\};
+    & \sM^{\text{PT}}_Z(v) \times X & \\
+    \sM^{\text{PT}}_Z(v) & & X \\};
     \path[dotted]
     (m-1-2) edge node[auto,swap] {$ $} (m-2-2)
     ;
@@ -276,16 +319,18 @@ We now specialize to the situation of PT-semistability. Let $(X, H)$ be a smooth
     ;
     \end{tikzpicture}
 \end{center}
-As in \cite[Example 8.1.8 (iii)]{HL}, define
+Recall that we have the Donaldson morphism
+\[ \la_\sE: K(X) \to \Pic(\sM^{\text{PT}}_Z(v)), \quad \la_\sE(F) = \det(R p_*(\sE \otimes^\LL q^*F)). \]
+Following \cite[Example 8.1.8 (iii)]{HL}, we set
 \[ v_2(v) = -\chi(v \cdot h^3) h^2 + \chi(v \cdot h^2) h^3 \in K(X), \]
 where $h = [\Oh_H] \in K(X)$, and define
-\[ \sL = \la_\sE(v_2(v)) \in \Pic(\sM^{\text{PT}}_Z(v)). \]
-The line bundle $\sL$ is our main object of study. In this section we prove that $\sL$ descends to a line bundle $L$ on the good moduli space $M^{\text{PT}}_Z(v)$, and relate $\sL$ to restrictions of $\sE$ to certain curves $C \subs X$. 
+\[ \sL_2 = \la_\sE(v_2(v)) \in \Pic(\sM^{\text{PT}}_Z(v)). \]
+The line bundle $\sL_2$ is our main object of study. In this section we prove that $\sL_2$ descends to a line bundle $L_2$ on the good moduli space $M^{\text{PT}}_Z(v)$, and relate $\sL_2$ to restrictions of $\sE$ to certain curves $C \subs X$. 
 
 \subsubsection{Descending to the good moduli space}
-To show that $\sL$ descends to $M^{\text{PT}}_Z(v)$, by Proposition \ref{vbtogms} we must control the action of the stabilizer group $G_x$ of $M^{\text{PT}}_Z(v)$ on the fiber $\sL|_x$ for closed points $x \in M^{\text{PT}}_Z(v)$. We first prove the following.
+To show that $\sL_2$ descends to $M^{\text{PT}}_Z(v)$, by Proposition \ref{vbtogms} we must control the action of the stabilizer group $G_x$ of $M^{\text{PT}}_Z(v)$ on the fiber $\sL_2|_x$ for closed points $x \in M^{\text{PT}}_Z(v)$. We first prove the following.
 \begin{lem}\label{subobjintlemma}
-    If $E$ is a PT-semistable of class $v$ and $F \subs E$ is a subobject in $\sA^p$ such that 
+    If $E$ is PT-semistable of class $v$ and $F \subs E$ is a subobject in $\sA^p$ such that 
     \[ \phi(Z(F)(m)) = \phi(Z(E)(m)) \quad \text{for } m \gg 0, \]
     then
     \begin{equation}\label{subobjintegral}
@@ -296,9 +341,9 @@ To show that $\sL$ descends to $M^{\text{PT}}_Z(v)$, by Proposition \ref{vbtogms
 \begin{proof}
     The assumption on $F$ is equivalent to saying $p_v(F) = 0$, where $p_v$ is given in \eqref{realvaluedcharge}. To lighten the notation, we set
     \[ I_d(G) = \int_X H^d \cdot \ch(G) \cdot U, \quad d = 0, \ldots, 3. \]
-    We note that since
+    We note that
     \[ I_3(G) = \int_X H^3 \cdot \ch(G) \cdot U = \deg(X) \rk(G), \]
-    and by Lemma \ref{subobjposrank}, we have $\rk(F) > 0$, equation \eqref{subobjintegral} is equivalent to 
+    and  $\rk(F) > 0$ by Lemma \ref{subobjposrank}, so equation \eqref{subobjintegral} is equivalent to 
     \[ I_3(E) I_d(F) = I_3(F) I_d(E). \]
     Moreover, we set
     \[ r_{ij} = \re(\rho_i) \im(\rho_j), \quad i, j = 0, \ldots, 3. \]
@@ -308,26 +353,26 @@ To show that $\sL$ descends to $M^{\text{PT}}_Z(v)$, by Proposition \ref{vbtogms
     \begin{equation}\label{rIsum}
         \sum_{d=0}^6 \sum_{i+j = d} r_{ij} ( I_i(E) I_j(F) - I_i(F) I_j(E)) m^d = 0.
     \end{equation}
-    We compare coefficients on both sides of this equation. First, the $m^5$ in \eqref{rIsum} gives
+    We compare coefficients on both sides of this equation. First, the $m^5$-term in \eqref{rIsum} gives
     \[ (r_{32}-r_{23})(I_2(E) I_3(F) - I_2(F) I_3(E)) = 0, \]
-    so dividing by $\deg(X)$ and $r_{32}-r_{23}$ gives \eqref{subobjintegral} for $d = 2$. Similarly from the $m^4$, noting that the $i = j =2$ term cancels out, we get
+    so dividing by $\deg(X)$ and $r_{32}-r_{23}$ gives \eqref{subobjintegral} for $d = 2$. Similarly from the $m^4$-term, noting that the $i = j =2$ term cancels out, we get
     \[ (r_{31}-r_{13})(I_1(E) I_3(F) - I_1(F) I_3(E)) = 0, \]
-    giving \eqref{subobjintegral} for $d = 1$. Finally, the $m^3$ term gives
-    \[ (r_{30}-r_{03})(I_0(E) I_3(F) - I_0(F) I_3(E)) + (r_{21}-r_{12})(I_1(E) I_2(F) - I_1(F) I_2(E) = 0. \]
-    The second term on the left cancels because $I_3(E) \neq 0$, and by what we have already proven, we have
-    \[ I_3(E) I_1(E) I_2(F) = I_3(F) I_1(E) I_2(E) = I_3(E) I_1(E) I_2(E). \]
+    giving \eqref{subobjintegral} for $d = 1$. Finally, the $m^3$-term gives
+    \[ (r_{30}-r_{03})(I_0(E) I_3(F) - I_0(F) I_3(E)) + (r_{21}-r_{12})(I_1(E) I_2(F) - I_1(F) I_2(E)) = 0. \]
+    The second term on the left cancels out, since by what we have already proven, we have
+    \[ I_1(E) I_2(F) = \frac{I_3(E) I_1(E) I_2(F)}{I_3(E)} = \frac{I_3(F) I_1(E) I_2(E)}{I_3(E)} = \frac{I_3(E) I_1(F) I_2(E)}{I_3(E)} = I_1(F) I_2(E). \]
     Thus, we obtain \eqref{subobjintegral} for $d = 0$, completing the proof.
 \end{proof}
 
 \begin{prop}\label{L2descendstogms}
-Let $Z$ be a PT-stability function on $\sA^p$ and assume that $U = \td_X$ is the Todd class of $X$. The line bundle 
-\[ \sL = \la_\sE(v_2(v)) \in \Pic(\sM^{\text{PT}}_X(v) \]
+Let $Z$ be a PT-stability function on $\sA^p$ and assume that $U = \td_X$ in the definition of $Z$ is the Todd class of $X$. The line bundle 
+\[ \sL_2 = \la_\sE(v_2(v)) \in \Pic(\sM^{\text{PT}}_X(v)) \]
 descends to the good moduli space $M^{\text{PT}}_X(v)$.
 \end{prop}
 \begin{proof}
-Let $x \in M^{\text{PT}}_Z(v)$ be a closed point corresponding to the $Z$-polystable objects
+Let $x \in M^{\text{PT}}_Z(v)$ be a closed point corresponding to the $Z$-polystable object
 \[ E = \bigoplus_i F_i, \quad \text{where } p_v(F_i) = 0 \text{ for all } i. \]
-By \cite[Proposition 4.2]{t}, the automorphism group of $E$ acts trivially on the fiber of $\sL$ at $x$ if and only if $\chi([F_i]\cdot v_2(v)) = 0$ for each $i$. By the Hirzebruch-Riemann-Roch formula,
+By Lemma \ref{lbtogms}, the automorphism group of $E$ acts trivially on the fiber of $\sL$ at $x$ if and only if $\chi([F_i]\cdot v_2(v)) = 0$ for each $i$. By the Hirzebruch-Riemann-Roch formula,
 \[ \chi([F_i]\cdot v_2(v)) = \int_X \ch(F_i) \ch(v_2(v)) \td_X. \]
 Now
 \[ \ch(v_2(v)) =  -\chi(v \cdot h^3) \ch(h)^2 + \chi(v \cdot h^2) \ch(h)^3, \]
@@ -340,7 +385,7 @@ Since $[E] = v \in \Kn(X)$, by the Hirzebruch-Riemann-Roch formula again,
 \end{proof}
 
 \subsubsection{Restriction to curves}
-We now relate $\sL$ to restrictions of the universal complex to various curves in $X$. Let $a, b > 0$ be integers and let $H' \in |\Oh_X(a)|$ and $H'' \in |\Oh_X(b))$ be smooth hyperplane sections whose intersection $C = H' \cap H''$ is a smooth, connected curve. Consider the diagram
+We now relate $\sL_2$ to restrictions of the universal complex to various curves in $X$. Let $a, b > 0$ be integers and let $D_1 \in |\Oh_X(a)|$ and $D_2 \in |\Oh_X(b)|$ be divisors whose intersection $C = D_1 \cap D_2$ is a smooth, connected curve. Consider the diagram
 \begin{center}
     \begin{tikzpicture}
     \matrix (m) [matrix of math nodes, row sep=3em, column sep=3em]
@@ -364,7 +409,7 @@ We now relate $\sL$ to restrictions of the universal complex to various curves i
     \end{tikzpicture}
 \end{center}
 Here $\sE_C$ denotes the derived restrictions of $\sE$ to $\sM^{\mathrm{PT}}(v) \times C$. Consider the Donaldson morphisms
-\[ \la_\sE: K(X) \to \Pic(\sM^{\mathrm{PT}}(v)), \quad \la_{\sE_C}: K(X) \to \Pic(\sM^{\mathrm{PT}}(v)). \]
+\[ \la_\sE: K(X) \to \Pic(\sM^{\mathrm{PT}}(v)), \quad \la_{\sE_C}: K(C) \to \Pic(\sM^{\mathrm{PT}}(v)). \]
 \begin{lem}
 We have commutative diagram
 \begin{center}\label{donaldsoncomm}
@@ -393,19 +438,20 @@ We have commutative diagram
         & = \la_\sE(i_*\Oh_C \otimes F).
     \end{align*}
 \end{proof}
-Now define
+
+\begin{propdef}\label{linebundleidentification}
+Define
 \[ w \coloneqq -\chi(v \cdot h \cdot [\Oh_C]) \cdot 1 + \chi(v \cdot [\Oh_C]) \cdot h \in K(X). \]
-\begin{prop}\label{linebundleidentification}
 We have
-\[ \la_{\sE_C}(w|_C) = \sL^{\otimes a^2 b^2}. \]
-Moreover, $-w|_C$ has positive rank and so is represented by a locally free sheaf on $C$.
-\end{prop}
+\[ \la_{\sE_C}(w|_C) = \sL_2^{\otimes a^2 b^2}. \]
+Moreover, $-w|_C \in K(C)$ has positive rank and so is represented by a locally free sheaf on $C$.
+\end{propdef}
 \begin{proof}
-For the first claim, by Lemma \ref{donaldsoncomm} it suffices to show that $w\cdot [\Oh_C] = a^2 b^2 u$. Note that $[\Oh_C] = [\Oh_{H'}][\Oh_{H''}]$, and that $\Oh_{H'}$ fits in the exact sequence
-\[ 0 \to \Oh_X(-a) \to \Oh_X \to \Oh_{H'} \to 0, \]
+For the first claim, by Lemma \ref{donaldsoncomm} it suffices to show that $w\cdot [\Oh_C] = a^2 b^2 u$. Note that $[\Oh_C] = [\Oh_{D_1}][\Oh_{D_2}]$, and that $\Oh_{D_1}$ fits in the exact sequence
+\[ 0 \to \Oh_X(-a) \to \Oh_X \to \Oh_{D_1} \to 0, \]
 so that 
-\[ [\Oh_{H'}] = [\Oh_X] - [\Oh_X(-a)] = 1 - [\Oh_X(-1)]^a = 1 - (1-h)^a = a h - \binom{a}{2} h^2 + \binom{a}{3} h^3, \]
-and similarly $[\Oh_{H''}] = b h - \binom{b}{2} h^2 + \binom{b}{3} h^3$, so that
+\[ [\Oh_{D_1}] = [\Oh_X] - [\Oh_X(-a)] = 1 - [\Oh_X(-1)]^a = 1 - (1-h)^a = a h - \binom{a}{2} h^2 + \binom{a}{3} h^3, \]
+and similarly $[\Oh_{D_2}] = b h - \binom{b}{2} h^2 + \binom{b}{3} h^3$, so that
 \begin{align*}
     [\Oh_C] & = (a h - \binom{a}{2} h^2 + \binom{a}{3} h^3)(b h - \binom{b}{2} h^2 + \binom{b}{3} h^3) \\
     & = a b h^2 - \left(a \binom{b}{2} + b \binom{a}{2} \right)h^3.
@@ -429,227 +475,139 @@ For the second claim, we note that $\rk(w) = -a^4 \chi(v \cdot h^3) = - a^2 b^2 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+We now prove our first main result: some positive power of the line bundle $\sL_2$ on $\sM^{\text{PT}}_X(v)$ is globally generated. To make a precise statement, recall that for an integer $a > 0$, we have defined $S_{a,a} = |\Oh_X(a)| \times |\Oh_X(a)|$ with incidence correspondence $Z^{a,a} \subs S_{a,a} \times X$.
 
-Fix a class $v \in \Kn(X)$ of positive rank and let $E \in D^b(X)$ be an object of class $v$ satisfying the following conditions.
-\begin{enumerate}[(i)]
-    \item $\sH^0(E)$ is torsion-free and $\mu$-semistable,
-    \item $\sH^1(E)$ is 0-dimensional,
-    \item $\Hom_{D^b(X)}(T[-1], E) = 0$ for any 0-dimensional sheaf $T$,
-    \item $\sH^i(E) = 0$ for $i \neq 0, 1$.
-\end{enumerate}
-In particular, $E$ can be a PT-semistable object. Setting $F = \sH^0(E)$ and $T = \sH^1(E)$, we see that $E$ fits in an exact triangle
-\[ F \to E \to T[-1]. \]
-Since $F$ is torsion-free, it embeds into its double dual $F^\dd$ and the quotient $Q \coloneqq F^\dd/F$ is 1-dimensional.
-\begin{lem}
-Assume $E$ is PT-semistable and fits in the triangle
-\[ F \to E \to T[-1] \]
-where $F \in \Coh(X)$ is $\mu$-semistable torsion-free and $T \in \Coh(X)$ is 0-dimensional. The sheaf $Q = F^\dd/F$ is pure of dimension 1.
-\end{lem}
-\begin{proof}
-If $Q$ is not pure, the maximal 0-dimensional subsheaf $Q_0 \subs Q$ is nonzero. We have an exact sequences
-\[ 0 \to Q[-1] \to F \to F^\dd \to 0 \]
-and
-\[ 0 \to Q_0[-1] \to Q[-1] \to Q/Q_0[-1] \to 0 \]
-in $\sA^p$. Thus, we get a nonzero map
-\[ Q_0[-1] \to Q[-1] \to F \to E \]
-as a sequence of inclusions in the heart of a bounded t-structure of perverse sheaves. But this is impossible since $\Hom_{D^b(X)}(Q_0[-1], E) = 0$ by assumption.
-\end{proof}
-
-The following result is the key to producing sections of the line bundle $\sL_2^{\otimes (\text{some power})}$. It is an analogue of \cite[Lemma 6.3]{t}
-\begin{prop}\label{restprop}
-Let $E \in \sA^p$ be an object fitting in a triangle
-\[ F \to E \to T[-1] \]
-where $F \in \Coh(X)$ is torsion-free and $T \in \Coh(X)$ is 0-dimensional, and assume 
-\[ \Hom(\Oh_p[-1], E) = 0 \] 
-for every $p \in X$. Let $a > 0$ and let $H$ and $H'$ be two smooth surfaces corresponding to sections $s, s' \in H^0(X, \Oh_X(a))$ whose intersection $C = H \cap H'$ is a smooth, connected curve. Assume that $C$ does not contain any of the components of the support of the pure 1-dimensional sheaf $Q = F^\dd/F$. The derived restriction $E|^\LL_C$ fits in an exact triangle
-\[ \sH^0(E|^\LL_C) \to E|^\LL_C \to \sH^1(E|^\LL_C)[-1] \]
-where $\sH^1(E|^\LL_C)$ is a 0-dimensional.
-\end{prop}
-\begin{proof}
-Let $s, s' \in H^0(X, \Oh_X(a))$ be sections corresponding to $H$ and $H'$ respectively. We begin with analyzing the restrictions $F|^\LL_C$ and $T|^\LL_C$. First, the restriction $Q|^\LL_H$ fits in an exact triangle
-\[ Q(-a) \xrightarrow{s} Q \to Q|^\LL_H \]
-which induces an exact sequence on cohomology sheaves
-\[ 0 \to \sH^{-1}(Q|^\LL_H) \to Q(-a) \to Q \to \sH^0(Q|^\LL_H) \to 0 \]
-and all other cohomology sheaves vanish. Thus, $\sH^{-1}(Q|^\LL_H)$ is a subsheaf of $Q(-a)$, hence pure 1-dimensional, and moreover the associated points of $\sH^{-1}(Q|^\LL_H)$ are precisely those associated points of $Q$ where $s$ vanishes. The assumption that $C$ contains no component of $\Supp(Q)$ thus implies that $s'$ does not vanish at any associated point of $\sH^{-1}(Q|^\LL_H)$.
-
-Next, the short exact sequence
-\[ 0 \to F \to F^\dd \to Q \to 0 \]
-induces a triangle
-\[ F|^\LL_H \to F^\dd|^\LL_H \to Q|^\LL_H. \]
-Since $F^\dd$ is a reflexive sheaf, there restriction $F^\dd|^\LL_H = F^\dd|_H$ is torsion-free by \cite[Corollary 1.1.14]{HL}. Thus, we have an exact sequence
-\[ 0 \to \sH^{-1}(Q|^\LL_H) \to F|^\LL_H = F|_H \to F^\dd|_H \to \sH^0(Q|^\LL_H) \to 0 \]
-and all other cohomology sheaves vanish. Thus, $F|_H$ is a sheaf and $s'$ vanishes in none of its associated points, so the restriction $F|^\LL_C$ fits in the triangle
-\[ F|_H(-a) \to F|_H \to F|^\LL_C. \]
-The exact sequence of cohomology sheaves
-\[ 0 \to \sH^{-1}(F|^\LL_C) \to F|_H(-a) \to F|_H \to F|_C \to 0 \]
-shows that the associated point of $\sH^{-1}(F|^\LL_C)$ are a subset of the associated points of $F|_H(-a)$. But $\sH^{-1}(F|^\LL_C)$ is supported on $C$ which contains none of the associated points of $F|_H(-a)$. Thus, $\sH^{-1}(F|^\LL_C)$, hence $F|^\LL_C = F|_C$ is a sheaf.
-
-Similarly, we have triangles
-\[ T(-a) = T \xrightarrow{s} T \to T|^\LL_H \]
-and
-\[ T|^\LL_H(-a) \to T|^\LL_H \to T|^\LL_C. \]
-Combining the associated long exact sequences of cohomology sheaves implies that $\sH^i(T|^\LL_C)$ is 0-dimensional for $i = -2, -1, 0$ and vanishes otherwise.
-
-Now the long exact sequence of sheaf cohomology associated to the triangle
-\[ F|_C \to E|^\LL_C \to T|^\LL_C[-1] \]
-gives
-\[ 0 \to \sH^{-1}(E|^\LL_C) \to \sH^{-2}(T|^\LL_C) \to F|_C \to \sH^0(E|^\LL_C) \to \sH^{-1}(T|^\LL_C) \to 0 \]
-and $\sH^1(E|^\LL_C) \to \sH^0(T|^\LL_C)$. The latter implies that $\sH^1(E|^\LL_C)$ is a 0-dimensional sheaf, so to conclude, we have to show that $\sH^{-1}(E|^\LL_C) = 0$. If not, then as a subsheaf of $\sH^{-2}(T|^\LL_C)$, it is 0-dimensional, so for some $p \in C$, we have $\Hom(\Oh_p, \sH^{-1}(E|^\LL_C)) \neq 0$, and since
-\[ \Hom(\Oh_p, \sH^{-1}(E|^\LL_C)) \hookrightarrow \Hom(\Oh_p, E|^\LL_C[-1]) \] 
-is injective as $\sH^i(E|^\LL_C) = 0$ for $i < -1$, also $\Hom(\Oh_p, E|^\LL_C[-1]) \neq 0$.
-
-Let $i: C \to X$ denote the closed embedding. Since $C$ and $X$ are smooth, they have dualizing line bundles $\om_C$ and $\om_X$ respectively. Moreover, the derived restriction and pushforward along $i$ are adjoints. Thus, we have
-\begin{align*}
-    \Hom_{D^b(C)}(\Oh_p, E|^\LL_C[-1]) & \cong \Hom_{D^b(C)}(E|^\LL_C[-1], \Oh_p \otimes \om_C [1])^\vee \\
-    & \cong \Hom_{D^b(C)}(E|^\LL_C, \Oh_p[2])^\vee \\
-    & \cong \Hom_{D^b(X)}(E, \Oh_p[2])^\vee \\
-    & \cong \Hom_{D^b(X)}(\Oh_p[2], E \otimes \om_X[3]) \\
-    & \cong \Hom_{D^b(X)}(\Oh_p \otimes \om_X^\vee[-1], E) \\
-    & \cong \Hom_{D^b(X)}(\Oh_p[-1], E).
-\end{align*}
-But by assumption $\Hom_{D^b(X)}(\Oh_p[-1], E) = 0$. This concludes the proof.
-\end{proof}
-
-Let $a > 0$ be an integer and let $S_a = |\Oh(a)| \times |\Oh(a)|$, where $|\Oh(a)| = \p(H^0(X, \Oh_X(a))$ is the complete linear system of $\Oh_X(a)$. Let $Z^a \subs S \times X$ denote the incidence correspondence of complete intersections $D_1 \cap D_2 \subs X$ with $D_1, D_2 \in |\Oh_X(a)|$. Consider the diagram
-\begin{center}
-    \begin{tikzpicture}
-    \matrix (m) [matrix of math nodes, row sep=3em, column sep=3em]
-    { Z^a & X \\
-    S_a & \\};
-    \path[->]
-    (m-1-1) edge node[auto] {$ q $} (m-1-2)
-    (m-1-1) edge node[auto,swap] {$ p $} (m-2-1)
-    ;        
-    \end{tikzpicture}
-\end{center}
-\begin{lem}\label{nocomponent}
-    Let $v \in \Kn(X)$ be a class of positive rank. There exists $a_0 > 0$ such that for any $a \ge a_0$ there exists an open subset $U \subs S_a$ with the following property. For every $s \in U$, the fiber $Z^a_s$ is a smooth, connected curve, and if $E \in \sA^p$ is any PT-semistable object of class $v$, then $Z^a_s$ contains no component of $\Supp(\sH^0(E)^\dd/\sH^0(E))$.
-\end{lem}
-\begin{proof}
-    Since the set of isomorphism classes of PT-semistable objects $E$ of class $v$ is bounded, so is the set of isomorphism classes of the quotients $Q = \sH^0(E)^\dd/\sH^0(E)$, and hence the degree of $\Supp(Q)$ is bounded by some $b > 0$, where the scheme structure of $\Supp(Q)$ is given by the annihilator ideal sheaf. Let $a_0 = b + 1$. By Bertini's theorem, there is a nonempty open subset $U \subs S_a$ such that for every $s \in U$, the fiber $Z_s$ is a smooth, connected curve, and since $\deg(Z_s) > \deg(\Supp(Q))$ when $a \ge a_0$, the curve $Z_s$ cannot contain components of $\Supp(Q)$.
-\end{proof}
-
-\begin{lem}\label{flenner}
-    There exists $a_0 > 0$ such that for any $a \ge a_0$ and any PT-semistable object $E \in \sA^p$ of class $v$, there exists a nonempty open subset $U \subs S_a$ such that for every $s \in U$, the fiber $Z_s$ is a smooth, connected curve and the restriction $E|^\LL_{Z_s}$ is a semistable sheaf on $Z_s$.
-\end{lem}
-\begin{proof}
-    Recall that $E$ fits in an exact triangle
-    \[ F \to E \to T[-1], \]
-    where $F$ is a $\mu$-semistable torsion-free sheaf and $T$ is a 0-dimensional sheaf. Denote $r = \rk(E) = \rk(F)$. By Flenner's Theorem \cite[Theorem 7.1.1]{HL}, if $a \in \N$ satisfies
-    \[ \frac{\binom{a+3}{a} - 2a - 1}{a} > \deg(X)\cdot \max\{\frac{r^2 - 1}{4}, 1\}, \]
-    there exists a nonempty open subset $U' \subs S$ such that for any $s \in U'$, the fiber $Z_s$ is a smooth, connected curve, and the restriction $F|_{Z_s}$ is a semistable sheaf. Now the set of those $s \in U'$ such that $Z_s$ intersects $\Supp(T)$ is a proper, closed subset of $U'$, and if we take $U$ to be the complement of this subset in $U'$, then for any $s \in U$, we have $E|^\LL_{Z_s} = F|_{Z_s}$.
-\end{proof}
-
-\begin{lem}\label{seshadrimainlemma1}
-    Let $C$ be a smooth, projective, connected curve, and let $F$ be a semistable locally free sheaf on $C$. Let $r > 0$ and $d$ be integers such that
-    \[ r \deg F + (d + r(1-g)) \rk F = 0. \]
-    If $r > \rk(F)$, then for any line bundle $L$ of degree $d$, there exists a locally free sheaf $E$ with $\rk E = r$ and $\det E \cong L$ such that
-    \[ H^0(C, E \otimes F) = H^1(C, E \otimes F) = 0. \]
-\end{lem}
-
-Let $v \in \Kn(X)$ be class of rank $r > 0$. Let $\sM^{\mathrm{PT}}(v)$ be the moduli stack of PT-semistable objects of class $v$ in $\sA^p \subs D^b(X)$, and let $\sE$ be the universal complex on $\sM^{\mathrm{PT}}(v) \times X$ as before.
 \begin{thm}\label{globgen}
-    There exists an $a > 0$ such that for any PT-semistable object $E_0 \in \sA^p$ of class $v$ representing a $\C$-point $t_0 \in \sM^{\mathrm{PT}}(v)$, there exists a nonempty open subset $U \subs S$ such that for every $s \in U$, the fiber $C = Z_s$ is a smooth, connected curve, and there exists a locally free sheaf $G$ on $C$ such that we have
-    \[ \sL_2^{\otimes a^4} = \la_{\sE_C}(G)^\vee, \]
-    and there exists a global section $\de_G \in \Ga(\sM^{\mathrm{PT}}(v), \sL_2^{\otimes a^4})$ that is nonvanishing at $t_0$. In particular, the line bundle $\sL_2^{\otimes a^4} \in \Pic(\sM^{\mathrm{PT}}(v))$ is globally generated. 
+    There exists an integer $a > 0$ such that for any PT-semistable object $E_0 \in \sA^p$ of class $v$ representing a $\C$-point $t_0 \in \sM^{\mathrm{PT}}(v)$, there exists a nonempty open subset $U \subs S_{a,a}$ with the following property. For every $s \in U$, the fiber $C = Z^{a,a}_s$ is a smooth, connected curve, and there exists a locally free sheaf $G$ on $C$ such that
+    \[ \sL_2^{\otimes m a^4} = \la_{\sE_C}(G)^\vee \]
+    for some $m > 0$, and there exists a global section $\de_G \in \Ga(\sM^{\mathrm{PT}}(v), \sL_2^{m \otimes a^4})$ that is nonvanishing at $t_0$. In particular, for large enough $m$ the line bundle $\sL_2^{\otimes m a^4} \in \Pic(\sM^{\mathrm{PT}}(v))$ is globally generated for sufficiently large $N$.
 \end{thm}
 \begin{proof}
-    Combining Lemmas \ref{nocomponent} and \ref{flenner}, we find $a > 0$, depending only on $v$, such that
+    Combining Lemmas \ref{nocomponent} and \ref{flenner-PT}, we find $a > 0$ such that
     \begin{enumerate}[(i)]
-        \item there exists a nonempty open set $U_0 \subs S_a$ such that for every $s \in U_0$, the fiber $Z^a_s$ is a smooth, connected curve, and if $E \in \sA^p$ is any PT-semistable object of class $v$, then $Z^a_s$ does not contain any components of $\sH^0(E)^\dd/\sH^0(E)$,
-        \item there exists an open subset $U_1 \subs S_a$ such that for every $s \in U_1$, the fiber $Z_s$ is a smooth, connected curve, and the restriction $E_0|^\LL_{Z_s}$ is a $\mu$-semistable sheaf.
+        \item there exists a nonempty open set $U_1 \subs S_{a,a}$ such that for every $s \in U_1$, the fiber $Z^{a,a}_s$ is a smooth, connected curve, and if $E \in \sA^p$ is any PT-semistable object of class $v$, then $Z^{a,a}_s$ does not contain any components of $\sH^0(E)^\dd/\sH^0(E)$,
+        \item given a PT-semistable object $E_0$ of class $v$, there exists an open subset $U_2 \subs S_{a,a}$ such that for every $s \in U_2$, the fiber $Z^{a,a}_s$ is a smooth, connected curve, and the restriction $E_0|^\LL_{Z^{a,a}_s}$ is a $\mu$-semistable sheaf.
     \end{enumerate}
-    Set $U = U_0 \cap U_1 \subs S_a$. Let $s \in U$ and denote $C = Z_s$. Recall from Lemma \ref{linebundleidentification} that we defined
-    \[ w \coloneqq -\chi(v \cdot h \cdot [\Oh_C]) \cdot 1 + \chi(v \cdot [\Oh_C]) \cdot h \in K(X) \]
-    and observed that $\sL = \la_{\sE_C}(w|_C)$. Notice that $\rk(-w|_C) = a^2 \deg(X) r$, and that we can assume $a > 1$ so that $\rk(-w|_C) > r$. Notice also that
-    \[ w|_C = -\chi(v|_C \cdot h|_C) \cdot 1 + \chi(v|_C) \cdot h|_C \]
-    so that $\chi(w|_C \cdot v|_C) = 0$. Thus, by Lemma \ref{seshadrimainlemma1}, there exists a locally free sheaf $G$ of class $-w|_C$ on $C$ such that $\Hh^i(C, E_0|^\LL_C \otimes G) = 0$ for all $i \in \Z$.
+    Set $U = U_1 \cap U_2 \subs S_{a,a}$. Let $s \in U$ and denote $C = Z^{a,a}_s$. Recall from Lemma \ref{linebundleidentification} that we defined
+    \[ w = -\chi(v \cdot h \cdot [\Oh_C]) \cdot 1 + \chi(v \cdot [\Oh_C]) \cdot h \quad\in\quad K(X) \]
+    and observed that $\sL_2^{\otimes a^4} = \la_{\sE_C}(w|_C)$. Notice that for $m > 0$, we have $\rk(-m w|_C) = m a^2 \deg(X) r$, and that that
+    \[ m w|_C = - m \chi(v|_C \cdot h|_C) \cdot 1 + m \chi(v|_C) \cdot h|_C \]
+    so that $\chi(m w|_C \cdot v|_C) = 0$. Thus, by Lemma \ref{seshadrimainlemma1}, for large enough $m$, there exists a locally free sheaf $G$ of class $-m w|_C$ on $C$ such that $\Hh^i(C, E_0|^\LL_C \otimes G) = 0$ for all $i \in \Z$.
     
-    Let now $E \in \sA^p$ be any PT-semistable object. By Proposition \ref{restprop}, we have an exact triangle
+    Let now $E \in \sA^p$ be any PT-semistable object. By Proposition \ref{restprop}(a), we have an exact triangle
     \[ F \to E|^\LL_C \otimes G \to T[-1] \]
-    in $D^b(C)$, where $F$ is a coherent sheaf and $T$ is a 0-dimensional coherent sheaf. Thus, the long exact sequence in hypercohomology shows that $\Hh^i(C, E|^\LL_C \otimes G) = 0$ for $i \neq 0, 1$, and since $\chi(C, E|^\LL_C \otimes G) = \chi(w|_C \cdot v_C) = 0$, we have
+    in $D^b(C)$, where $F$ is a coherent sheaf and $T$ is a 0-dimensional coherent sheaf. Thus, the long exact sequence in hypercohomology shows that $\Hh^i(C, E|^\LL_C \otimes G) = 0$ for $i \neq 0, 1$, and since $\chi(C, E|^\LL_C \otimes G) = \chi(-m w|_C \cdot v_C) = 0$, we have
     \[ \dim \Hh^0(C, E|^\LL_C \otimes G) = \dim \Hh^1(C, E|^\LL_C \otimes G). \]
     Thus, by Lemma \ref{detsection}, the line bundle
-    \[ \sL^{\otimes a^4} = \la_{\sE_C}(w|_C) = \la_{\sE_C}(G)^\vee \]
-    has a global section $\de_G$ that does not vanish at the point $t_0$ representing $E_0$
+    \[ \sL^{\otimes m a^4} = \la_{\sE_C}(w|_C) = \la_{\sE_C}(G)^\vee \]
+    has a global section $\de_G$ that does not vanish at the point $t_0$ representing $E_0$.
+    
+    This shows that for each point $t \in \sM^{\mathrm{PT}}(v)$ we can find and integer $m_t > 0$ and a section $s_t$ of $\sL_2^{\otimes m_t a^4}$ not vanishing at $t$. Since $\sM^{\mathrm{PT}}(v)$ is quasicompact, the nonvanishing loci of finitely many of these sections, say $s_1,\ldots, s_N$, cover $\sM^{\mathrm{PT}}(v)$. Taking $m = m_1 \cdots m_N$, we see that the nonvanishing loci of the sections
+    \[ s_i^{m/m_i} \in \Ga(\sM^{\mathrm{PT}}(v), \sL_2^{\otimes m a^4}) \]
+    cover $\sM^{\mathrm{PT}}(v)$. Thus, $\sL_2^{\otimes m a^4}$ is globally generated.
 \end{proof}
 
-Let now $\sL = \sL_2^{\otimes a^4}$, where $a > 0$ is provided by Theorem \ref{globgen} so that $\sL$ is globally generated. By Proposition \ref{L2descendstogms}, the line bundle $\sL$ descends to a line bundle $L$ on the good moduli space $M^{\text{PT}}_X(v)$, and since the good moduli space map $\pi: \sM^{\text{PT}}_X(v) \to M^{\text{PT}}_X(v)$ satisfies $\pi_*\Oh = \Oh$, the projection formula implies that there is an isomorphism
-\[ \Ga(\sM^{\text{PT}}_X(v), \sL^{\otimes n}) \cong \Ga(M^{\text{PT}}_X(v), L^{\otimes n}) \]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Study of the fibers}\label{section:studyoffibers}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+In this section we analyze the fibers of the morphism provided by the line bundle $\sL_2$. Let $\sL = \sL_2^{\otimes m a^4} \in \Pic(\sM^{\text{PT}}_Z(v))$, where $a > 0$ and $m > 0$ are given by Theorem \ref{globgen} so that $\sL$ is globally generated. From now on we assume that $U = \td_X$ in the definition of the PT-stability condition, so that by Proposition \ref{L2descendstogms}, the line bundle $\sL$ descends to a line bundle $L$ on the good moduli space $M^{\text{PT}}_X(v)$. We also assume that \textit{the good moduli space exists} -- this is only known when $\gcd(\rk(v), H^2 \cdot c_1(v)) = 1$. 
+
+Since the good moduli space map $\pi: \sM^{\text{PT}}_Z(v) \to M^{\text{PT}}_Z(v)$ satisfies $\pi_*\Oh = \Oh$, the projection formula implies that there is an isomorphism
+\[ \Ga(\sM^{\text{PT}}_Z(v), \sL^{\otimes n}) \cong \Ga(M^{\text{PT}}_Z(v), L^{\otimes n}) \]
 for every $n$ and that $L$ is globally generated. We claim that the graded ring
-\[ R = \bigoplus_{n\ge 0} \Ga(M^{\text{PT}}_X(v), L^{\otimes n}) \]
-is finitely generated and the induced morphism $M^{\text{PT}}_X(v) \to \Proj R$ has connected fibers. To show this, let $M^{\text{PT}}_X(v) \to \p^N$ be the morphism induced by the complete linear system $|L|$. Since $M^{\text{PT}}_X(v)$ is a proper algebraic space, this map admits a Stein factorization
-\[ M^{\text{PT}}_X(v) \xrightarrow{g} Z \xrightarrow{h} \p^N, \]
-where $h$ is finite and $g$ satisfies $g_*\Oh = \Oh$, and in particular $g$ has connected fibers. Let $N = h^*\Oh_{\p^N}(1)$ so that we have $g^*N = L$. Again by the projection formula, we have an isomorphism
-\[ R \cong R' \coloneqq \bigoplus_{n\ge 0} \Ga(Z, N^{\otimes n}). \]
-Since $h$ is finite, the line bundle $N$ is ample, hence $R'$ is finitely generated and the canonical map $Z \to \Proj R'$ is an isomorphism. But under the isomorphism $R \cong R'$, the map $M^{\text{PT}}_X(v) \to \Proj R$ gets identified with the map $M^{\text{PT}}_X(v) \xrightarrow{g} Z \xrightarrow{\sim} \Proj R'$, hence is Stein and in particular has connected fibers.
+\[ R = \bigoplus_{n\ge 0} \Ga(M^{\text{PT}}_Z(v), L^{\otimes n}) \]
+is finitely generated and the induced morphism $\phi: M^{\text{PT}}_Z(v) \to \Proj R$ has connected fibers. To see this, let $M^{\text{PT}}_Z(v) \to \p^N$ be the morphism induced by the complete linear system $|L|$. Since $M^{\text{PT}}_Z(v)$ is a proper algebraic space, this map admits a Stein factorization
+\[ M^{\text{PT}}_Z(v) \xrightarrow{g} \overline{M} \xrightarrow{h} \p^N, \]
+where $h$ is finite and $g$ satisfies $g_*\Oh_{M^{\text{PT}}_Z(v)} = \Oh_{\overline{M}}$, and in particular $g$ has connected fibers. Let $L_{\overline{M}} = h^*\Oh_{\p^N}(1)$ so that we have $g^*L_{\overline{M}} = L$. The projection formula now gives an identification
+\[ R \cong \bigoplus_{n\ge 0} \Ga(\overline{M}, L_{\overline{M}}^{\otimes n}), \]
+and since $h$ is finite, the line bundle $L_{\overline{M}}$ is ample. Thus, $R$ is finitely generated and the canonical map $\overline{M} \to \Proj R$ is an isomorphism. Moreover, the map $\phi: M^{\text{PT}}_Z(v) \to \Proj R$ gets identified with $g$, and so has connected fibers. 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Fibers}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-In this section we analyze the fibers of the morphism provided by the line bundle $L$. Let 
-\[ Y = \Proj \oplus_{n \ge 0} \Ga(M^{\text{PT}}_X(v), L^{\otimes n}) \]
-and let $\phi: M^{\text{PT}}_X(v) \to Y$ be the canonical morphism, which as we have seen has connected fibers. To state our next result, we introduce the following notation. Given a $\mu$-semistable torsion-free sheaf $F$ on $X$, let $F^\dast \coloneqq \gr(F)^\dd$ denote the double dual of the polystable sheaf $\gr(F) = \oplus_i \gr_i(F)$ associated to a Jordan-H\"older filtration of $F$ with torsion-free factors $\gr_i(F)$. Note that $F^\dast$ is independent of the Jordan-H\"older filtration. We aim to prove the following.
-\begin{thm}\label{fiberdescription}
-Let $E_1, E_2 \in \sM^{\text{PT}}_X(v)(\C)$ be two PT-semistable objects mapping to the same point under the map $\sM^{\text{PT}}_X(v) \to M^{\text{PT}}_X(v) \xrightarrow{\phi} Y$. Denote $F_i = \sH^0(E_i)$ for $i = 1, 2$. 
-\begin{enumerate}[(i)]
-    \item The sheaves $F_1^\dast$ and $F_2^\dast$ are isomorphic.
-    \item If $\gcd(\rk(v), H \cdot c_1(v)) = 1$, then $F_1^\dd$ and $F_2^\dd$ are isomorphic, and for every point $\eta \in X$ of codimension 2, the stalks of the sheaves $F_1^\dd/F_1$ and $F_2^\dd/F_2$ at $\eta$ have the same lengths as modules over the local ring $\Oh_{X,\eta}$.
-\end{enumerate}
-\end{thm}
+The goal of this section is to give a partial set-theoretic description of the fibers of $\phi$. The first step is to understand curves contracted by $\phi$, so we begin by studying families parameterized by curves. To state our results, we introduce the following notation. 
 
-Since each point $x \in M^{\text{PT}}_X(v)$ the fiber $\phi^{-1}(x)$ is a proper and connected algebraic space, it can be covered by images of maps $S \to \phi^{-1}(x)$ where $S$ is a smooth, proper, connected curve. %The pullback of $L$ to $S$ along such a map has degree 0 and is globally generated, and so is isomorphic to $\Oh_S$. 
-Moreover, after possibly taking a finite cover of $S$, we may assume that the map lifts to $S \to \sM^{\text{PT}}_X(v)$, see for example \cite[Lemma 5.4]{t}.
+First, given a $\mu$-semistable torsion-free sheaf $F$ on $X$, let $F^\dast \coloneqq \gr(F)^\dd$ denote the double dual of the polystable sheaf $\gr(F) = \oplus_i \gr_i(F)$ associated to a Jordan-H\"older filtration of $F$ with torsion-free factors $\gr_i(F)$. Note that $F^\dast$ is independent of the Jordan-H\"older filtration. Second, if $S$ is a scheme of finite type and $\sE \in D^b(S \times X)$ a family of PT-semistable objects parameterized by $S$, for each $t \in S$ we set 
+\[ E_t = \sE|_{\{t\} \times X}, \quad F_t = \sH^0(\sE_t), \quad T_t = \sH^1(\sE_t), \quad Q_t = F_t^\dd/F_t. \]
 
-So let $S$ be a smooth, proper, connected curve and let $\sE \in D^b(S \times X)$ be a family of PT-semistable objects corresponding to a map $S \to \sM^{\text{PT}}_X(v)$. For each $s \in S$, denote 
-\[ \sE_s = \sE|_{\{s\} \times X}, \quad F_s = \sH^0(\sE_s), \quad T_s = \sH^1(\sE_s), \quad Q_s = F_s^\dd/F_s. \]
-The following in particular proves the first part of Theorem \ref{fiberdescription}.
 \begin{prop}\label{dd-S-equiv-Z}
-If the pullback of $\sL$ to $S$ has degree 0, then the sheaves $F_s^{\ast\ast}$ are isomorphic for all $s \in S$, and there exists an open set $U \subs X$ whose complement $Y = X \setminus U$ has codimension 2 such that for every $s \in S$, the support of $F_t^\dd/F_t$ is contained in $Y$.
+Let $S$ be a smooth, proper, connected curve and $f: S \to \sM^{\text{PT}}_Z(v)$ a map corresponding to the family $\sE \in D^b(S \times X)$. If $\deg(f^*\sL) = 0$, then 
+\begin{enumerate}[(i)]
+    \item the sheaves $F_t^{\ast\ast}$ are isomorphic for all $t \in S$, and
+    \item there exists a closed 1-dimensional subset $Y \subset X$ such that $\Supp(Q_t) \subs Y$ for every $t \in S$.
+\end{enumerate}
 \end{prop}
 
 \begin{proof}
-Fix a point $s_0 \in S$, and let $a > 0$ and $U' \subs |\Oh_X(a)| \times |\Oh_X(a)|$ be as in Theorem \ref{globgen}. By the theorem, for each $z \in U'$ we can find a sheaf $G$ on the fiber $Z_z$ such that the section $\de_G$ of $\sL_2^{\otimes a^4}|_S = \la_{\sE_{Z_z}}(G)$ is nonzero at $s_0 \in S$. But by assumption $\deg(\sL_2^{\otimes a^4}|_S) = 0$, so the section $\de_G$ must be nonzero at every point $s \in S$. This implies that
-\[ \Hh^0(Z_z, \sE_s|^\LL_{Z_z} \otimes G) = \Hh^1(Z_z, \sE_s|^\LL_{Z_z} \otimes G) = 0. \]
-By Lemma \ref{supportintersection} below, the curve $Z_z$ does not meet the supports of $Q_s$ or $T_s$ for any $z \in U'$ and $s \in S$. In particular, the supports of the sheaves $Q_s$ must be contained in the complement $Y$ of the union $U = \cup_{z \in U'} Z_z \subs X$ of all the $Z_z$ for $z \in U'$, which by Lemma \ref{codim2union} below is a closed 1-dimensional subset. This proves the second claim.
+Fix a point $t_0 \in S$ and let $a > 0$ and $U' \subs S_{a,a}$ be as in Theorem \ref{globgen}, so that for each $s \in U'$ we can find an integer $m > 0$ and a sheaf $G$ on the curve $C_s \coloneqq Z^{a,a}_s$ such that the section $\de_G$ of $\sL_2^{\otimes m a^4}|_S = \la_{\sE_{C_s}}(G)^\vee|_S$ is nonzero at $t_0 \in S$. But by assumption $\deg(\sL_2^{\otimes m a^4}|_S) = 0$, so the section $\de_G$ must be nonzero at every point $t \in S$. This implies that
+\[ \Hh^0(C_s, \sE_t|^\LL_{C_s} \otimes G) = \Hh^1(C_s, \sE_t|^\LL_{C_s} \otimes G) = 0. \]
+By Proposition \ref{restprop}, the curve $C_s$ cannot meet the supports of $Q_t$ or $T_t$ for any $s \in U'$ and $t \in S$. In particular, the supports $\Supp(Q_t)$ must be contained in the complement $Z = X \setminus U$ of the union $U = \cup_{s \in U'} C_s \subs X$ of all the curves $C_s$ for $s \in U'$, which by Lemma \ref{codim2union} is a closed 1-dimensional subset. This proves the second claim.
 
-To prove the first claim, we give a variant of the restriction argument in the proof of Theorem \ref{globgen}. Fix $s, t \in S$, and fix a Jordan-H\"older filtration
-\[ 0 \subset F_s^{(1)} \subset \cdots \subset F_s^{(k_s-1)} \subset F_s^{(k_s)} = F_s \]
-with $\mu$-stable torsion-free factors $G_s^{(i)} = F_s^{(i)}/F_s^{(i-1)}$, and similarly for $F_t$. Note that 
-\[ F_s^\dast = \left(\oplus_i G_s^{(i)}\right)^\dd, \quad F_t^\dast = \left(\oplus_i G_t^{(i)}\right)^\dd. \]
-First, we can choose an integer $a \gg 0$ and a smooth, connected surface $H \in |\Oh_X(a)|$ such that the restrictions $F_s|_H$ and $F_t|_H$ are $\mu$-semistable and torsion-free \cite[Theorem 7.1.1]{HL} and the restrictions $G_s^{(i)}|_H$ and $G_t^{(i)}|_H$ of all the Jordan-H\"older factors are $\mu$-stable and torsion-free \cite[Theorem 7.2.8]{HL} on $H$. This implies that the restricted filtration
-\[ 0 \subset F_s^{(1)}|_H \subset \cdots \subset F_s^{(k_s-1)}|_H \subset F_s^{(k_s)}|_H = F_s|_H \]
-is a Jordan-H\"older filtration for $F_s|_H$, and similarly for $F_t$. We can also assume that $H$ avoids the finitely many (codimension 2 or 3) associated points of each of the sheaves $(G_s^{(i)})^\dd/G_s^{(i)}$ and $(G_t^{(i)})^\dd/G_t^{(i)}$. We may also assume that $H$ avoids the finitely many singular points of $F_s^\dast$ and $F_t^\dast$, implying that $F_s^\dast|_H$ and $F_t^\dast|_H$ are locally free. Moreover, since $F_s^\dast$ and $F_t^\dast$ are reflexive, by increasing $a$ if necessary, we may assume that 
-\[ \Ext^j(F_s^\dast, F_t^\dast(-H)) = \Ext^j(F_t^\dast, F_s^\dast(-H)) = 0 \]
-for $j = 0, 1$, so that $\Hom(F_s^\dast, F_t^\dast) = \Hom(F_s^\dast|_H, F_t^\dast|_H)$ and similarly with $F_s$ and $F_t$ interchanged, implying that $F_s^\dast \cong F_t^\dast$ if and only if $F_s^\dast|_H \cong F_t^\dast|_H$.
+To prove the first claim, we give a variant of the restriction argument in the proof of Theorem \ref{globgen}. The argument is similar to the proof of \cite[Lemma 8.2.12]{HL} Fix $t_1, t_2 \in S$, and for $j = 1, 2$ fix a Jordan-H\"older filtration
+\[ 0 \subset F_{t_j}^{(1)} \subset \cdots \subset F_{t_j}^{(k_j-1)} \subset F_{t_j}^{(k_j)} = F_{t_j} \]
+with $\mu$-stable torsion-free factors $G_{t_j}^{(i)} = F_{t_j}^{(i)}/F_{t_j}^{(i-1)}$. Note that 
+\[ F_{t_j}^\dast = \left(\oplus_i G_{t_j}^{(i)}\right)^\dd. \]
 
-By the same theorems, we can choose an integer $b \gg 0$ and a curve $C \in |\Oh_H(b)|$ such that that again the restrictions $F_s|_C$ and $F_t|_C$ are semistable and the restrictions $G_s^{(i)}|_C$ and $G_t^{(i)}|_C$ are stable, implying that 
-\[ \gr(F_s)|_C \cong \gr(F_s|_C) \qquad \text{and} \qquad \gr(F_t)|_C \cong \gr(F_t|_C). \]
-Since $H$ avoids the associated points of each of $(G_s^{(i)})^\dd/G_s^{(i)}$ and $(G_t^{(i)})^\dd/G_t^{(i)}$, we may assume that $C$ avoids the supports of $(G_s^{(i)})^\dd/G_s^{(i)}$ and $(G_t^{(i)})^\dd/G_t^{(i)}$ altogether, implying that
-\[ F_s^\dast|_C \cong \gr(F_s)|_C \cong \gr(F_s|_C) \qquad \text{and} \qquad F_t^\dast|_C \cong \gr(F_t)|_C \cong \gr(F_t|_C). \]
-Moreover, since $F_s^\dast|_H$ and $F_t^\dast|_H$ are locally free, we may, by increasing $b$ if necessary, assume that $\Hom(F_s^\dast, F_t^\dast) = \Hom(F_s^\dast|_C, F_t^\dast|_C)$ and $\Hom(F_t^\dast, F_s^\dast) = \Hom(F_t^\dast|_C, F_s^\dast|_C)$. Finally, we can assume that $H^1(X, \Oh_X(b-a)) = 0$ so that $H^0(X, \Oh_X(b)) \to H^0(X, \Oh_X(b))$ is surjective, implying that $C = H \cap H'$ for a surface $H' \in |\Oh_X(b)|$. With these choices, it is sufficient to show that $F_s|_C$ and $F_t|_C$ are S-equivalent. 
+First, we can choose an integer $a \gg 0$ and a smooth, connected surface $D \in |\Oh_X(a)|$ such that $D$ avoids the supports of $T_{t_1}$ and $T_{t_2}$, the restrictions $F_{t_1}|_D$ and $F_{t_2}|_D$ are $\mu$-semistable and torsion-free \cite[Theorem 7.1.1]{HL} and the restrictions $G_{t_1}^{(i)}|_D$ and $G_{t_2}^{(i)}|_D$ of all the Jordan-H\"older factors are $\mu$-stable and torsion-free \cite[Theorem 7.2.8]{HL} on $D$. This implies that for $j = 1, 2$, the restricted filtration
+\[ 0 \subset F_{t_j}^{(1)}|_D \subset \cdots \subset F_{t_j}^{(k_j-1)}|_D \subset F_{t_j}^{(k_j)}|_D = F_{t_j}|_D \]
+is a Jordan-H\"older filtration for $F_{t_j}|_D$. We can also assume that $D$ avoids the finitely many (codimension 2 or 3) associated points of each of the sheaves $(G_{t_1}^{(i)})^\dd/G_{t_1}^{(i)}$ and $(G_{t_2}^{(i)})^\dd/G_{t_2}^{(i)}$. We may also assume that $D$ avoids the finitely many singular points of $F_{t_1}^\dast$ and $F_{t_2}^\dast$, implying that $F_{t_1}^\dast|_D$ and $F_{t_2}^\dast|_D$ are locally free. Moreover, since $F_{t_1}^\dast$ and $F_{t_2}^\dast$ are reflexive, by increasing $a$ if necessary, we may assume that 
+\[ \Ext^l(F_{t_1}^\dast, F_{t_2}^\dast(-D)) = \Ext^l(F_{t_2}^\dast, F_{t_1}^\dast(-D)) = 0 \]
+for $l = 0, 1$, so that $\Hom(F_{t_1}^\dast, F_{t_2}^\dast) = \Hom(F_{t_1}^\dast|_D, F_{t_2}^\dast|_D)$ and similarly with $F_{t_1}$ and $F_{t_2}$ interchanged, implying that $F_{t_1}^\dast \cong F_{t_2}^\dast$ if and only if $F_{t_1}^\dast|_D \cong F_{t_2}^\dast|_D$.
 
-By \ref{linebundleidentification}, we have $\la_{\sE_C}(w|_C) \cong \sL^{\otimes a^2 b^2}$, and the class $-w|_C \in K(X)$ is represented by a locally free sheaf $M$ on $C$. By \ref{seshadrimainlemma1}, we can choose $M$ such that
-\[ H^0(C, F_s|_C \otimes M) = H^1(C, F_s|_C \otimes M) = 0. \]
-This implies that the section $\de_M$ of $\la_{\sE_C}(M)^\vee = \sL^{\otimes a^2 b^2}$ is nonvanishing at $s \in S$, hence nonvanishing everywhere. Thus, like above, the family $\sE_C$ is a family of semistable sheaves on $C$ parameterized by $S$, and by \ref{seshadrimainlemma2}, the sheaves in this family are all S-equivalent. This concludes the proof.
+Using \cite[Theorem 7.1.1]{HL} and \cite[Theorem 7.2.8]{HL} again, we can choose an integer $b \gg 0$ and a curve $C \in |\Oh_D(b)|$ such that that again the restrictions $F_{t_1}|_C$ and $F_{t_2}|_C$ are semistable and the restrictions $G_{t_1}^{(i)}|_C$ and $G_{t_2}^{(i)}|_C$ are stable, implying that 
+\[ \gr(F_{t_1})|_C \cong \gr(F_{t_1}|_C) \qquad \text{and} \qquad \gr(F_{t_2})|_C \cong \gr(F_{t_2}|_C). \]
+Since $D$ avoids the associated points of each of $(G_{t_1}^{(i)})^\dd/G_{t_1}^{(i)}$ and $(G_{t_2}^{(i)})^\dd/G_{t_2}^{(i)}$, we may assume that $C$ avoids the supports of $(G_{t_1}^{(i)})^\dd/G_{t_1}^{(i)}$ and $(G_{t_2}^{(i)})^\dd/G_{t_2}^{(i)}$ altogether, implying that
+\[ F_{t_1}^\dast|_C \cong \gr(F_{t_1})|_C \cong \gr(F_{t_1}|_C) \qquad \text{and} \qquad F_{t_2}^\dast|_C \cong \gr(F_{t_2})|_C \cong \gr(F_{t_2}|_C). \]
+Moreover, since $F_{t_1}^\dast|_D$ and $F_{t_2}^\dast|_D$ are locally free, we may, by increasing $b$ if necessary, assume that $\Hom(F_{t_1}^\dast, F_{t_2}^\dast) = \Hom(F_{t_1}^\dast|_C, F_{t_2}^\dast|_C)$ and $\Hom(F_{t_2}^\dast, F_{t_1}^\dast) = \Hom(F_{t_2}^\dast|_C, F_{t_1}^\dast|_C)$. Finally, we can assume that $H^1(X, \Oh_X(b-a)) = 0$ so that $H^0(X, \Oh_X(b)) \to H^0(D, \Oh_D(b))$ is surjective, implying that $C = D \cap D'$ for a surface $D' \in |\Oh_X(b)|$. With these choices, it is sufficient to show that $F_{t_1}|_C$ and $F_{t_2}|_C$ are S-equivalent. 
 
+By Proposition \ref{linebundleidentification}, we have $\la_{\sE_C}(m w|_C) \cong \sL^{\otimes m a^2 b^2}$, and the class $- m w|_C \in K(X)$ is represented by a locally free sheaf $M$ on $C$. Since $F_{t_1}|_C$ is semistable on $C$, by Lemma \ref{seshadrimainlemma1}, we can choose $M$ for large enough $m > 0$ so that
+\[ H^0(C, F_{t_1}|_C \otimes M) = H^1(C, F_{t_1}|_C \otimes M) = 0. \]
+This implies that the section $\de_M$ of $\la_{\sE_C}(M)^\vee = \sL^{\otimes m a^2 b^2}$ is nonvanishing at $t_1 \in S$, hence nonvanishing everywhere, or equivalently,
+\[ H^0(C, F_t|_C \otimes M) = H^1(C, F_t|_C \otimes M) = 0 \]
+for all $t \in S$. Thus, by Proposition \ref{restprop}, $C$ cannot meet the support of $T_t$ or $Q_t$ for any $t \in S$, implying that $\sE_C$ is a family of sheaves on $C$ parameterized by $S$. By Remark \ref{seshadri1converse}, the sheaves in the family $\sE_C$ are all semistable, and by Lemma \ref{seshadrimainlemma2}, they are all S-equivalent. In particular, $F_{t_1}|_C$ and $F_{t_2}|_C$ are S-equivalent, concluding the proof.
 \end{proof}
 
-Assume now that $\gcd(\rk(v), H\cdot c_1(v)) = 1$ so there are no strictly PT-semistable objects, and $F_t$ is a $\mu$-stable sheaf for every $t \in S$. From Proposition \ref{dd-S-equiv-Z}, we obtain a closed 1-dimensional subset $Z \subs X$ with the property that $\Supp(Q_t) \subs Z$ for all $t \in S$. Let $\eta_1,\ldots,\eta_n \in X$ denote the generic points of the irreducible components of $Z$. 
-
+In the coprime case we get a sharper statement. 
 \begin{prop}\label{lengthconstant}
-The length $l_{\eta_i}(Q_t)$ is constant for $i = 1, \ldots, n$. 
+Assume $\gcd(\rk(v), H^2 \cdot c_1(v)) = 1$. If $S$ is a smooth, proper, connected curve and $f: S \to \sM^{\text{PT}}_X(v)$ is a map corresponding to the family $\sE \in D^b(S \times X)$, then $\deg(f^*\sL) = 0$ if and only if for all $t \in S$ 
+\begin{enumerate}[(i)]
+    \item the sheaves $F_t^\dd$ are isomorphic, and
+    \item the stalks of the sheaves $Q_t$ at every codimension 2 point $\eta \in X$ have the same length as modules over the local ring $\Oh_{X,\eta}$.
+\end{enumerate} 
 \end{prop}
 \begin{proof}
-Note first that since $F_t$ is already stable, by Proposition \ref{dd-S-equiv-Z}, the double duals $F_t^\dd$ are all isomorphic for $t \in S$. From the triangles
+$(\Leftarrow)$ Assume that (i) and (ii) hold. As in the proof of Proposition \ref{dd-S-equiv-Z}, for sufficiently large $a > 0$, we can find a curve $C = D_1 \cap D_2 \subs X$ with $D_1, D_2 \in |\Oh_X(a)|$ such that the restriction $F_t^\dd|_C$ is semistable on $C$. From (ii) we see that there is a pure 1-dimensional closed subset $Y \subs X$ containing the supports of the $Q_t$, and from (i) that for each $t \in S$, the sheaf $T_t$ is supported in the union $Y'$ of $Y$ and the finitely many points where $F_t^\dd$ is not locally free. Thus, $Y'$ is a 1-dimensional closed subset (with possibly 0-dimensional components), so we can choose $C$ to be disjoint from $Y'$. This implies that the restriction $\sE_C = \sE|_{S \times C}$ is an isotrivial family of stable sheaves on $C$. Thus, Lemma \ref{seshadrimainlemma2} implies that the determinantal line bundle $\la_{\sE_C}(-w|_C)$ has degree 0. But we have seen that $\la_{\sE_C}(-w|_C) = f^*\sL_2^{\otimes a^4}$.
+
+$(\Rightarrow)$ Assume that $\deg(f^*\sL) = 0$. Note that with the coprime assumption, $F_t$ is $\mu$-stable, so by Proposition \ref{dd-S-equiv-Z} the double duals $F_t^\dd$ are isomorphic for all $t \in S$, and there is a closed 1-dimensional subset $Y \subs X$ with the property that $\Supp(Q_t) \subs Y$ for all $t \in S$. Let $Y_1, \ldots, Y_n \subs Y$ denote the irreducible components and $\eta_i \in Y_i$ the generic points. 
+
+From the triangles
 \[ F_t \to \sE_t \to T_t[-1] \quad \text{and} \quad F_t \to F_t^\dd \to Q_t \]
 we get an equation for Hilbert polynomials
 \[ P(Q_t, m) + P(T_t, m) = P(F_t^\dd, m) - P(\sE_t, m), \]
-where $P(-,m) = \chi(X, (-) \otimes^\LL \Oh_X(m))$. The right hand side is independent of $t$ since $\sE$ is $S$-perfect and $F_t^\dd$ is independent of $t$. Thus, the left hand side is independent of $t$. Moreover, the degrees of $P(Q_t, m)$ and $P(T_t, m)$ are respectively 1 and 0, so we see that the leading coefficient of $P(Q_t, m)$ is independent of $t$. Now on the one hand, the leading coefficient is $\sum_i l_{\eta_i}(Q_t)$ by Lemma \ref{leadingcoeff1dim} below, and on the other hand each quantity $l_{\eta_i}(Q_t)$ is upper semicontinuous by Lemma \ref{uppersemi1} below. Since $S$ is connected, this implies that each $l_{\eta_i}(Q_t)$ must be constant.
+where $P(-,m) = \chi(X, (-) \otimes^\LL \Oh_X(m))$. The right hand side is independent of $t \in S$ since $\sE$ is $S$-perfect and $F_t^\dd$ is independent of $t$. Thus, the left hand side is independent of $t$. Moreover, the degrees of $P(Q_t, m)$ and $P(T_t, m)$ are respectively 1 and 0, so we see that the leading coefficient of $P(Q_t, m)$ is independent of $t$. Now on the one hand it follows from the Riemann-Roch theorem that the leading coefficient of $P(Q_t, m)$ is 
+\[ \sum_{i=1}^n l_{\eta_i}(Q_t) \deg Y_i. \]
+On the other hand each quantity $l_{\eta_i}(Q_t)$ is upper semicontinuous by Lemma \ref{uppersemi1} below. Since $S$ is connected, this implies that each $l_{\eta_i}(Q_t)$ must be constant.
+\end{proof}
+
+We now use Propositions \ref{dd-S-equiv-Z} and \ref{lengthconstant} to give a partial description of the fibers of the map $\phi: M^{\text{PT}}_Z(v) \to \overline{M}$ induced by $L$. Below we will give examples that show that $\phi$ is not finite in general, so we cannot expect $L$ to be ample.
+\begin{thm}\label{fiberdescription}
+Let $y \in \overline{M}$ be a closed point and let $\sM_y \subs \sM^{\mathrm{PT}}_Z(v)$ denote the fiber over $y$ of the composition $\sM^{\mathrm{PT}}_Z(v) \to M^{\mathrm{PT}}_Z(v) \xrightarrow{\phi} \overline{M}$. 
+\begin{enumerate}[(i)]
+    \item For all $\C$-points $t \in \sM_y$, the sheaves $F_t^\dast$ are isomorphic, and there exists a 1-dimensional closed subset $Y \subs X$ such that $\Supp(Q_t) \subs Y$.
+    \item If $\gcd(\rk(v), H^2 \cdot c_1(v)) = 1$, then for all $t \in \sM_y$, the sheaves $F_t^\dd$ are isomorphic, and for every point $\eta \in X$ of codimension 2, the lengths $l_\eta(Q_t)$ are equal.
+\end{enumerate}
+\end{thm}
+\begin{proof}
+Let $M_y \subs M^{\mathrm{PT}}_Z(v)$ denote the fiber of $\phi$ over $y \in \overline{M}$. Since $M_y$ is a proper and connected algebraic space, it can be covered by images of maps $S \to M_y$ where $S$ is a smooth, proper, connected curve. Moreover, by Lemma \ref{finitecurveextension}, after possibly taking a finite cover of $S$, we may assume that the map lifts to $f: S \to \sM^{\text{PT}}_Z(v)$, and the map $f$ has the property that $\deg(f^*\sL) = 0$. By Proposition \ref{dd-S-equiv-Z}, the sheaves $F_t^\dast$ are isomorphic along the image of $S$, and since any two points in $\sM_y$ can be connected by a chain of such curves, the sheaves $F_t^\dast$ must be isomorphic along all of $\sM_y$. This proves the first claim of (i).
+
+To see the second claim in (i), we note that by Lemma \ref{uppersemi1}, for each $t \in \sM_y$ there exists an open subset $U_t \subs \sM_y$ such that for any $t' \in U_t$, we have $\Supp(Q_{t'}) \subs \Supp(Q_t)$. Since $\sM_y$ is quasicompact, we can cover it by finitely many of these opens $U_{t_1}, \ldots, U_{t_m}$. Now the subset 
+\[ Y = \bigcup_{i=1}^m \Supp(Q_{t_i}), \]
+is closed and 1-dimensional subset, and we have $\Supp(Q_t) \subs Y$ for all $t \in \sM_y$.
+
+To prove (ii), note first that if $\gcd(\rk(v), H^2 \cdot c_1(v)) = 1$, then each $F_t$ is stable and hence $F_t^\dd = F_t^\dast$, so the first claim of (ii) follows from (i). On the other hand, by Proposition \ref{lengthconstant}, the lengths $l_\eta(Q_t)$ remain constant along a curve $S$ like above, and again since $\sM_y$ can be covered by images of these curves, the lengths must be constant along all of $\sM_y$.
 \end{proof}
 
 \begin{lem}\label{uppersemi1}
@@ -660,10 +618,7 @@ Let $W = \Spec \Oh_{X,\eta}$ be the spectrum of the local ring of $X$ at $\eta$ 
 
 Define $F \coloneqq \io_S^*\sE \in D^b(S \times W)$. We have $F|_{\{t\} \times W} = \io^*\sE_t$, and since localization is exact, pulling back along $\io$ commutes with taking cohomology sheaves, so that 
 \[ \sH^i(F|_{\{t\} \times W}) = \sH^i(\io^*\sE_t) = \io^*\sH^i(\sE_t), \quad i \in \Z. \]
-In particular, $\sH^i(F|_{\{t\} \times W}) = 0$ for $i \neq 0, 1$, and also
-\[ \sH^1(F|_{\{t\} \times W}) = \io^*T_t = 0 \]
-since $T_t$ is supported in codimension 3. Thus, $F$ is a sheaf on $S \times W$, flat over $S$ by \cite[Lemma 3.31]{huy-fourier}. 
-Thus, for each $t \in S$ we have a short exact sequence
+In particular, $\sH^i(F|_{\{t\} \times W}) = 0$ for $i \neq 0, 1$, and also $\sH^1(F|_{\{t\} \times W}) = \io^*T_t = 0$ since $T_t$ is supported in codimension 3. Thus, $F$ is a sheaf on $S \times W$, flat over $S$ by \cite[Lemma 3.31]{huy-fourier}, and for each $t \in S$ we have a short exact sequence
 \[ 0 \to F_t \to F_t^\dd \to Q_t \to 0. \]
 Now $\sExt^i(F_t^\dd, \Oh_W) = 0$ for $i > 0$ since $F_t^\dd$ is reflexive on the regular 2-dimensional scheme $W$, hence locally free. Thus, applying $\sHom(-, \Oh_W)$ to the above sequence and taking the long exact sequence gives isomorphisms
 \[ \sExt^1(F_t, \Oh_W) \cong \sExt^2(Q_t, \Oh_W), \quad \sExt^2(F_t, \Oh_W) \cong \sExt^3(Q_t, \Oh_W). \]
@@ -681,177 +636,146 @@ is an isomorphism. Thus, we have reduced to showing that $l_{(t,\eta)}(\sExt^1(F
 \end{proof}
 
 \begin{lem}\label{uppersemi2}
-Let $X$ and $S$ be schemes over $\C$ and let $F$ be a quasicoherent sheaf of finite type on $S \times X$. Assume that the restriction $F_t$ of $F$ to the fiber $\{t\} \times X$ is supported in codimension $d$ for every $t \in S$, and let $\eta \in X$ be a point of codimension $d$. The function that assigns to $t \in S$ the length $l_\eta((F_t)_\eta)$ of the stalk of $F_t$ at $\eta$ as a module over the local ring $\Oh_{X,\eta}$ is upper semicontinuous. 
+Let $X$ and $S$ be schemes over $\C$ and let $F$ be a quasicoherent sheaf of finite type on $S \times X$. Assume that the restriction $F_t$ of $F$ to the fiber $\{t\} \times X$ is supported in codimension $c$ for every $t \in S$, and let $\eta \in X$ be a point of codimension $d$. The function that assigns to $t \in S$ the length $l_\eta((F_t)_\eta)$ of the stalk of $F_t$ at $\eta$ as a module over the local ring $\Oh_{X,\eta}$ is upper semicontinuous. 
 \end{lem}
 \begin{proof}
-Note that, by the assumption on dimensions, the length of $F_t$ at $\eta$ is indeed finite. We want to reduce the statement to the familiar fact that the fiber dimension of a quasicoherent sheaf of finite type is upper semicontinuous. We may first replace $X$ by the $\Spec \Oh_{X,\eta}$. Now $F$ is set-theoretically supported on $S \times \{\eta\}$, so we may even replace $X$ by $\Spec \Oh_{X,\eta}/\frm^n$ for sufficiently large $n$, where $\frm \subs \Oh_{X,\eta}$ denotes the maximal ideal. Thus, we may assume that $X$ is the spectrum of a local artinian ring $A$ with maximal ideal $\frm$ whose residue field $K = A/\frm$ has transcendence degree $c = \dim X - d$ over $\C$. 
+Note that, by the assumption on dimensions, the length of $F_t$ at $\eta$ is indeed finite. We want to reduce the statement to the familiar fact that the fiber dimension of a quasicoherent sheaf of finite type is upper semicontinuous. We may first replace $X$ by the $\Spec \Oh_{X,\eta}$. Now $F$ is set-theoretically supported on $S \times \{\eta\}$, so we may even replace $X$ by $\Spec \Oh_{X,\eta}/\frm^n$ for sufficiently large $n$, where $\frm \subs \Oh_{X,\eta}$ denotes the maximal ideal. Thus, we may assume that $X$ is the spectrum of a local artinian ring $A$ with maximal ideal $\frm$ whose residue field $L = A/\frm$ is finitely generated over $\C$ and has transcendence degree $d = \dim X - c$.
 
-We can choose a set of elements $y_1, \ldots, y_c \in A$ whose images $\overline{y}_1,\ldots,\overline{y}_c$ in $L$ form a transcendence basis over $\C$. These elements determine a ring homomorphism
-\[ \phi: \C[x_1, \ldots, x_c] \xrightarrow{x_i \mapsto y_i} A. \]
-If $f \in \C[x_1,\ldots,x_c]$ is a nonzero polynomial, then the image of $\phi(f)$ in $L$ is nonzero since there are no algebraic relations among the $\overline{y}_i$'s. Thus, $\phi(f)$ lies outside the maximal ideal $\frm$, hence is a unit. Thus, we obtain a map $K \coloneqq \C(x_1,\ldots,x_c) \to A$. Since $A$ has a filtration by copies of $L$ and $L$ is a finite extension of $K$, this map makes $A$ into a finitely generated $K$-module. Thus, the induced map $S \times \Spec A \to S \times \Spec K$ is finite, and we can view $F$ as a quasicoherent sheaf of finite type on $S \times \Spec K$. Let $\xi \in \Spec K$ be the unique point. Now on the one hand
+We can choose a set of elements $y_1, \ldots, y_d \in A$ whose images $\overline{y}_1,\ldots,\overline{y}_d$ in $L$ form a transcendence basis over $\C$. These elements determine a ring homomorphism
+\[ \phi: \C[x_1, \ldots, x_d] \xrightarrow{x_i \mapsto y_i} A. \]
+If $f \in \C[x_1,\ldots,x_d]$ is a nonzero polynomial, then the image of $\phi(f)$ in $L$ is nonzero since there are no algebraic relations among the $\overline{y}_i$'s. Thus, $\phi(f)$ lies outside the maximal ideal $\frm$, hence is a unit. Thus, we obtain a map $K \coloneqq \C(x_1,\ldots,x_d) \to A$. Since $A$ has a filtration by copies of $L$ and $L$ is a finite extension of $K$, this map makes $A$ into a finitely generated $K$-module. Thus, the induced map $S \times \Spec A \to S \times \Spec K$ is finite, and we can view $F$ as a quasicoherent sheaf of finite type on $S \times \Spec K$. Let $\xi \in \Spec K$ be the unique point. Now on the one hand
 \[ l_\xi(F_t) = \deg(L/K) \, l_\eta(F_t), \]
 and on the other hand $l_\xi(F_t)$ is just the dimension of the fiber of $F_t$ at $\xi$ since $\Spec K$ is reduce, and this is an upper semicontinuous function of $t$.
 \end{proof}
 
-\begin{lem}\label{supportintersection}
-Let $E \in D^b(X)$ be an object fitting in a triangle
-\[ F \to E \to T[-1] \]
-where $F \in \Coh(X)$ is semistable and $T \in \Coh(X)$ is 0-dimensional, and denote $Q = F^\dd/F$. Let $C \subs X$ be a smooth, proper curve that does not contain any component of $\Supp(Q)$, and let $G$ be a nonzero vector bundle on $C$.
-\begin{enumerate}[(a)]
-    \item If $C$ meets $\Supp(T)$, then $\sH^1(E|^\LL_C)$ is a nonzero torsion sheaf, and we have $\Hh^1(C, E|^\LL_C \otimes G) \neq 0$.
-    \item If $C$ does not meet $\Supp(T)$ but does meet $\Supp(Q)$, then $\sH^0(E|^\LL_C)$ has a nonzero torsion subsheaf, and we have $\Hh^0(C, E|^\LL_C \otimes G) \neq 0$.
-\end{enumerate}
-\end{lem}
-\begin{proof}
-    \begin{enumerate}[(a)]
-    \item Since $C$ passes through the support of $T$, the sheaf $\sH^0(T|^\LL_C)$ is nonzero and torsion. The long exact sequence of cohomology sheaves associated to the triangle
-    \[ F|^\LL_C \to E|^\LL_C \to T|^\LL_C[-1] \]
-    shows that $\sH^1(E|^\LL_C) \cong \sH^1(T|^\LL_C[-1]) = \sH^0(T|^\LL_C)$ is nonzero torsion, and hence so is $\sH^1(E|^\LL_C \otimes G) = \sH^1(E|^\LL_C) \otimes G$. The long exact sequence of hypercohomology groups associated to the triangle 
-    \[ \sH^0(E|^\LL_C) \otimes G \to E|^\LL_C \otimes G \to \sH^1(E|^\LL_C)[-1] \otimes G \]
-    now gives a surjection
-    \[ \Hh^1(C, E|^\LL_C \otimes G) \twoheadrightarrow \Hh^1(C, \sH^1(E|^\LL_C)[-1] \otimes G) = H^0(C, \sH^1(E|^\LL_C) \otimes G) \neq 0. \]
-    
-    \item The question is local on $X$, so in a neighborhood of a point in the intersection of $C$ and $\Supp(Q)$, we can express $C$ as the intersection of two smooth surfaces $H$ and $H'$ cut out by functions $f$ and $g$ respectively, neither of which vanishes at the associated points of $Q$. Thus, we have an exact triangle
-    \[ Q \xrightarrow{f} Q \to Q|^\LL_H \]
-    where the map induced by $f$ is an injective map of sheaves, showing that $Q|^\LL_H = Q|_H$ is a 0-dimensional sheaf. Now since $g$ vanishes at some point in the support of $Q|_H$, the first map in the triangle
-    \[ Q|_H \xrightarrow{g} Q|_H \to Q|^\LL_C \]
-    is not an injection, so the sheaf $\sH^{-1}(Q|^\LL_C)$ is a nonzero torsion sheaf on $C$.
-    
-    Now since $C$ does not meet $\Supp(T)$ we have $E|^\LL_C = F|^\LL_C$. The short exact sequence
-    \[ 0 \to F \to F^\dd \to Q \to 0 \]
-    induces an exact triangle
-    \[ F|^\LL_C \to F^\dd|^\LL_C \to Q|^\LL_C. \]
-    As above, $F^\dd|^\LL_H$ is a torsion-free sheaf, hence $\sH^{-1}(F^\dd|^\LL_C) = 0$, and so the long exact sequence of cohomology sheaves gives an injection
-    \[ \sH^{-1}(Q|^\LL_C) \hookrightarrow F|_C = \sH^0(E|^\LL_C). \]
-    Finally, taking the long exact sequence in hypercohomology associated to the triangle
-    \[ \sH^0(E|^\LL_C) \otimes G \to E|^\LL_C \otimes G \to \sH^1(E|^\LL_C)[-1] \otimes G \]
-    gives an inclusion 
-    \[ \Hh^0(C, \sH^0(E|^\LL_C) \otimes G)) \hookrightarrow \Hh^0(C, E|^\LL_C \otimes G), \]
-    and the first group is nonzero since $\sH^0(E|^\LL_C) \otimes G$ contains a nonzero torsion subsheaf.
-\end{enumerate}
-\end{proof}
+\section{A counterexample to ampleness}\label{section:counterex}
+We now give an example of a family of PT-stable objects such that the line bundle $\sL$ is not ample on the base of the family. In fact, the example is a family of stable pairs on $\p^3$, that is, generically surjective maps $\Oh_{\p^3} \to G$ where $G$ is a coherent of pure dimension 1.
+\begin{expl}
+We consider stable pairs of the form $\Oh_{\p^3} \to \Oh_L(1)$, where $L \subs \p^3$ is a line. Let $h = [\Oh_H] \in K(\p^3)$ denote the class of a plane. Note that a map $\Oh_{p^3} \to \Oh_L(1)$, viewed as an object in $D^b(\p^3)$, has class
+\[ v = [\Oh_{p^3}] - [\Oh_L(1)] = 1 - h^2 - h^3 \in K(\p^3), \]
+and thus
+\[ v_2(v) = - \chi(v \cdot h^3) h^2 + \chi(v \cdot h^2) h^3 = - h^2 + h^3 \in K(\p^3). \] 
+We will construct the "universal family" $\sE$ of objects of this form parameterized by a $\p^1$-bundle over the Grassmannian of lines in $\p^3$, and show that the map induced by $\sL_2 = \la_\sE(v_2(v))$ factors through the projection to the Grassmannian.
 
+Let $S = \Gr(2,4)$ denote the Grassmannian of lines in $\p^3$ and let $\Oh_S^{\oplus 4} \twoheadrightarrow \sQ$ denote the universal quotient. The incidence correspondence $Z \subs S \times \p^3$ is obtained from the induced surjection $\Sym^\bullet \Oh_S^{\oplus 4} \twoheadrightarrow \Sym^\bullet \sQ$ as
+\[ Z = \Proj_S \Sym^\bullet \sQ \hookrightarrow \Proj_S \Sym^\bullet \Oh_S^{\oplus 4} = S \times \p^3. \]
+Let $p: S \times \p^3 \to S$ and $q: S \times \p^3 \to \p^3$ denote the projections and set $\sF = p_*(\Oh_Z(1))$. Note that over $t \in S$ corresponding to the line $L \subs X$, the restriction of $\Oh_Z(1)$ to the fiber $p^{-1}(t)$ is just $\Oh_L(1)$, so it follows from Cohomology and Base Change that $\sF$ is locally free of rank 2. 
 
-Let $a > 0$ be an integer and let $S = |\Oh(a)| \times |\Oh(a)|$, where $|\Oh(a)| = \p(H^0(X, \Oh_X(a))$ is the complete linear system of $\Oh_X(a)$. Let $Z \subs S \times X$ denote the incidence correspondence of complete intersections $D_1 \cap D_2 \subs X$ with $D_1, D_2 \in |\Oh_X(a)|$. Consider the diagram
+Let $\p(\sF) = \Proj_S \Sym^\bullet \sF^\vee$ and consider the diagram:
 \begin{center}
     \begin{tikzpicture}
     \matrix (m) [matrix of math nodes, row sep=3em, column sep=3em]
-    { Z & X \\
-    S & \\};
+    { \p(\sF) \times \p^3 & S \times \p^3 & \p^3 \\
+    \p(\sF) & S &  \\};
     \path[->]
-    (m-1-1) edge node[auto] {$ q $} (m-1-2)
-    (m-1-1) edge node[auto,swap] {$ p $} (m-2-1)
+    (m-1-1) edge node[auto] {$ \tau $} (m-1-2)
+    (m-1-2) edge node[auto,swap] {$ q $} (m-1-3)
+    (m-1-1) edge node[auto,swap] {$ p_\sF $} (m-2-1)
+    (m-1-2) edge node[auto,swap] {$ p $} (m-2-2)
+    (m-2-1) edge node[auto,swap] {$ \pi $} (m-2-2)
     ;        
     \end{tikzpicture}
 \end{center}
-\begin{lem}\label{codim2union}
-    If $U \subs S$ is a nonempty open set, then $\bigcup_{t \in U} Z_t = q(p^{-1}(U)) \subs X$ is an open subset whose complement has codimension 2.
-\end{lem}
-\begin{proof}
-    The map $q: Z \to X$ is a product of projective bundles (see e.g. \cite[Section 3.1]{HL}), hence flat, and in particular open, and so $q(p^{-1}(U))$ is nonempty and open. If $\eta \in X$ is a point of codimension 1 with closure $Y \subs X$, then the intersection $D_1 \cap D_2 \cap Y$ is nonempty for any $D_1, D_2 \in |\Oh_X(a)|$ since $\Oh_X(a)$ is ample. Thus, $q(p^{-1}(U)) \cap Y$ is nonempty and open in $Y$, hence contains $\eta$ since $Y$ is irreducible.
-\end{proof}
+Note that $\p(\sF)$ parameterizes lines $L \subs X$ together with a nonzero section of $\Oh_L(1)$ up to scaling. On $S \times \p^3$ we have a canonical map $p^* \sF \to \Oh_Z(1)$, and on $\p(\sF)$ a canonical inclusion $\Oh_\pi(-1) \hookrightarrow \pi^*\sF$. From these we can construct a map 
+\[ \Oh_\tau(-1) = p_\sF^*\Oh_\pi(1) \to p_\sF^* \pi^* \sF = \tau^* p^* \sF \to \tau^*\Oh_Z(1) \]
+on $\p(\sF) \times \p^3$. The restriction of this map to the fiber $p_\sF^{-1}(t)$ over a point $t \in \p(\sF)$ is just the section $\Oh_{\p^3} \to \Oh_L(1)$ parameterized by the point $t$. Thus, the complex
+\[ \sE: \quad \cdots \to 0 \to \sE_0 = \Oh_\tau(-1) \to \sE_1 = \tau^*\Oh_Z(1) \to 0 \to \cdots,  \]
+considered as an object in $D^b(\p(\sF) \times \p^3)$, is a family of stable pairs parameterized by $\p(\sF)$.
+
+It follows from properties of determinantal line bundles and the exact triangle
+\[ \sE \to \Oh_\tau(-1) \to \tau^*\Oh_Z(1) \]
+in $D^b(\p(\sF) \times \p^3)$ that for any $u \in K(X)$ we have
+\begin{align*}
+    \la_\sE(u) & = \la_{\Oh_\tau(-1)}(u) \otimes \la_{\tau^*\Oh_Z(1)}(u)^\vee \\
+    & = \la_{\Oh_\tau(-1)}(u) \otimes \pi^* \la_{\Oh_Z(1)}(u)^\vee
+\end{align*}
+Note first that for any vector bundle $V$ on $\p^3$, we have
+\begin{align*}
+    \la_{\Oh_\tau(-1)}(V) & = \det R p_{\sF *}(\Oh_\tau(-1) \otimes \tau^* q^*V) = \det R p_{\sF *}(p_\sF^* \Oh_\pi(-1) \otimes \tau^* q^*V) \\
+    & = \det (\Oh_\pi(-1) \otimes^\LL R p_{\sF *} \tau^* q^*V)) = \det(\Oh_\pi(-1) \otimes^\LL R\Ga(\p^3, V)) \\
+    & = \Oh_\pi(-1)^{\otimes \chi(V)},
+\end{align*}
+and by linearity this formula extends to any class $u \in K(\p^3)$. In particular, since 
+\[ \chi(v_2(v)) = -\chi(h^2) + \chi(h^3) = -1 + 1 = 0, \]
+we have $\la_{\Oh_\tau(-1)}(v_2(v)) = \Oh_{\p(\sF)}$. This already shows that $\la_\sE(v_2(v))$ cannot be ample since it is the pullback of a line bundle along a $\p^1$-bundle.
+
+To compute the second factor in $\la_\sE(u)$, we begin with the observation that for $n \ge 0$, we have $p_*(\Oh_Z(n)) = \Sym^n \sQ$ and the higher pushforwards vanish, and $\det(\Sym^n \sQ) = (\det\sQ)^{\otimes \binom{n+1}{2}}$. Using the exact sequences
+\[ 0 \to \Oh_{\p^3}(n) \to \Oh_{\p^3}(n+1)^{\oplus 4} \to \Oh_{\p^3}(n+2)^{\oplus 6} \to \Oh_{\p^3}(n+3)^{\oplus 6} \to \Oh_{\p^3}(n+4) \to 0, \]
+and desceding induction, we can see that the formula $\det R p_*(\Oh_Z(n)) = (\det\sQ)^{\otimes \binom{n+1}{2}}$ holds for all $n \in \Z$. Now $h^2, h^3 \in K(\p^3)$ are represented by the structure sheaves of a line $L \subs \p^3$ and a point $x \in \p^3$ respectively. Using the Koszul resolutions
+\[ 0 \to \Oh_{\p^3}(-2) \to \Oh_{\p^3}(-1)^{\oplus 2} \to  \Oh_{\p^3} \to \Oh_L \to 0 \]
+and
+\[ 0 \to \Oh_{\p^3}(-3) \to \Oh_{\p^3}(-2)^{\oplus 3} \to \Oh_{\p^3}(-1)^{\oplus 3} \to \Oh_{\p^3} \to \Oh_x \to 0 \]
+we see that
+\[ \la_{\Oh_Z(1)}(h^2) = \det \sQ, \quad \la_{\Oh_Z(1)}(h^3) = \Oh_S. \]
+Thus,
+\[ \la_\sE(v_2(v)) = \pi^* \la_{\Oh_Z(1)}(v_2(v))^\vee = \pi^* \det \sQ. \]
+The line bundle $\det \sQ$ is very ample as it gives the Pl\"ucker embedding $\Gr(2,4) \hookrightarrow \p^5$. Thus, the map given by the line bundle $\la_\sE(v_2(v))$ on $\p(\sE)$ factors through $\pi$ but also separates the fibers of $\pi$.
+\end{expl}
 
 
-\begin{lem}\label{seshadrimainlemma2}
-    Let $C$ and $S$ be two smooth, projective, connected curves, and let $\sF \in \Coh(S \times X)$ be a family of semistable locally free sheaves on $C$ of rank $r > 0$ and degree $d$. Let $G \in \Coh(X)$ be a locally free sheaf such that
-    \[ r \deg G + (d + r(1-g)) \rk G = 0. \]
-    If the determinantal line bundle $\la_{\sF}(G) \in \Pic(S)$ has degree 0, then the semistable sheaves $\sF_s$ are all S-equivalent.
-\end{lem}
-
-\begin{lem}\label{leadingcoeff1dim}
-
-\end{lem}
-
-\section{Notes}
-\begin{itemize}
-    \item If $F \in \Coh(X)$ is reflexive and $T \in \Coh(X)$ is 0-dimensional, then $\Hom(T[-1],F) = \Ext^1(T, F) = 0$ for any $p \in X$. Here's why. Zariski-locally on $X$ we have an exact sequence
-    \[ 0 \to F \to E \to G \to 0, \]
-    where $E$ is locally free and $G$ is torsion-free (see Hartshorne's stable reflexive stuff). Thus, we have an exact sequence
-    \[ \Hom(T,G) \to \Ext^1(T, F) \to \Ext^1(T, E). \]
-    Now $\Hom(T,G) = 0$ since $G$ is torsion-free, and
-    \[ \Ext^1(T, E) \cong \Ext^2(E, T \otimes \om_X)^\vee = H^2(X, E^\vee \otimes T)^\vee = 0 \]
-    since $E^\vee \otimes T$ is 0-dimensional. This means that $\sExt^1(T, F) = 0$. Now the low-degree exact sequence associated to the local-to-global spectral sequence
-    \[ E^{p,q}_2 = H^p(X, \sExt^q(T,F)) \Rightarrow \Ext^{p+q}(T, F) \]
-    starts
-    \[ 0 \to H^1(X, \sHom(T, F)) \to \Ext^1(T, F) \to H^0(X, \sExt^1(T, F)). \]
-    Since $\sHom(T, F) = \sExt^1(T, F) = 0$, we have $\Ext^1(T, F) = 0$.
-    
-    Actually, since $X$ is projective, we can find a global exact sequence
-    \[ 0 \to F \to E \to G \to 0. \]
-    Let $F_1 \to F_0 \to F^\vee$ be a resolution by locally free sheaves. Applying $\sHom(-,\Oh_X)$ gives
-    \[ 0 \to F \cong F^\dd \to F_0^\vee \to F_1^\vee. \]
-    Take $E = F_0^\vee$ and $G = \im(F_0^\vee \to F_1^\vee)$.
-    
-    \item It is shown above that if $E$ is PT-semistable, then $Q = F^\dd/F$ is pure 1-dimensional, where $F = \sH^0(E)$. Conversely, assume that $F \in \Coh(X)$ is torsion-free, and $Q = F^\dd/F$ is pure 1-dimensional. Applying $\Hom(T[-1], -)$ to the sequence
-    \[ 0 \to F \to F^\dd \to Q \to 0 \]
-    we obtain the exact sequence
-    \[ \Hom(T, Q) \to \Hom(T[-1], F) \to \Ext^1(T, F^\dd). \]
-    Now $\Hom(T, Q) = 0$ because $Q$ is pure 1-dimensional, and $\Ext^1(T, F^\dd) = 0$ by the previous point.
-    
-    \item \textbf{Lemma:} Let $F$ be a reflexive sheaf, let $T$ be a 0-dimensional sheaf, and let $\al: T \to F[2]$ be a morphism in $D^b(X)$ (i.e. a class in $\Ext^2(T,F)$). There is a unique largest subsheaf $T' \subs T$ such that the composition $T' \hookrightarrow T \xrightarrow{\al} F[2]$ is zero. \textbf{Proof:} Let $T_1, T_2 \subs T$ are two subsheaves for which compositions are zero. Define $T' \subs T$ as the image of the map $T_1 \oplus T_2 \to T$ induced by the inclusions. Applying $\Hom(-, F[2])$ to the composition $T_1 \oplus T_2 \twoheadrightarrow T' \hookrightarrow T$ gives a sequence
-    \[ \Ext^2(T, F) \to \Ext^2(T', F) \to \Ext^2(T_1 \oplus T_2, F) = \Ext^2(T_1, F) \oplus \Ext^2(T_2, F) \]
-    and we know that $\al$ maps to zero in the last group. But if $T''$ denotes the kernel of $T_1 \oplus T_2 \to T$, then as we saw above $\Ext^1(T'', F) = 0$, so that he map $\Ext^2(T', F) \to \Ext^2(T_1 \oplus T_2, F)$ is injective. Thus, $\al$ maps to zero in $\Hom(T', F[2])$. 
-    
-    Now take the sum of all subsheaves to which $\al$ restricts to zero. 
-    
-    \item Using this we can write a PT-semistable objects as a sort of stable pair. Let $E \in D^b(X)$ be an object that fits in a triangle
-    \[ F \to E \to T[-1] \]
-    where $F$ is torsion-free and $T$ is 0-dimensional, and assume $\Hom(\Oh_p[-1], E) = 0$ for all $p \in X$. By the previous lemma, we find a short exact sequence 
-    \[ 0 \to T' \to T \to T'' \to 0 \]
-    where $T'$ is the largest submodule of $T$ such that the composition $T' \to T \to F \to F^\dd$ is zero. Now the map $T[-2] \to F \to F^\dd$ factors through a unique map $T''[-2] \to F^\dd$ since $\Ext^1(T', F^\dd) = 0$. We call the cone of this map $V$. Similarly the map $T'[-2] \to T[-2] \to F$ factors through a unique map $T'[-2] \to Q[-1]$ where $Q = F^\dd/F$. We denote the cone of this map by $G[-1]$. Thus, we obtain a commutative diagram
-    \begin{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Second example %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\iffalse
+Next we give an example of family of objects of the form $\Oh_{\p^3} \twoheadrightarrow \Oh_L$, where the $L \subs \p^3$ are subschemes supported on a fixed line but with a varying scheme structure.
+\begin{expl}
+Consider $\p^3$ with coordinates $x, y, z, w$ and $\p^1$ with coordinates $a, b$. Let $H \subs \p^1 \times \p^3$ denote the subscheme cut out by $a x + b y$. We think of $H$ as a family of planes in $\p^3$ parameterized by $\p^1$, each containing the line $x = y = 0$. Let $l = V((x, y)^2) \subs \p^3$ be the line $x = y = 0$ with a triple structure.
+\begin{center}
     \begin{tikzpicture}
     \matrix (m) [matrix of math nodes, row sep=3em, column sep=3em]
-    { T''[-2] & F^\dd & V & T''[-1] \\
-    T[-2] & F & E & T[-1] \\
-    T'[-2] & Q[-1] & G[-1] & T'[-1] \\};
+    { & \p^1 \times \p^3 & H &  \\
+    \p^1_{a,b} &  & \p^3_{x,y,z,w} & l \\};
+    \path[left hook->]
+    (m-1-3) edge node[auto] {$ $} (m-1-2)
+    (m-2-4) edge node[auto,swap] {$ $} (m-2-3)
+    ;
     \path[->]
-    (m-1-1) edge node[auto] {$ $} (m-1-2)
-    (m-1-2) edge node[auto] {$ $} (m-1-3)
-    (m-1-3) edge node[auto] {$ $} (m-1-4)
-    (m-2-1) edge node[auto] {$ $} (m-1-1)
-    (m-2-2) edge node[auto] {$ $} (m-1-2)
-    (m-2-3) edge node[auto] {$ $} (m-1-3)
-    (m-2-4) edge node[auto] {$ $} (m-1-4)
-    (m-2-1) edge node[auto] {$ $} (m-2-2)
-    (m-2-2) edge node[auto] {$ $} (m-2-3)
-    (m-2-3) edge node[auto] {$ $} (m-2-4)
-    (m-3-1) edge node[auto] {$ $} (m-2-1)
-    (m-3-2) edge node[auto] {$ $} (m-2-2)
-    (m-3-3) edge node[auto] {$ $} (m-2-3)
-    (m-3-4) edge node[auto] {$ $} (m-2-4)
-    (m-3-1) edge node[auto] {$ $} (m-3-2)
-    (m-3-2) edge node[auto] {$ $} (m-3-3)
-    (m-3-3) edge node[auto] {$ $} (m-3-4)
+    (m-1-2) edge node[auto,swap] {$ p $} (m-2-1)
+    (m-1-2) edge node[auto] {$ q $} (m-2-3)
     ;        
     \end{tikzpicture}
-    \end{center}
-    The triangle $G[-1] \to E \to V$ is exact by the 9-lemma. Moreover, the map $G[-1] \to E$ filling the diagram is unique since $\Hom(T''[-1], E) = 0$. We claim that also $\Hom(T[-1], V) = 0$, making the map $E \to V$ unique. Since $T$ is an iterated extension of skyscraper sheaves, it suffices to show $\Hom(\Oh_p[-1], V) = 0$ for all $p \in X$. 
-    
-    If $\Oh_p[-1] \to V$ is a nonzero map, the composition $\Oh_p[-1] \to T''[-1]$ must also be nonzero since $\Hom(\Oh_p[-1], F^\dd) = 0$. However the composition $\Oh_p[-1] \to T''[-1] \to F^\dd[1]$ must be zero, so the image of the map $\Oh_p \to T''$ gives a nonzero subsheaf of $T''$ to which the restriction of the map $T''[-1] \to F^\dd[1]$ is zero. The preimage of this subsheaf in $T$ would be a subsheaf with the same property and strictly containing $T'$, contrary to our construction of $T'$.
-    
-    We claim that $G$ is a pure 1-dimensional sheaf. If not, there is a nonzero map $\Oh_p[-1] \to G[-1]$. Now $G[-1] \to E \to V$ is a triangle with each vertex in $\sA^p$, hence an exact sequence in the abelian category $\sA^p$. Thus, the composition $\Oh_p[-1] \to G[-1] \to E$ is nonzero, contradicting our assumption on $E$.
-    
-    \textbf{Upshot}: We have produced a unique triangle $E \to V \to G$ with the property that $G$ is pure 1-dimensional, and $V$ fits in a triangle $F' \to V \to T''[-1]$ with $F'$ reflexive, $T''$ 0-dimensional, and $\Hom(\Oh_p[-1], V) = 0$ for all $p \in X$. 
-    
-    \item \textbf{Conjecture}: The map induced by $\la_\sE(u_2(v))$ identifies two objects $E_1, E_2 \in \sM^{\text{PT}}_X(v)$ if and only if (1) $F_1^\dd \cong F_2^\dd$ (2) the pure 1-dimensional sheaves $Q_1 = F_1^\dd/F_1$ and $Q_2 = F_2^\dd/F_2$ are supported at the same 1-dimensional closed subset $Z$, and the lengths of $Q_1$ and $Q_2$ agree at the generic points of $Z$. In particular, $\la_\sE(u_2(v))$ doesn't "see" the 0-dimensional sheaves $T_1$ and $T_2$ at all. \textbf{This conjecture needs refining!!}
-    
-    \item To gain some evidence for this, let $F$ be a fixed reflexive sheaf on $X$, let $Z \subs X$ be a subset of pure dimension 1 with generic points $\eta_1, \ldots, \eta_s$, let $I_Z$ be the ideal sheaf giving the reduced structure of $Z$, and let $n_1,\ldots, n_s$ be positive integers. There is an integer $N$ such that any pure 1-dimensional quotient $Q$ of $F$ with set-theoretic support $Z$ and length $n_i$ over $\Oh_{\eta_i}$ is a quotient of $G = F/ I_Z^N F$. Let $S$ denote the Quot-scheme of quotients of $G$ with suitable Hilbert polynomial.
-\end{itemize}
+\end{center}
+The subscheme $Z = H \cap q^{-1}(l) \subs \p^1 \times \p^3$ is a family of subschemes supported on the line $x = y = 0$ with a varying double structure. 
 
-\section{TODO}
-\begin{itemize}
-    \item For large enough $a$, the curve $C = H \cap H'$ cannot contain components of $Q = F^\dd/F$. This should follow from the fact that the family of PT-semistable objects is bounded, and hence so are the degrees of the possible $Q$.
-    \item Some appropriate power of the line bundle $\la_{\sE}(u_2(v))$ is obtained by restricting the universal family $\sE$ to $C$ and doing the determinantal thing. Write this down, and find the correct power.
-    \item $\la_{\sE}(u_2(v))$ is semiample because for a given $E$, we can choose $C$ so that $E|^\LL_C = F|_C$ is a semistable vector bundle. This gives a map to a projective space.
-    \item The map to $\p^N$ cannot contract curves at least along the locus of stable vector bundles. This follows from the Second Main Lemma of \cite{seshadri}, and an argument similar to \cite[Lemma 8.2.12]{HL}.
-\end{itemize}
+The ideal sheaf of $H$ is $p^*\Oh_{\p^1}(-1) \otimes q^* \Oh_{\p^3}(-1)$, and so the structure sheaf $\Oh_Z \cong \Oh_H \otimes q^*\Oh_l$ fits in a short exact sequence
+\[ 0 \to p^*\Oh_{\p^1}(-1) \otimes q^* \Oh_{\p^3}(-1) \otimes q^*\Oh_l \to q^*\Oh_l \to \Oh_Z \to 0. \]
+\end{expl}
+\fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Second example ends %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Questions}
-\begin{itemize}
-    \item Does the stack have a good moduli space? How does this fit in the "moduli of objects in an abelian category" business? And while at it, why does the stack of $\mu$-semistable sheaves not have a good moduli space but the Bridgeland stack does?
-    \item Does $\la_{\sE}(u_2(v))$ descend to said good moduli space?
-    \item $\la_{\sE}(u_2(v))$ doesn't contract curves along the $\mu$-stable locus, but does it actually separate points? What does it contract outside the $\mu$-stable locus?
-    \item Do the images in $\p^N$ stabilize for increasingly large powers of $\la_{\sE}(u_2(v))$?
-\end{itemize}
 
+
+
+
+\iffalse
+\begin{lem}\label{leadingcoeff1dim}
+Let $C$ be a projective scheme of pure dimension $1$ over a field $k$ and let $\Oh_X(1)$ be an ample line bundle bundle on $X$. Let $X_1,\ldots,X_m$ denote the irreducible components of $X$. There are integers $N_1, \ldots, N_m$ such that for any coherent sheaf $F$ on $X$, the leading coefficient of the Hilbert polynomial 
+\[ P(F, n) = \chi(X, F \otimes \Oh_X(n)) \]
+is
+\[ \sum_{i=1}^m N_i \, l_{\eta_i}(F_{\eta_i}), \]
+where $\eta_i$ is the generic point of $X_i$, and $l_{\eta_i}(F_{\eta_i})$ denotes the length of the stalk $F_{\eta_i}$ at over the local ring $\Oh_{X,\eta_i}$.
+\end{lem}
+\begin{proof}
+Assume first that $X$ is integral and let $f: \widetilde{X} \to X$ denote its normalization. We have a short exact sequence
+\[ 0 \to \Oh_X \to f_* \Oh_{\widetilde{X}} \to Q \to 0, \]
+where $\dim \Supp(Q) = 0$. Let $F$ be a coherent sheaf on $X$. Since $F$ is locally free in a neighborhood of the generic point $\eta \in X$, the sheaves $Q \otimes F, \sTor_1(\otimes F)$, and $\sTor_1(f_*\Oh_X, F)$ have 0-dimensional support
+
+Let $i: X^{\text{red}} \hookrightarrow X$ be the inclusion of the reduced subscheme of $X$ and let $\sI \subs \Oh_X$ denote its ideal sheaf and $\Oh_{X^\red}(1) = j^* \Oh_X(1)$. Let $\nu: \widetilde{X} \to X^{\text{red}}$ denote the normalization. Note that 
+\[ \widetilde{X} = \coprod_{i=1}^m \widetilde{X}_i, \]
+where $\widetilde{X}_i$ maps onto $X_i$. We claim that $N_i = \deg(\nu^*\Oh_{X^\red}(1)|_{\widetilde{X}_i})$.
+
+To see this, let $F$ be a coherent sheaf on $X$. We have a filtration
+\[ 0 = \sI^{d+1} F \subset \sI^d F \subset \cdots \subset \sI F \subset F, \]
+where $G_j = \sI^j F/\sI^{j+1} F$ is supported on $X^{\text{red}}$. From the filtration we see that
+\[ \chi(X, F \otimes \Oh_X(1)) = \sum_{j=1}^d \chi(X^{\text{red}}, G_j \otimes \Oh_{X^\red}(1)). \]
+Moreover, since localization at each generic point $\eta_i$ is exact, we have
+\[ l_{\eta_i}(F_{\eta_i}) = \sum_{j=1}^d l_{\eta_i}(G_j)_{\eta_i}. \]
+Moreover, $G_j$ is locally free in a neighborhood of $\eta_i$ for each $i$ and $j$, so $l_{\eta_i}(G_j)_{\eta_i} = \rk(G_j|_{X^\red_i})$. 
+\end{proof}
+\fi

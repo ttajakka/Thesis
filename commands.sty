@@ -4,13 +4,16 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{cite}
+\usepackage{color}
 \usepackage{enumerate}
 %\usepackage{mathpazo}
-\usepackage{relsize}
 \usepackage{mathtools}
 \usepackage{mathrsfs}
+\usepackage{relsize}
 \usepackage{verbatim}
-\usepackage{cite}
+\usepackage[dvipsnames]{xcolor}
+
 
 \usepackage{hyperref}
 \hypersetup{
@@ -36,15 +39,16 @@
 \newtheorem{thm}{Theorem}[section]
 \newtheorem{lem}[thm]{Lemma}
 \newtheorem{prop}[thm]{Proposition}
+\newtheorem{propdef}[thm]{Proposition/Definition}
 \newtheorem{cor}[thm]{Corollary}
-\newtheorem{expl}[thm]{Example}
 \newtheorem{defn}[thm]{Definition}
 
 \theoremstyle{remark}
 \newtheorem{rmk}[thm]{Remark}
+\newtheorem{expl}[thm]{Example}
 \newtheorem{exer}[thm]{Exercise}
 
-
+\newcommand{\tuomas}[1]{\textcolor{Mahogany}{\small{NOTE: #1}}}
 
 \newcommand{\al}{\alpha}
 \newcommand{\be}{\beta}
@@ -99,6 +103,7 @@
 \newcommand{\sF}{\mathcal{F}}
 \newcommand{\sG}{\mathcal{G}}
 \newcommand{\sH}{\mathcal{H}}
+\newcommand{\sI}{\mathcal{I}}
 \newcommand{\sK}{\mathcal{K}}
 \newcommand{\sL}{\mathcal{L}}
 \newcommand{\sM}{\mathcal{M}}
@@ -148,7 +153,6 @@
 \newcommand{\piinv}{\pi^{-1}}
 \newcommand{\pre}{\mathrm{pre}}
 \newcommand{\res}{\mathrm{res}}
-\newcommand{\cone}{\mathrm{cone}}
 \newcommand{\cyl}{\mathrm{cyl}}
 \newcommand{\Sym}{\mathrm{Sym}}
 \newcommand{\Cl}{\mathrm{Cl}}
@@ -182,6 +186,9 @@
 
 \newcommand{\BM}{\mathrm{BM}}
 
+\newcommand{\sMom}{\ddot{\sA}^{iti}}
+\newcommand{\red}{\text{red}}
+
 
 \newcommand{\sslash}{\mathbin{/\mkern-6mu/}}
 
@@ -189,6 +196,7 @@
 \DeclareMathOperator{\gr}{\mathrm{gr}}
 \DeclareMathOperator{\sgn}{\mathrm{sgn}}
 \DeclareMathOperator{\coker}{\mathrm{coker}}
+\DeclareMathOperator{\img}{\mathrm{im}}
 \DeclareMathOperator{\Stab}{\mathrm{Stab}}
 \DeclareMathOperator{\Supp}{\mathrm{Supp}}
 \DeclareMathOperator{\Log}{\mathrm{Log}}
@@ -206,6 +214,8 @@
 \DeclareMathOperator{\Ind}{\mathrm{Ind}}
 \DeclareMathOperator{\re}{\mathrm{Re}}
 \DeclareMathOperator{\im}{\mathrm{Im}}
+\DeclareMathOperator{\cone}{\mathrm{cone}}
+
 
 %\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}

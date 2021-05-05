@@ -88,14 +88,14 @@
 %
 % ----- copyright and title pages
 %
-\Title{Projectivity of moduli spaces of complexes}
+\Title{Projective moduli spaces of complexes of sheaves}
 \Author{Tuomas Tajakka}
 \Year{2021}
 \Program{Mathematics}
 
 \Chair{Jarod Alper}{Associate Professor}{Department of Mathematics}
+\Signature{S\'andor Kov\'acs}
 \Signature{Max Lieblich}
-\Signature{Bianca Viray}
 %\Signature{etc}
 
 \copyrightpage
@@ -104,17 +104,16 @@
 
  
 %
-% ----- signature and quoteslip are gone
-%
-
-%
 % ----- abstract
 %
 
-
 \setcounter{page}{-1}
 \abstract{%
-Determinantal line bundle techniques provide an alternative to using Geometric Invariant Theory in constructing moduli spaces as projective varieties -- Faltings, Kollar. Something about Bridgeland stability and no GIT. 
+Since the introduction of Bridgeland stability conditions, constructing moduli spaces of complexes has become an increasingly important task in algebraic geometry. However, the picture is complicated by the fact that the toolkit of Geometric Invariant Theory is frequently unavailable. In this work we showcase the use of determinantal line bundle techniques in constructing projective moduli space of complexes in two contexts. 
+
+In Chapter 3, we establish projectivity of certain moduli spaces of Bridgeland semistable objects on a smooth, projective surface, and relate these moduli spaces to the Uhlenbeck compactification of the moduli of stable vector bundles. This is achieved by studying a determinantal line bundle constructed on Bridgeland moduli spaces by Bayer and Macr\`i. As an application, we give an argument showing that, under a coprime assumption, the moduli of Gieseker-stable sheaves is projective. 
+
+In Chapter 4, we consider higher rank PT-stable pairs. Using a determinantal line bundle, we construct a morphism from the moduli of PT-stable pairs to a projective scheme and show that the set-theoretic behavior of this map is closely analogous to that of the Uhlenbeck compactification.
 }
  
 %
@@ -122,70 +121,31 @@ Determinantal line bundle techniques provide an alternative to using Geometric I
 %
 \tableofcontents
 %\listoffigures
-%\listoftables  % I have no tables
- 
-%
-% ----- glossary 
-%
-\iffalse
-\chapter*{Glossary}      % starred form omits the `chapter x'
-\addcontentsline{toc}{chapter}{Glossary}
-\thispagestyle{plain}
-%
-\begin{glossary}
-\item[argument] replacement text which customizes a \LaTeX\ macro for
-each particular usage.
-\item[back-up] a copy of a file to be used when catastrophe strikes
-the original.  People who make no back-ups deserve
-no sympathy.
-\item[control sequence] the normal form of a command to \LaTeX.
-\item[delimiter] something, often a character, that indicates
-the beginning and ending of an argument.
-More generally, a delimiter is a field separator.
-\item[document class] a file of macros that tailors \LaTeX\ for
-a particular document.  The macros described by this thesis
-constitute a document class.
-\item[document option] a macro or file of macros
-that further modifies \LaTeX\ for
-a particular document.  The option {\tt[chapternotes]}
-constitutes a document option.
-\item[figure] illustrated material, including graphs,
-diagrams, drawings and photographs.
-\item[font] a character set (the alphabet plus digits
-and special symbols) of a particular size and style.  A couple of fonts
-used in this thesis are twelve point roman and {\sl twelve point roman
-slanted}.
-\item[footnote] a note placed at the bottom of a page, end of a chapter,
-or end of a thesis that comments on or cites a reference
-for a designated part of the text.
-\item[formatter] (as opposed to a word-processor) arranges printed
-material according to instructions embedded in the text.
-A word-processor, on the other hand, is normally controlled
-by keyboard strokes that move text about on a display.
-\item[\LaTeX] simply the ultimate in computerized typesetting.
-\item[macro]  a complex control sequence composed of 
-other control sequences.
-\item[pica] an archaic unit of length.  One pica is twelve points and
-six picas is about an inch.
-\item[point] a unit of length.  72.27 points equals one inch.
-\item[roman]  a conventional printing typestyle using serifs.
-the decorations on the ends of letter strokes.
-This thesis is set in roman type.
-\item[rule] a straight printed line; e.g., \hrulefill.
-\item[serif] the decoration at the ends of letter strokes.
-\item[table] information placed in a columnar arrangement.
-\item[thesis] either a master's thesis or a doctoral dissertation.
-This document also refers to itself as a thesis, although it
-really is not one.
- 
-\end{glossary}
-\fi
+%\listoftables 
+
 %
 % ----- acknowledgments
 %
 \acknowledgments{% \vskip2pc
   % {\narrower\noindent
-  I want to thank mom, dad, friends, Jarod etc.
+  To appear.
+  \iffalse
+  First and foremost, I wish to express my deepest gratitude to my advisor, Professor Jarod Alper, for sharing with me the secrets of stack and moduli theory, for supporting and guiding me towards becoming a research mathematician, and for his friendship over the past four years. I look forward to a continued mentorship, for there is still much to learn.
+  
+  I am thankful for Professors Max Lieblich and S\'andor Kov\'acs for helping me get started with algebraic geometry, as well as countless insightful conversations throughout graduate school. In addition, I thank Professor Jason Lo for pointing me to PT-stability and for useful discussions on the topic, as well as Benjamin Schmidt for explaining many aspects of Bridgeland stability.
+  
+  Among the many fellow graduate students with whom I have had the privilege to study, Siddharth Mathur occupies a special place in my heart. With his relentless enthusiasm and obsession for detail, Sid all but single-handedly guided me through my algebro-geometrically formative years. Other peers who have had a deep impact on my mathematical thinking include Charles Godfrey, Chi-Yu Cheng, Gabriel Dorfsman-Hopkins, Dan Bragg, Alex Voet, Amos Turchet, and Lucas's Van Meter and Braune, to all of whom I wish to express my warmest gratitude.
+  
+  I have made countless friends in Seattle, both in and outside the UW mathematics department. Accepting the risk of unfair omission, I must mention at least my colleagues Graham Gordon, Amzi Jeffs, Josh Southerland, Sean Griffin, Tejas Devanur, Sam Roven, Kristine Hampton, and Sam Fairchild and Max Goering, as well as non-mathematicians Raph, Duncan, Schuyler, Karlijn and Burnell, Noah and Bailey, Fennel, and, with reciprocal hesitation, Juneau. Thank you for making my time in Seattle more than just moduli spaces and derived categories.
+  
+  A heartfelt thank you goes to Shelby and the whole Gregg family for all the love, caring, and support they offered me during the coronavirus pandemic, a gift I can never forget.
+  
+  Nothing could have been possible without my mom and dad, Maire and Harri Tajakka. Thank you for trusting me on this journey, for always welcoming me back home, and since my childhood, free of expectation or judgment, letting me explore and pursue what I love the most. I wish to also thank my brother Markus, his partner Sanna, and my little nephew and niece, Eino and Elvi, for the joy they bring into my life.
+  
+  Among my many outstanding teachers, those who have particularly nurtured my mathematical and scientific tendencies include Alex Engstr\"om (who first introduced me to algebraic geometry), Ragnar Freij, Kirsi Peltonen, and Camilla Hollanti at Aalto University, and Lea Pulkkinen, Olavi Lappalainen, and Aulis Miettinen in my hometown of Kuopio.
+  
+  Finally, a special mention goes to members of Reformiklubi, as well as to everyone who has offered me a place to stay on my many trips back home, including Markus and Sanna (again), Teemu and Maija, Ville and Veera, Arttu and Saana, Antti and Anni, Alex and Maija, Jarno and Emmi, Jesse, Mikko, Basisti, and Sonja.
+  \fi
   % \par}
 }
 
@@ -196,8 +156,7 @@ really is not one.
 
 %
 % end of the preliminary pages
- 
- 
+
  
 %
 % ==========      Text pages
@@ -217,21 +176,23 @@ really is not one.
 
 \printendnotes
 
+\appendix
+\raggedbottom\sloppy
+ 
+% ========== Appendix A
+%\include{appendix1}
+
+
 %
 % ==========   Bibliography
 %
-\nocite{*}   % include everything in the uwthesis.bib file
+%\nocite{*}   % include everything in the uwthesis.bib file
 \bibliographystyle{plain}
 \bibliography{bibliography}
 %
 % ==========   Appendices
 %
-\appendix
-\raggedbottom\sloppy
- 
-% ========== Appendix A
- 
-%\chapter{Where to find the files}
+
  
 
 

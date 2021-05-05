@@ -1,2 +1,122 @@
-\chapter{Introduction}
-May I introduce
+\chapter{Introduction}\label{chapter:introduction}
+
+
+
+\section{Classical moduli spaces}
+
+Constructing projective moduli spaces is an important problem in algebraic geometry. Some of the early successes in this direction were provided by Mumford, who developed the machinery of Geometric Invariant Theory (GIT) for taking quotients of varieties by group actions, and used it to construct various moduli spaces. An important example of this method is the construction of the moduli space of semistable sheaves on a curve \cite{mumford}, \cite{seshadri-space-of-unitary}. The \textit{slope} of a coherent sheaf $E$ on a smooth, projective curve $C$ is the rational number $\mu(E) = \deg(E)/\rk(E)$. A locally free sheaf $E$ is \textit{semistable} if for every proper nonzero subsheaf $F \subs E$ the inequality $\mu(F) \le \mu(E)$ holds, \textit{stable} if $\mu(F) < \mu(E)$, and \textit{polystable} if $E \cong \oplus_i E_i$ where the $E_i$ are stable bundles of the same slope. Every semistable sheaf $E$ has a \textit{Jordan-H\"older filtration} by stable sheaves $E_i$, and the polystable sheaf $\gr(E) = \oplus_i E_i$ is called the \textit{associated graded} of $E$. Two semistable sheaves $E$ and $E'$ are \textit{S-equivalent} if $\gr(E) \cong \gr(E')$, and every S-equivalence class contains a unique polystable sheaf. The projective moduli space constructed by Mumford and Seshadri parameterizes S-equivalence classes of semistable sheaves, or equivalently isomorphism classes of polystable sheaves, and contains the locus of stable sheaves as an open subscheme.
+
+The notion of slope-stability has been generalized to an $n$-dimensional smooth, projective, polarized variety $(X, H)$ in various ways. One successful notion is Geiseker-stability, where the slope is replaced by the reduced Hilbert polynomial which takes into account all Chern classes. Moduli spaces parameterizing S-equivalence classes of Gieseker-semistable sheaves were constructed using GIT by Gieseker, Maruyama, and Simpson. However, unlike in the case of a curve, to obtain a projective moduli space, some non-locally free coherent sheaves must be included in the moduli problem.
+
+A direct generalization of slope-stability to a higher-dimensional $X$ is obtained by modifying the formula to be $\mu(E) = (H^{n-1} \cdot c_1(E))/\rk(F)$. Although Jordan-H\"older filtrations exist, and $\mu$-stability has many other useful properties, this notion of stability does not allow for a moduli space parameterizing S-equivalence classes. However, when $X$ is a surface, a related projective scheme parameterizing sheaves up to a coarser equivalence relation was constructed by Li \cite{li} following work of Uhlenbeck and Donaldson in gauge theory. This so-called Uhlenbeck compactification contains the moduli of $\mu$-stable vector bundles as an open subscheme. Two $\mu$-semistable sheaves $F_1$ and $F_2$ are identified in the Uhlenbeck compactification precisely when $\gr(F_1)^{\vee\vee} \cong \gr(F_2)^{\vee\vee}$ and the 0-dimensional sheaves $\gr(F_1)^{\vee\vee}/\gr(F_1)$ and $\gr(F_2)^{\vee\vee}/\gr(F_2)$ are supported at the same points of $X$ with the same lengths. 
+
+\section{Stability of complexes}
+Stability of objects in the derived category as a tool to study birational geometry of varieties was initiated in \cite{bridgeland-flops}, where Bridgeland constructed a flop of a threefold $X$ as a moduli of certain ``point-like" objects in $D^b(X)$. Soon after, Bridgeland introduced a general notion of stability of objects in $D^b(X)$ \cite{bridgeland}, inspired by the work of Douglas in string theory. A \textit{Bridgeland stability condition} on $X$ is a pair $\si = (\sA, Z)$ consisting of a heart of a bounded t-structure $\sA \subs D^b(X)$ and a group homomorphism 
+\[ Z: K(X) \to \C, \]
+called the \textit{central charge}, that gives rise to a slope function on $\sA$. The set of all such stability conditions naturally forms a complex manifold endowed with interesting wall-and-chamber structures. It was quickly realized that Bridgeland stability is suitable for studying the birational geometry of classical moduli spaces of sheaves. Namely, the moduli space of Bridgeland semistable objects remains constant within each open chamber, and moduli spaces corresponding to open chambers separated by a wall are frequently birational. A prominent example of this approach is the complete description of the minimal model program of the Hilbert scheme of points on a surface \cite{ABCH}. 
+
+Constructing stability conditions on higher dimensional varieties remains an important open problem, and for example no stability conditions are known to exist on the derived category of a projective Calabi-Yau threefold, the case considered the most interesting from the point of view of mirror symmetry. A general method for producing stability conditions on a surface $X$ was developed by Bridgeland \cite{bridgelandK3} for K3 surfaces, and extended by Arcara and Bertram \cite{ABL13} for all surfaces. Moreover, moduli of semistable objects on a surface are known to exist as algebraic stacks \cite{toda08} and to have \textit{good moduli spaces} that exist as proper algebraic spaces \cite[Theorem 7.25, Example 7.27]{AHLH}. However, Bridgeland moduli spaces are known to be projective only in limited number of cases.
+
+Partly motivated by the difficulty of constructing Bridgeland stability conditions on higher-dimensional varieties, Bayer \cite{bayer-polynomial} introduced the more general notion of \textit{polynomial stability conditions}, where the central charge $Z$ is allowed to take values in the ring $\C[m]$ of complex polynomials, and constructed a ``standard family'' of polynomial stability conditions on any normal projective variety. A second source of motivation came from curve counting. A \textit{PT-stable pair} on a threefold $X$ is a section $\Oh_X \to F$ of a pure 1-dimensional sheaf that generically generates $F$. In \cite{PT}, the authors constructed curve counting invariants on $X$ using a virtual fundamental class on the moduli space of PT-stable pairs and conjectured a relationship to similarly constructed DT-invariants. In \cite{bayer-polynomial}, Bayer shows that, with respect to certain polynomial stability conditions called \textit{PT-stability conditions}, PT-stable pairs coindice with stable objects of rank 1 and trivial determinant, and interprets the PT/DT-correspondence as arising from a wall-crossing phenomenon in the space of polynomial stability conditions.
+
+Stable objects of higher rank with respect PT-stability were studied by Lo in \cite{lo-PT1} and \cite{lo-PT2}. He constructed moduli space of semistable objects as algebraic stacks and, in the absence of strictly semistable objects, as proper algebraic spaces. It remains open whether these moduli spaces are projective.
+
+\section{Determinantal line bundles}
+Many moduli problems involving objects in the derived category are inaccessible to the powerful toolkit of GIT, and thus constructing moduli spaces as projective schemes requires different methods. This includes moduli spaces arising from Bridgeland and polynomial stability discussed above. An alternative path to projectivity is provided by determinantal line bundle techniques. If $\sM$ is a moduli stack of complexes on a projective variety $X$ and $\sE$ the universal complex on $\sM \times X$, we can produce line bundles on $\sM$ by the rule that to a coherent sheaf $F$ on $X$ associates the line bundle
+\[ \la_\sE(F) \coloneqq \det(pr_{\sM*}(\sE \otimes pr_X^* F)) \in \Pic(\sM). \]
+In favorable conditions this construction also produces a section of $\la_\sE(F)$, so by varying $F$, one could hope to produce enough sections to obtain an ample line bundle. This approach was successfully used by Faltings in \cite{faltings} to contruct the moduli space of Higgs bundles on a curve, and specialized to slope-semistable sheaves by Seshadri in \cite{seshadri}. Li's construction of the Uhlenbeck compactification in \cite{li} also utilizes determinantal line bundles. In a different direction, Koll\'ar developed analogous determinantal techniques for moduli of polarized varieties in \cite{kollar-projectivity} and gave a construction of the moduli of stable curves as a projective variety.
+
+In the context of Bridgeland stability, given a smooth, projective variety $X$, Bayer and Macr\`i constructed a determinantal line bundle $\sL_\si$ on the moduli stack $\sM^\si$ of $\si$-semistable objects in $D^b(X)$ that varies continuously with the stability condition $\si$, and showed that this line bundle has strong positivity properties \cite{BM}. This gives a strong candidate for an ample line bundle on the moduli space, taking us one step closer to projectivity of Bridgeland moduli spaces in general.
+
+A key step in the approach of Faltings and Seshadri is the following characterization of stability on a curve: a locally free sheaf $E$ on a smooth, projective curve $C$ is semistable if and only if there exists another vector bundle $F$ such that 
+\[ H^0(C, E \otimes F) = H^1(C, E \otimes F) = 0. \]
+Our arguments in Chapters \ref{chapter:uhlenbeck} and \ref{chapter:pt} crucially rely on this fact coupled with restriction theorems for $\mu$-stability.
+
+\section{Overview of results: Chapter 3}
+The goal of Chapter \ref{chapter:uhlenbeck} is to prove projectivity of the Bridgeland moduli space when $X$ is an arbitrary smooth, projective surface, and $\si$ lies on the ``vertical wall'' bounding the chamber corresponding to Gieseker stability. The main results are Theorem \ref{projectivity} and Theorem \ref{uhlenbeck} and can be summarized as follows.
+\begin{thm}
+    Let $(X,H)$ be a smooth, projective, polarized surface over $\C$, and let $v \in \Kn(X)$ be a numerical class of positive rank. There exists a Bridgeland stability condition $\si = (\sA, Z)$ with the following properties.
+    \begin{enumerate}[(a)]
+        \item The $\si$-polystable objects of class $v$ in $\sA$ are of the form
+        \[ E = F \oplus \left(\bigoplus_i \Oh_{p_i}^{\oplus n_i} [-1]\right), \]
+        where $F$ is a $\mu$-polystable locally free sheaf and the $\Oh_{p_i}$ are structure sheaves of closed points $p_i \in X$.
+        \item The good moduli space $M^\si(v)$ parameterizing $\si$-polystable objects is projective and the line bundle $\sL_\si$ is ample.
+        \item There is a bijective morphism $M^{\mathrm{Uhl}}(v) \to M^\si(v)$ from the Uhlenbeck compactification of $\mu$-stable locally free sheaves.
+    \end{enumerate}
+\end{thm}
+Our main mathematical contribution is part (b) of the theorem. The key idea is the observation that the line bundle $\sL_\si$ constructed by Bayer and Macr\`i arises through restricting $\si$-semistable objects to various curves $C \subs X$, which allows us to apply the result of Faltings mentioned above to directly produce sections of $\sL_\si$.
+
+Part (c) of the theorem follows straightforwardly by comparing the proof of part (b) and Li's construction of the Uhlenbeck compactification \cite{li}. To convince the reader that the bijection is plausible, consider a $\mu$-polystable torsion-free sheaf $F$ on $X$. The sheaf $F$ fits into a short exact sequence
+\[ 0 \to F \to F^{\vee\vee} \to T \to 0, \]
+where $F^{\vee\vee}$ is a $\mu$-polystable locally free sheaf and $T$ has 0-dimensional support. Recall that the Uhlenbeck compactification records the information of $F^{\vee\vee}$ together with the length $l_p(T)$ of $T$ at closed points $p \in X$. On the other hand, the above exact sequence rotates to the exact sequence
+\[ 0 \to T[-1] \to F \to F^{\vee\vee} \to 0 \]
+in the heart $\sA \subs D^b(X)$. The inclusion $T[-1] \subs F$ is part of the Jordan-H\"older filtration with respect to $\si$, and in fact $F$ is S-equivalent to the $\si$-polystable object
+\[ F^{\vee\vee} \oplus \left(\bigoplus_{p \in X} \Oh_p^{\oplus l_p(T)}[-1]\right). \]
+
+Part (a) of the theorem is known to experts in general and worked out by Lo and Qin in \cite{LQ} in the case when $\rk(v)$ and $H \cdot c_1(v)$ are coprime, where the authors also observe the set theoretic bijection with the Uhlenbeck compactification. Although we include a proof in the general case, we claim no originality.
+
+As an application of the projectivity of moduli space on the vertical wall, we give a proof in Section \ref{section:gieseker} of the classical fact that the moduli space of Gieseker-semistable sheaves is projective. Our argument avoids the use of GIT, but is limited to the case when $X$ is a surface, the base field is that of the complex numbers, and we make the assumption $\gcd(\rk(v), H \cdot c_1(v)) = 1$ to rule out strictly semistable objects.
+
+\subsection*{Relation to previous work}
+Bridgeland moduli spaces on surfaces are known to be projective in only some cases:
+\begin{itemize}
+    \item When $X$ is either $\p^2$ \cite{ABCH} or $\p^1 \times \p^1$ or the blow-up of $\p^2$ at a point \cite{AM}, all Bridgeland moduli spaces can be related to moduli of quiver representations. Similar results are conjectured to hold for all Del Pezzo surfaces \cite{AM}.
+    
+    \item For an arbitrary surface $X$, stability in a special chamber coincides with Giekeser stability. The proof for K3 surfaces presented in \cite{bridgelandK3} works in general.
+    
+    %\item When $X$ is a K3 or abelian surface of Picard rank 1, and $v$ is the class of certain 1-dimensional sheaves on $X$, and $\si$ is \textit{generic} with respect to $v$, meaning that it does not lie on a wall for $v$, Arcara and Bertram \cite{ABL13} construct moduli spaces $M^\si(v)$ as iterated Mukai flops of the Gieseker moduli space of class $v$.
+    
+    \item When $X$ is an abelian surface of Picard rank 1, Maciocia and Meachan \cite{MM} construct moduli spaces $M^\si(v)$ for certain classes $v$ of rank 1 and when $\si$ is generic for $v$ by relating $M^\si(v)$ to Gieseker moduli spaces via a Fourier-Mukai transform.
+    
+    \item When $X$ is a K3 surface and $\si$ is generic with respect to $v$, Bayer and Macr\`i show in \cite{BM}, generalizing similar results for K3 and abelian surfaces in \cite{mmy}, that $M^\si(v)$ is projective by relating $\si$-stability on $X$ to Gieseker stability on a Fourier-Mukai partner.
+    
+    \item When $X$ is an unnodal Enriques surface and $\si$ is generic with respect to $v$, Nuer shows in \cite{nuer} that the moduli space $M^\si(v)$ is projective by producing a finite map to a related Bridgeland moduli space on the K3 universal cover of $X$.
+    
+\end{itemize} 
+While in all of these cases the projectivity of the moduli spaces ultimately rely on GIT constructions, and the line bundle $\sL_\si$ of Bayer and Macr\`i can be seen to be ample after the fact, a general GIT framework for Bridgeland stability is currently unavailable. Our method avoids the use of GIT and proves ampleness of $
+\sL_\si$ by directly producing enough sections. To our knowledge, this is the first example of a Bridgeland moduli space on a surface whose projectivity does not rely on GIT, as well as the first projective Bridgeland moduli space on an arbitrary surface $X$ apart from the Gieseker moduli space.
+
+The relationship between $M^{\mathrm{Uhl}}(v)$ and $M^\si(v)$ when $\si$ lies on the vertical wall for $v$ has been previously studied by Lo in \cite{lo}, whose result together with properness of the good moduli space implies that when $X$ is a K3 surface, the good moduli space of $\si$-semistable objects is projective. Lo achieves this by relating $M^\si(v)$ to a moduli space of $\mu$-stable locally free sheaves on a Fourier-Mukai partner of $X$. Our results subsumes Lo's results and avoids the use of a Fourier-Mukai transform.
+
+\subsection*{Open questions}
+The following are potential next questions in the direction of this chapter.
+\begin{itemize}
+    \item What is the local geometry of $M^\si(v)$, and is the morphism $M^{\mathrm{Uhl}}(v) \to M^\si(v)$ an isomorphism?
+    \item What kind of birational surgery does the Gieseker moduli space undergo when we cross the vertical wall? Based on earlier work in the subject, stability on the other side of the wall should correspond to Gieseker stability under the derived dual functor.
+    \item Can the argument for projectivity of the Gieseker moduli space be adapted to the noncoprime case, or for other base fields, or even for higher-dimensional varieties?
+    \item Can the methods used here be adapted to showing projectivity of more general Bridgeland moduli spaces on surfaces, or some other moduli spaces of sheaves or complexes on varieties?
+\end{itemize}
+
+\section{Overview of results: Chapter 4}
+In Chapter \ref{chapter:pt} we study moduli of PT-semistable objects on a smooth, projective, polarized threefold $(X, H)$. Defined in terms of a polynomial stability condition, they are objects $E \in D^b(X)$ that fit in a triangle
+\[ \sH^0(E) \to E \to \sH^1(E)[-1], \]
+where $\sH^0(E)$ is a $\mu$-semistable sheaf and $\sH^1(E)$ is a 0-dimensional sheaf. Moreover, the $E$ satisfy the condition that $\Hom(\Oh_p[-1], E) = 0$ for every closed point $p \in X$, one consequence of which is that the quotient $\sH^0(E)^\dd/\sH^0(E)$ is pure of dimension 1. The PT-semistable objects of rank 1 and trivial determinant are precisely the stable pairs considered in \cite{PT}. Relying on Lo's work on the moduli stack of PT-semistable objects in \cite{lo-PT1} and \cite{lo-PT2}, we construct a globally generated determinantal line bundle on the stack and study the induced morphism to projective space. 
+
+To state our results, let $v \in \Kn(X)$ be a class of positive rank, and let $\sM^{\mathrm{PT}}(v)$ denote the moduli stack of PT-semistable objects of class $v$. By \cite[Theorem 1.1]{lo-PT2}, the stack $\sM^{\mathrm{PT}}(v)$ is universally closed and of finite type, and in the absence of strictly semistable objects admits a proper good moduli space parameterizing isomorphism classes of stable objects. The latter occurs for example when $\gcd(\rk(v), H^2 \cdot c_1(v)) = 1$. We summarize Theorems \ref{globgen} and \ref{fiberdescription} under this simplifying assumption in the following.
+\begin{thm} 
+    Assume that $\gcd(\rk(v), H^2 \cdot c_1(v)) = 1$. There exists a semiample determinantal line bundle $\sL_2$ on $\sM^{\textrm{PT}}(v)$ with the following property. For all objects $E \in \sM^{\mathrm{PT}}(v)$ mapping to the same point under the canonical map
+    \[ \sM^{\mathrm{PT}}(v) \to \overline{M} \coloneqq \Proj \bigoplus_{n \ge 0} H^0(\sM^{\mathrm{PT}}(v), \sL_2^{\otimes n}), \]
+    the reflexive sheaves $\sH^0(E)^\dd$ are isomorphic, and the lengths of the 1-dimensional sheaves $\sH^0(E)^\dd/\sH^0(E)$ are equal at all codimension 2 points of $X$.
+\end{thm}
+The proof of the theorem follows the same lines as the main result in Chapter \ref{chapter:uhlenbeck} discussed above. The determinantal line bundle in the statement arises through restricting PT-semistable objects $E \in D^b(X)$ to various curves $C \subs X$, which allows us to invoke the result of Faltings and Seshadri to produce sections of the line bundle. We are also able to give a weaker statement without the assumption $\gcd(\rk(v), H^2 \cdot c_1(v)) = 1$.
+
+\subsection*{Further problems and questions}
+We collect here some questions that remain unanswered in this work.
+\begin{itemize}
+    \item Does the stack $\sM^{\mathrm{PT}}(v)$ have a good moduli space? At the moment this is only know in the absence of strictly semistable objects, for example under the coprime assumption. The obstacle in applying the techniques in \cite[section 7]{AHLH} is that the heart $\sA^p \subs D^b(X)$ containing PT-semistable objects is not noetherian. We however believe that the general machinery of \cite{AHLH} should be applicable to our situation.
+    
+    \item The description of the fibers given in Theorem \ref{fiberdescription} is incomplete, even in the coprime case, in the sense that not all objects satisfying the conditions in part (ii) of the theorem will be identified. In particular, it is not difficult to see that the 0-dimensional sheaf $\sH^1(E)$ will play a role in separating objects under the morphism.
+    
+    \item Is the good moduli space projective? A worked example in Section \ref{section:counterex} shows that the line bundle considered in Theorems \ref{globgen} and \ref{fiberdescription} is not ample. We have borrowed the notation $\sL_2$ from \cite[Chapter 8]{HL}, and inspired by that we conjecture that some linear combination of $\sL_0, \sL_1$, and $\sL_2$ will be ample.
+    
+    \item Part of Li's motivation for constructing the Uhlenbeck compactification of stable vector bundles on a surface $X$ in \cite{li} was to give an interpretation of Donaldson's polynomial invariants of the real 4-manifold underlying $X$ in terms of intersection theory on the Uhlenbeck compactification. Can our space $\overline{M}$ be used to define analogous invariants when $X$ is a 3-fold?
+\end{itemize}
+
+
+
+
+
+
+
+
+

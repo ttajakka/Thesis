@@ -1,1 +1,462 @@
-\chapter{Background}
+\chapter{Background on sheaves and complexes and their moduli}\label{chapter:background}
+In this chapter we collect and summarize several key notions and results needed in the main body of the work. We consider schemes over a fixed  algebraically closed field $k$.
+
+\section{Local properties of sheaves}
+Let $X$ be a regular, noetherian, integral scheme of dimension $n$. The dimension of a coherent sheaf $F$ on $X$ is the dimension of its support $\Supp(F)$. A $d$-dimensional sheaf $F$ is called \textbf{pure} if all its associated points have dimension $d$, or equivalently if $\Hom(G, F) = 0$ for all sheaves $G$ of dimension less than $d$. A coherent sheaf $F$ of dimension $d$ has a unique filtration
+\[ F_0 \subs F_1 \subs \ldots \subs F_{d-1} \subs F_d = F \]
+where $F_i$ is the union of all subsheaves of dimension at most $i$, so that $F_i/F_{i-1}$ is either zero or pure of dimension $i$ for each $i$. A \textbf{torsion-free} sheaf is a pure sheaf of dimension $n$. A torsion-free sheaf is locally free in codimension 1. The \textbf{rank} of $F$ is denote $\rk(F)$ and defined as the dimension of the stalk of $F$ at the generic point of $X$.
+
+The \textbf{dual} of $F \in \Coh(X)$ is the sheaf $F^\vee = \sHom(F, \Oh_X)$. The canonical map $F \to F^\dd$ to the \textbf{double dual} of $F$ is injective whenever $F$ is torsion-free, and we say that $F$ is \textbf{reflexive} if this map is an isomorphism. A reflexive sheaf is locally free in codimension 2.
+
+\tuomas{Lemmas about the behavior of reflexive sheaves here? Such as Ext groups with 0-dimensional sheaves etc. Where are they even needed?}
+
+\section{Stability of sheaves}
+Let $X$ be a smooth, projective variety of dimension $n$ with a very ample divisor $H \subs X$. We denote the Hilbert polynomial of a coherent sheaf $F$ by
+\[ P(F, m) = \chi(X, F \otimes \Oh_X(mH)) = \sum_{i=0}^n (-1)^i \dim H^i(X, F \otimes \Oh_X(mH)), \]
+and, if $\dim(F) = n$, define the \textbf{reduced Hilbert polynomial} of $F$ as
+\[ p(F,m) = \frac{1}{\rk(F)} P(F, m). \]
+A torsion-free sheaf $F$ is \textbf{Gieseker-stable} (resp. \textbf{Gieseker-semistable}) if for any proper, nonzero subsheaf $F' \subs F$ we have 
+\[ p(F', m) < p(F, m) \qquad (\text{resp.} \quad p(F', m) \le p(F, m)), \]
+where we compare polynomials by asymptotic inequality, or equivalently by lexicographically comparing their coefficients. Note that the first inequality holds automatically for subsheaves $F'$ with $\rk(F') = \rk(F)$, so we can assume $\rk(F') < \rk(F)$ in the definition.
+
+By the Hirzebruch-Riemann-Roch formula, the coefficient of the degree $n-1$ term in $p(F, m)$ is the quantity
+\[ \mu(F) = \frac{H^{n-1} \cdot c_1(F)}{\rk(F)}, \]
+which we call the \textbf{$H$-slope}, or simply \textbf{slope}, of $F$. We say $F$ is \textbf{$\mu$-stable} (resp. \textbf{$\mu$-semistable}) if it is torsion-free and for any subsheaf $F' \subs F$ of smaller rank we have 
+\[ \mu(F') < \mu(F) \qquad (\text{resp.} \quad \mu(F') \le \mu(F)). \]
+We have the evident implications
+\begin{center}
+    $\mu$-stable $\implies$ Gieseker-stable $\implies$ Gieseker-semistable $\implies$ $\mu$-semistable.
+\end{center}
+Moreover, if $\gcd(\rk(F), H^{n-1}\cdot c_1(F)) = 1$, then all four notions are equivalent. To see this, let $F' \subs F$ be a subsheaf with $\mu(F') = \mu(F)$, or equivalently
+\[ \rk(F) (H^{n-1} \cdot c_1(F')) = \rk(F') (H^{n-1}\cdot c_1(F)). \]
+Since $\rk(F)$ divides the right hand side, it must divide $\rk(F')$, so that $\rk(F') = \rk(F)$. 
+
+A torsion-free sheaf $F$ is called \textbf{$\mu$-polystable} if it is a direct sum $F = \oplus_i F_i$ of $\mu$-stable sheaves $F_i$ with $\mu(F_i) = \mu(F)$. Any $\mu$-semistable sheaf $F$ has a \textbf{Jordan-H\"older filtration}
+\[ 0 = F_0 \subsetneq F_1 \subsetneq \ldots \subsetneq F_{m-1} \subsetneq F_m = F \]
+where the successive quotients $\gr_i(F) \coloneqq F_i/F_{i-1}$ are $\mu$-stable with $\mu(\gr_i(F)) = \mu(E)$. The sheaf $\gr(F) \coloneqq \oplus_i \gr_i(F)$ is called the \textbf{associated graded} of $F$. The Jordan-H\"older filtration is not necessarily unique, but the associated graded is unique up to isomorphism. Two $\mu$-semistable sheaves $F_1$ and $F_2$ are called \textbf{S-equivalent} if $\gr(F_1) \cong \gr(F_2)$. Each equivalence class is represented by a unique polystable sheaf.
+
+Any torsion-free sheaf $E$ admits a \textbf{Harder-Narasimhan filtration}
+\[ 0 = E_0 \subsetneq E_1 \subsetneq \ldots \subsetneq E_{m-1} \subsetneq E_m = E \]
+where the successive quotients $E_i/E_{i-1}$ are $\mu$-semistable with $\mu(E_1/E_0) > \mu(E_2/E_1) > \cdots > \mu(E_m/E_{m-1})$. The Harder-Narasimhan filtration is uniquely determined by $E$.
+
+We define polystability, Jordan-H\"older filtrations, the associated graded, S-equivalence, and Harder-Narasimhan filtrations analogously for Gieseker-stability. It will be clear from context which type of stability we mean.
+
+We recall the following. If $E$ and $F$ are either (a) Gieseker-stable sheaves with the same reduced Hilbert polynomial, or (b) $\mu$-stable reflexive sheaves with the same slope, then either $E \cong F$ or $\Hom(E, F) = 0$. As a consequence, if $E \cong \oplus_{i=1}^m E_i^{\oplus r_i}$ is either a Gieseker-polystable sheaf or $\mu$-polystable reflexive sheaf, with $E_i$ and $E_j$ nonisomorphic when $i \neq j$, then
+\[ \Aut(E) \cong \GL_{r_1} \times \cdots \times \GL_{r_m} \]
+
+As will be discussed below, moduli spaces of Gieseker-semistable sheaves can be constructed as projective schemes using GIT. While $\mu$-stability lacks this benefit, its utility comes from various permanence properties it enjoys. The most relevant for us is that $\mu$-stability is preserved under restriction to a general divisor. The following result is attributed to Mehta and Ramanathan.
+
+\begin{thm}[\hspace{-0.3em} {\cite[Theorem 7.2.1, Theorem 7.2.8]{HL}}]\label{mehta-ramanathan}
+    Let $X$ be a smooth, projective variety over an algebraically closed field with a very ample divisor $H$. Let $F$ be a $\mu$-semistable (resp. $\mu$-stable) sheaf on $X$. There exists an integer $a_0$ such that for $a \ge a_0$ and a general smooth divisor $D \in |a H|$, the restriction $F|_D$ is $\mu$-semistable (resp. $\mu$-stable).
+\end{thm}
+
+The integer $a_0$ in the theorem depends on the sheaf $F$. In characteristic 0, we get the following stronger result for restricting $\mu$-semistable sheaves to complete intersections of divisors, attributed to Flenner.
+
+\begin{thm}[\hspace{-0.3em} {\cite[Theorem 7.1.1, Theorem 7.2.8]{HL}}]\label{flenner}
+    Let $X$ be a smooth, projective variety of dimension $n \ge 2$ over an algebraically closed field of characteristic 0, and let $H \subs X$ be a very ample divisor. Let $r$ and $l$ be integers with $r > 0$ and $1 \le l \le n-1$. There exists an integer $a_0$, depending on $r$ and $l$, such that if $a \ge a_0$ and $F$ is a $\mu$-semistable sheaf on $X$, the restriction $F|_{D_1 \cap \cdots \cap D_l}$ to a complete intersection of general divisor $D_1, \ldots, D_l \in |a H|$ is again $\mu$-semistable.
+\end{thm}
+
+
+\section{Derived categories}
+We now recall some basic notions of derived categories. Let $X$ be a scheme of finite type over $k$. If
+\[ E: \quad \cdots \to E_{i-1} \xrightarrow{d_{i-1}} E_i \xrightarrow{d_i} E_{i+1} \to \cdots \]
+is a complex of coherent sheaves on $X$, we denote by $\sH^i(E) = \ker d_i/\img d_{i-1}$ its $i$th cohomology sheaf. A map $E \to F$ of complexes is a \textbf{quasi-isomorphism} if it induces an isomorphism $\sH^i(E) \xrightarrow{\sim} \sH^i(F)$ for all $i$. We denote by $D^b(X)$ the derived category of $X$, which is a triangulated category whose objects are bounded complexes of coherent sheaves and whose morphisms are maps of chain complexes and formal inverses of quasi-isomorphisms. An exact triangle
+\[ E \to F \to G \]
+in $D^b(X)$ induces an exact sequence
+\[ \cdots \to \sH^i(E) \to \sH^i(F) \to \sH^i(G) \to \sH^{i+1}(E) \to \cdots \]
+in $\Coh(X)$. Any morphism $\phi: E \to F$ in $D^b(X)$ can be completed to an exact triangle
+\[ E \xrightarrow{\phi} F \to \cone(\phi). \]
+
+The category of coherent sheaves $\Coh(X)$ embeds as a full subcategory of $D^b(X)$ as complexes $E$ with $\sH^i(E) = 0$ for $i \neq 0$. For $E, F \in \Coh(X)$ we have identifications
+\[ \Ext^i(E,F) = \Hom_{D^b(X)}(E, F[i]) = \Hom_{D^b(X)}(E[-i], F) \quad \text{for all\;} i. \]
+We often use this notation even when $E$ and $F$ are not sheaves. Moreover, if $X$ is smooth and projective of pure dimension $n$, the canonical sheaf $\om_X$ induces a duality
+\[ \Hom_{D^b(X)}(E, F) \cong \Hom_{D^b(X)}(F, E \otimes \om_X[n])^\vee, \]
+functorial in $E, F \in D^b(X)$, extending the usual Serre duality.
+
+A proper morphism $X \to Y$ of smooth varieties over $k$ induces an adjoint pair of exact functors
+\[ L f^*: D^b(Y) \to D^b(X), \qquad R f_*: D^b(X) \to D^b(Y). \]
+extending the pullback and pushforward along $f$. When $f$ is a closed embedding, we call $L f^*$ the derived restriction and denote $L f^*E = E|^\LL_X$. If on the other hand $f$ is the structure map $X \to \Spec k$, we denote $R f_* = R\Ga(X, -)$ and call the cohomology sheaves of $R\Ga(X, E)$ the hypercohomology groups of $E$ and denote them by $\Hh^i(X, E)$.
+
+An object $E \in D^b(X)$ induces a derived tensor product $(-) \otimes^\LL E: D^b(X) \to D^b(X)$, derived local homs 
+\[ R\sHom_X(E,-): D^b(X) \to D^b(X) \quad \text{and} \quad R\sHom(-, E): D^b(X)^{\text{op}} \to D^b(X), \]
+as well as global homs 
+\[ R\Hom_X(E,-): D^b(X) \to D^b(\Spec k) \quad  \text{and} \quad R\Hom(-, E): D^b(X)^{\text{op}} \to D^b(\Spec k), \]
+each functorial in $E$.
+
+\subsection{Hearts and tilting}
+The subcategory $\Coh(X) \subs D^b(X)$ has the special feature that any object $E \in D^b(X)$ has a unique filtration
+\[ 0 = E_0 \to E_1 \to \cdots \to E_{m-1} \to E_m = E \]
+such that $\cone(E_{i-1} \to E_i)$ lies in $\Coh(X)[k_i]$ for some $k_i$, and $k_1 > k_2 > \cdots > k_m$ -- this is just the usual filtration of $E$ by its cohomology sheaves $\sH^i(E)$. Abstracting this property gives rise to the following definition.
+\begin{defn}
+    A {\bf heart of a bounded t-structure} is a full additive subcategory $\sA \subs D^b(X)$ such that
+    \begin{enumerate}[(i)]
+        \item $\Hom(A, B[i]) = 0$ for any $A, B \in \sA$ and $i < 0$,
+        \item For any $E \in D^b(X)$, there exists a filtration
+        \begin{center}
+        \begin{tikzpicture}
+        \matrix (m) [matrix of math nodes, row sep=3em, column sep=3em]
+        { 0 = E_0 & E_1 & \cdots & E_{m-1} & E_m = E \\
+        & A_1[k_1] & \cdots & A_{m-1}[k_{m-1}] & A_m[k_m] \\};
+        \path[->] 
+        (m-1-1) edge node[auto] {$ $} (m-1-2)
+        (m-1-2) edge node[auto] {$ $} (m-1-3)
+        (m-1-3) edge node[auto] {$ $} (m-1-4)
+        (m-1-4) edge node[auto] {$ $} (m-1-5)
+        (m-1-2) edge node[auto] {$ $} (m-2-2)
+        (m-1-4) edge node[auto] {$ $} (m-2-4)
+        (m-1-5) edge node[auto] {$ $} (m-2-5)
+        ;
+        \path[dashed,->]
+        (m-2-5) edge node[auto,swap] {$ [1] $} (m-1-4)
+        (m-2-2) edge node[auto,swap] {$ [1] $} (m-1-1)
+        (m-2-4) edge node[auto,swap] {$ [1] $} (m-1-3)
+        ;        
+        \end{tikzpicture}
+        \end{center}
+        with $A_1, \ldots, A_m \in \sA$, and $k_1 > k_2 > \cdots > k_m$.
+    \end{enumerate}
+\end{defn}
+It follows from (i) that the filtration in (ii) is unique. Moreover, a heart $\sA$ turns out to be abelian, a short exact sequence in $\sA$ begin simply an exact triangle in $D^b(X)$ whose three vertices lie in $\sA$.
+
+A method for producing new hearts from old is provided by tilting with respect to a torsion pair.
+\begin{defn}
+    A {\bf torsion pair} on an abelian category $\sA$ is a pair $(\sT, \sF)$ of full additive subcategories of $\sA$, such that
+    \begin{enumerate}[(i)]
+        \item $\Hom(T, F) = 0$ for any $T \in \sT,$ and $F \in \sF$,
+        \item for any $E \in \sA$, the exists a short exact sequence $0 \to T \to E \to F \to 0$ with $T \in \sT$ and $F \in \sF$.
+    \end{enumerate}
+\end{defn}
+It follows again from (i) that the short exact sequence in (ii) is unique. The basic example of a torsion pair is $(\sT, \sF) \subs \Coh(X)$ where $\sT$ and $\sF$ are the full subcategory of torsion sheaves and torsion-free sheaves respectively.
+\begin{defn}
+    Given a torsion pair $(\sT, \sF)$ on a heart of a bounded t-structure $\sA \subs D^b(X)$, the {\bf tilt} of $\sA$ with respect $(\sT, \sF)$ is the full subcategory
+    \[ \sA^\# = \langle \sF, \sT[-1] \rangle \]
+    of $D^b(X)$ consisting of objects that fit in an exact triangle
+    \[ F \to E \to T[-1] \]
+    with $F \in \sF$ and $T \in \sT$.
+\end{defn}
+The tilt of a heart is again a heart, and in particular abelian.
+
+\section{Good moduli spaces}
+A good moduli space is a generalization to algebraic stacks of the usual coarse moduli space associated to a Deligne-Mumford stack or a gerbe. In a sense, a good moduli space is an algebraic space that most closely approximates the stack. Based on ideas from Geometric Invariant Theory, Alper gave the definition and developed the basic theory of good moduli spaces in \cite{AlperGMS}.
+
+Let $\sM$ be an algebraic stack. A quasi-compact, quasi-separated morphism $\pi: \sM \to M$ to an algebraic space $M$ is called a {\bf good moduli space}, if 
+\begin{itemize}
+    \item the pushforward $\pi_*: \Qcoh(\sM) \to \Qcoh(M)$ is exact, and
+    \item the natural map $\Oh_M \to \pi_*\Oh_\sM$ is an isomorphism.
+\end{itemize}
+We list a few basic properties of good moduli spaces.
+\begin{prop}
+    If $\pi: \sM \to M$ is a good moduli space, then the following hold. \begin{enumerate}[(i)]
+        \item $\pi$ is surjective, universally closed, and induces a bijection on closed points.
+        \item $\pi$ is universal for maps to algebraic spaces.
+        \item For every geometric point $x: \Spec K \to \sM$ with closed image, the stabilizer group $G_x$ is linearly reductive.
+        \item If $\sM$ is of finite type over a field, then so is $M$, and $\pi_*$ preserves coherence.
+    \end{enumerate}
+\end{prop}
+
+We recall the following criterion \cite[Theorem 10.3]{AlperGMS} for a locally free sheaf on $\sM$ to descend to the good moduli space $M$. 
+\begin{prop}\label{vbtogms}
+    If $\pi: \sM \to M$ is a good moduli space and $\sM$ is locally noetherian, then the pullback morphism $\pi^*: \Coh(M) \to \Coh(\sM)$ induces an equivalence of categories between locally free sheaves on $M$ and those locally free sheaves $\sF$ on $\sM$ such that for every geometric point $x: \Spec k \to \sM$ with closed image, the induced representation $x^*\sF$ of the stabilizer $G_x$ is trivial.
+\end{prop}
+
+The existence of a good moduli space for a given algebraic stack is a subtle question. One answer is given in \cite{AHLH}, where for a large class of stacks the authors give necessary and sufficient conditions for existence of a good moduli space in terms of certain valuative criteria.
+
+An important source of good moduli spaces is Geometric Invariant Theory. Let $X$ be a projective scheme, $G$ a linearly reductive algebraic group acting on $X$, and $L$ a $G$-linearized ample line bundle on $X$. Let $\sX = [X/G]$ denote the quotient stack. The invariant open subset $X^{\text{ss}}$ of semistable points with respect to $L$ gives an open substack $\sX^{\text{ss}}$, and the good GIT quotient $X^{\text{ss}}\sslash G$ is a good moduli space for $\sX^{\text{ss}}$. The closed points of $X^{\text{ss}}\sslash G$ are in bijection with the closed orbits of $X^{\text{ss}}$.
+
+We will need the following in Chapters \ref{chapter:uhlenbeck} and \ref{chapter:pt}.
+\begin{lem}\label{finitecurveextension}
+    Let $\sM$ be an algebraic stack of finite type that admits a good moduli space $\pi: \sM \to M$ with $M$ proper. Let $C$ be a smooth, proper curve, and let $g: C \to M$ be a morphism. There exists a commutative diagram
+    \begin{center}
+    \begin{tikzpicture}
+    \matrix (m) [matrix of math nodes, row sep=2em, column sep=2em]
+    { C' & \sM  \\
+    C & M \\};
+    \path[->] 
+    (m-1-1) edge node[auto] {$ f $} (m-1-2)
+    (m-1-1) edge node[auto,swap] {$ \phi $} (m-2-1)
+    (m-1-2) edge node[auto] {$ \pi $} (m-2-2)
+    (m-2-1) edge node[auto,swap] {$ g $} (m-2-2)
+    ;        
+    \end{tikzpicture}
+    \end{center}
+    where $C'$ is smooth and proper and $\phi$ is finite.
+\end{lem}
+\begin{proof}
+    Let $U \to \sM$ be a smooth surjection with $U$ a scheme of finite type. The fiber product $C \times_M U$ is also a scheme of finite type and $\pi_C: C \times_M U \to C$ is surjective. The scheme-theoretic fiber $\pi_C^{-1}(\eta)$ over the generic point $\eta \in C$ is of finite type over the function field of $C$, hence contains a closed point $\tau \in \pi_C^{-1}(\eta)$ whose residue field $K = \ka(\tau)$ is a finite extension of the function field $K(C) = \ka(\eta)$. Let $C_\tau$ denote the normalization of $C$ in the field $\ka(\tau)$. Since $U$ is of finite type, we can extend the map $\Spec K \to U$ over an open subscheme $V \subs C_\tau$ and obtain a commutative diagram
+    \begin{center}
+    \begin{tikzpicture}
+    \matrix (m) [matrix of math nodes, row sep=2em, column sep=2em]
+    { \Spec K & V & U & \sM \\
+    & C_\tau & C & M \\};
+    \path[right hook->] 
+    (m-1-1) edge node[auto] {$ $} (m-1-2)
+    (m-1-2) edge node[auto] {$ $} (m-2-2)
+    ;
+    \path[->]
+    (m-1-2) edge node[auto] {$ $} (m-1-3)
+    (m-1-3) edge node[auto] {$ $} (m-1-4)
+    (m-1-4) edge node[auto] {$ \pi $} (m-2-4)
+    (m-2-2) edge node[auto,swap] {$ $} (m-2-3)
+    (m-2-3) edge node[auto] {$ g $} (m-2-4)
+    ;        
+    \end{tikzpicture}
+    \end{center}
+    By applying \cite[Theorem A.8]{AHLH} to the local rings of the finitely many points in the complement $C_\tau \setminus V$, we find a finite extension $K'$ of $K$ such that the normalization $C'$ of $C_\tau$ in $K'$ admits a map $C' \to \sM$.
+\end{proof}
+
+\section{Moduli stacks of sheaves and complexes}
+Let $X$ be a smooth, projective variety over $k$. If $S$ is a $k$-scheme, a complex $E$ of quasi-coherent sheaves on $S \times X$ is called \textbf{perfect relative to $S$} or \textbf{$S$-perfect} if \'etale-locally on $S \times X$, it is quasi-isomorphic to a bounded complex of coherent sheaves flat over $S$. A complex on $X$ is \textbf{perfect} if it is perfect relative to the identity morphism, or in other words locally quasi-isomorphic to a bounded complex of locally free sheaf of finite rank. The \textbf{rank} of a perfect complex $E$ is the alternating sum of the ranks of the terms in a complex of locally free sheaves representing $E$.
+
+An $S$-perfect complex is called \textbf{universally gluable} if for every geometric point $\Spec K \to S$, the complex $E_K = E|^\LL_{X_K} \in D^b(X_K)$ satisfies
+\[ \Ext^i(E_K, E_K) = 0 \quad \text{for} \; i < 0. \]
+We let $\sMom_X$ denote the stack on the big \'etale site of $k$-schemes that to a scheme $S$ associates the groupoid of universally gluable complexes on $S \times X$. On $\sMom_X \times X$ there is a universal $\sMom_X$-perfect complex.
+\begin{thm}[\hspace{-0.3em} {\cite[Theorem 4.2.1]{lie06}}]\label{motherofallmoduli}
+    The stack $\sMom_X$ is an algebraic stack locally of finite type over $k$.
+\end{thm}
+The stack $\sMom_X$ contains many useful open substacks.
+For example, if $S$ is a scheme of finite type over $k$ and $E$ is an $S$-perfect complex on $S \times X$ such that for every $k$-point $s \in S$, the restriction $E_s \in D^b(X)$ lies in the heart of a bounded t-structure, then $E$ is universally gluable. In particular, any flat family of sheaves on $X$ is universally gluable. As another example, we say that a complex $E \in D^b(X)$ is \textbf{simple} if $\Hom(E,E) = k$ and $\Ext^i(E,E) = 0$ for $i < 0$. The substack $\sS pl \subs \sMom$ of simple complexes is a $\G_m$-gerbe over an algebraic space locally of finite presentation over $k$, see \cite{inaba}, \cite[Corollary 4.3.3]{lie06}.
+
+\subsection{Moduli stacks of semistable sheaves}
+Let $X$ be a smooth, projective variety of dimension $n$ over $k$ with a very ample divisor $H$. We let $K(X)$ denote the Grothendieck group of coherent sheaves on $X$. It has the structure of a filtered ring, where the product is induced by tensor product on locally free sheaves and the filtration is given by the codimension of the support of a coherent sheaf. We denote by $\Kn(X)$ the quotient of the Grothendieck group of coherent sheaves $K(X)$ by the kernel of the Euler pairing
+\[ \chi: K(X) \times K(X) \to \Z, \quad \chi(E, F) = \sum_{i=0}^n (-1)^i \dim \Ext^i(E, F). \]
+The group $\Kn(X)$ is a finitely generated free abelian group. For a class $v \in \Kn(X)$ with $\rk(v) > 0$, we obtain a sequence of open substacks
+\[ \sM^{\mu-\text{s}}_X(v) \;\subs\; \sM^{\text{G-s}}_X(v) \;\subs\; \sM^{\text{G}}_X(v) \;\subs\; \sM^{\mu}_X(v) \qquad \subs \qquad \sMom \]
+parameterizing, from left to right, $\mu$-stable, Gieseker-stable, Gieseker-semistable, and $\mu$-se\-mi\-stable torsion-free sheaves of class $v$. All four stacks are quasicompact and the first two are substacks of the stack $\sS pl$ of simple complexes and hence $\G_m$-gerbes over an algebraic space. If $\rk(v)$ and $H^{n-1}\cdot c_1(v)$ are coprime, then all four substacks coincide. In the stacks $\sM^{\text{G}}_X(v)$ and $\sM^{\mu}_X(v)$, two $k$-valued points representing S-equivalent sheaves have intersecting closures, which implies that a moduli variety of semistable sheaves can parameterize sheaves only up to S-equivalence.
+
+
+\subsection{Projective moduli spaces of semistable sheaves}
+A good moduli space for the stack $\sM^{\text{G}}_X(v)$ of Gieseker-semistable sheaves is obtained as a GIT quotient as follows. Since the family of semistable sheaves of class $v$ is bounded, there exist integers $n, m$ such for every semistable sheaf $F$, there exists a surjection $E \coloneqq \Oh_X(-m)^{\oplus n} \twoheadrightarrow F$ that induces an isomorphism on global sections $k^{\oplus n} = H^0(X, \Oh_X^{\oplus n}) \to H^0(X, F(m))$. Thus, if $P$ denotes the Hilbert polynomial of the class $v$, the semistable sheaves of class $v$ are represented by the points of an open subset $U$ of the Quot scheme $Q = \Quot(\Oh_X(-m)^{\oplus n}, P)$, giving rise to a surjective morphism
+\[ \phi: U \to \sM^{\text{G}}_X(v). \]
+The group $G = \SL(n)$ acts on the closure $\overline{U}$ by precomposing a quotient $E \twoheadrightarrow F$ with an automorphism of $E$, and the map $\phi$ is invariant under this action. Moreover, there is a natural linearized ample line bundle $L$ on $\overline{U}$ such that the semistable locus $\overline{U}^{\text{ss}}$ is precisely $U$, and we obtain a projective good moduli space 
+\[ \sM^{\text{G}}_X(v) \to M^{\text{G}}_X(v) = U\sslash G \]
+as the good GIT quotient. The closed points of $M^{\text{G}}_X(v)$ are in bijection with S-equivalence classes of Gieseker-semistable sheaves, and the open substack $\sM^{\text{G-s}}_X(v) \subs \sM^{\text{G}}_X(v)$ of stable sheaves induces an open subscheme $M^{\text{G-s}}_X(v) \subs M^{\text{G}}_X(v)$ parameterizing isomorphism classes of stable sheaves.
+
+The situation is not as favorable with $\mu$-stability. In fact, the stack $\sM^{\mu}_X(v)$ of $\mu$-semistable sheaves does not have a good moduli space in general. For example if $I_p$ is the ideal sheaf of a closed point $p \in X$, then the sheaf $I_p \oplus \Oh_X$ is $\mu$-semistable, but its automorphism group is not linearly reductive. However, when $X$ is a surface, Jun Li \cite{li} constructed a projective scheme $M^{\text{Uhl}}_X(v)$, called the \textbf{Uhlenbeck compactification}, and a map $\pi: \sM^\mu_X(v) \to M^{\text{Uhl}}_X(v)$ giving rise to commutative diagram
+\begin{center}
+    \begin{tikzpicture}
+    \matrix (m) [matrix of math nodes, row sep=4em, column sep=4em]
+    { \sM^{\mathrm{G}}(v) & \sM^{\mu}(v) \\
+    M^{\mathrm{G}}(v) & M^{\mathrm{Uhl}}(v) \\};
+    \path[right hook->] 
+    (m-1-1) edge node[auto] {$ _\mathrm{open\, emb.} $} (m-1-2)
+    ;
+    \path[->]
+    (m-1-1) edge node[auto] {$ _\mathrm{gms} $} (m-2-1)
+    (m-1-2) edge node[auto] {$ \pi $} (m-2-2)
+    (m-2-1) edge node[auto] {$  $} (m-2-2)
+    ;
+    \end{tikzpicture}
+\end{center}
+To explain the set-theoretic behavior of $\pi$, recall that if $F$ is a $\mu$-semistable sheaf, the associated graded sheaf $\gr(F)$ is the direct sum of its Jordan-H\"older factors. Since $X$ is a surface, the double dual $\gr(F)^\dd$ is locally free and the quotient $\gr(F)^\dd/\gr(F)$ is supported at finitely many closed points of $X$. Two $\mu$-semistable sheaves $F_1$ and $F_2$ are identified by $\pi$ if and only if $\gr(F_1)^\dd$ and $\gr(F_2)^\dd$ are isomorphic and the quotients $\gr(F_1)^\dd/\gr(F_1)$ and $\gr(F_2)^\dd/\gr(F_2)$ are supported at the same points with the same lengths.
+
+The goal of Chapter \ref{chapter:uhlenbeck} is to find a certain stack open substack $\sM^\si_X(v) \subs \sMom$ containing $\sM^\mu_X(v)$ whose good moduli space $M^\si_X(v)$ is identified with $M^{\text{Uhl}}_X(v)$. Unfortunately we only obtain a bijective morphism $M^{\text{Uhl}}_X(v) \to M^\si_X(v)$, and it remains open whether this map is an isomorphism.
+
+In Chapter \ref{chapter:pt} we study a certain stack $\sM^{\text{PT}}_X(v)$ of complexes on a 3-fold $X$. We construct a morphism $\sM^{\text{PT}}_X(v) \to \overline{M}$ to a projective scheme $\overline{M}$ and show that the set-theoretic behavior of this map is closely analogous to that of the map to the Uhlenbeck compactification. In both chapters we heavily employ the technology of determinantal line bundles, which we now turn to.
+
+
+\section{Determinantal line bundles}\label{section:determinantal}
+Material for this section follows \cite[\href{https://stacks.math.columbia.edu/tag/0FJI}{Tag 0FJI}]{stacks-project}, \cite[\href{https://stacks.math.columbia.edu/tag/0FJW}{Tag 0FJW}]{stacks-project}, and \cite[Section 8.1]{HL}. The original exposition is \cite{KM76}.
+
+Let $S$ be a scheme. The rule that sends a locally free sheaf $F$ to its determinant line bundle $\det(F) = \bigwedge^{\rk(F)} F$ extends to a functor
+\[ \det: \{\mathrm{perfect\, complexes\, on\,} S\} \to \{\mathrm{invertible\,} \mathrm{sheaves\, on}\, S \}. \]
+Moreover, for any short exact sequence
+\[ 0 \to F' \to F \to F'' \to 0 \]
+of locally free sheaves, there is a canonical isomorphism $\det(F) \to \det(F') \otimes \det(F'')$, so in particular we obtain an induced homomorphism of abelian groups
+\[ \det: K_0(S) \to \Pic(S), \]
+where $K_0(S)$ denotes the Grothendieck group of locally free sheaves on $S$. These constructions commute with pullbacks in the sense that if $\pi: S' \to S$ is a morphism of schemes and $F$ is a locally free sheaf or a perfect complex on $S$, then canonically $\det(\pi^* F) \cong \pi^*\det(F)$.
+
+Let now $X$ be a smooth, projective variety over $k$, $S$ a scheme of finite type over $k$, and $\sE \in D^b(S \times X)$ an $S$-perfect complex. Note that since $X$ is smooth, we have $K_0(X) \cong K(X)$. Consider the diagram:
+\begin{center}
+    \begin{tikzpicture}
+    \matrix (m) [matrix of math nodes, row sep=1em, column sep=1em]
+    { & S \times X & \\
+    S & & X \\};
+    \path[->] 
+    (m-1-2) edge node[auto,swap] {$ p $} (m-2-1)
+    (m-1-2) edge node[auto] {$ q $} (m-2-3)
+    ;
+    \end{tikzpicture}
+\end{center}
+Any coherent sheaf $F$ on $X$ is perfect as an object of $D^b(X)$, and so the complex $\sE \otimes q^*F$ on $S \times X$ is again $S$-perfect. Thus, by \cite[\href{https://stacks.math.columbia.edu/tag/0B91}{Tag 0B91}]{stacks-project}, the derived pushforward $R p_* (\sE \otimes q^* F)$ is perfect on $S$. Composing with the determinant map gives a homomorphism of abelian groups
+\[ \la_\sE: K(X) \to \Pic(S), \quad [F] \mapsto \det R p_*(\sE \otimes q^* F) \]
+called the {\bf Donaldson morphism}. Moreover, since the formation of the pushforward $R p_*(\sE \otimes q^* F)$ commutes with base change, so does the formation of $\la_\sE$ in the sense that if $\pi: S' \to S$ is a morphism of schemes, then the composition
+\[ K(X) \xrightarrow{\la_\sE} \Pic(S) \xrightarrow{\pi^*} \Pic(S') \]
+equals $\la_{(\pi \times \id_X)^* \sE}$. In particular, the fiber of $\la_\sE(F)$ at a $k$-point $t \in S$ is identified with the 1-dimensional vector space
+\[ \det R \Ga(X, \sE_t \otimes^\LL F) = \bigotimes_{i \in \Z} (\det \Hh^i(X, \sE_t \otimes^\LL F))^{(-1)^i}, \]
+where $\sE_t$ denotes the restriction $\sE|^\LL_{\{t\} \times X} \in D^b(X)$.
+
+We collect some of the basic properties of the Donaldson morphism in the following.
+\begin{lem}\label{Donaldsonproperties}
+    Let $w \in K(X)$.
+    \begin{enumerate}[(i)]
+        \item If $\sE \to \sF \to \sG$ is an exact triangle of $S$-perfect complexes on $S \times X$, then
+        \[ \la_\sF(w) \cong \la_\sE(w) \otimes \la_\sG(w). \]
+        
+        \item If $F$ is a perfect complex on $X$, then
+        \[ \la_{q^*F}(w) \cong \Oh_S. \]
+        
+        \item If $\sE$ is an $S$-perfect family of complexes of class $c \in K(X)$ on $S \times X$ and $G$ is a perfect complex on $S$, then
+        \[ \la_{p^*G \otimes \sE}(w) = \la_\sE(w)^{\rk G} \otimes \det(G)^{\otimes \chi(c\cdot w)}. \]
+    \end{enumerate}
+\end{lem}
+
+The Donaldson morphism respects numerical equivalence and hence a induces homomorphism
+\[ \la_\sE: \Kn(X) \to \Num(S), \]
+where $\Num(S)$ denotes $\Pic(S)$ modulo numerical equivalence, and furthermore extends to a linear map
+\[ \la_\sE: \Kn(X)_\R \to \Num(S)_\R \]
+of real vector spaces, where $\Kn(X)_\R = \Kn(X) \otimes \R$, and $\Num(S)_\R = \Num(S) \otimes \R$ is the group of real divisor classes.
+
+This construction readily generalizes to algebraic stacks, and in particular, the Donaldson morphism lets us construct line bundles on the stack $\sMom_X$ and its open substacks. Let $\sM \subs \sMom_X$ be an open substack and $\sE$ the universal $\sM$-perfect complex on $\sM \times X$, and consider the diagram:
+\begin{center}
+    \begin{tikzpicture}
+    \matrix (m) [matrix of math nodes, row sep=1em, column sep=1em]
+    { & \sM \times X & \\
+    \sM & & X \\};
+    \path[->] 
+    (m-1-2) edge node[auto,swap] {$ p $} (m-2-1)
+    (m-1-2) edge node[auto] {$ q $} (m-2-3)
+    ;
+    \end{tikzpicture}
+\end{center}
+If $F$ is a coherent sheaf on $X$, we obtain the line bundle
+\[ \la_\sE(F) \coloneqq \det(R p_*(\sE \otimes q^*F)) \]
+on $\sM$, and this induces a group homomorphism
+\[ \la_\sE: K(X) \to \Pic(\sM). \]
+
+
+\subsection{Sections of determinantal line bundles}
+In special situations the above construction of a determinantal line bundle also yields a canonical section of the dual of the line bundle. Namely, if $E \in D^b(S)$ is a perfect complex of rank 0 whose cohomology sheaves $\sH^i(E)$ vanish whenever $i \neq 0, 1$, then locally on $S$ the complex $E$ can be represented by a two-term complex of locally free sheaves
+\[ \cdots \to 0 \to E_0 \xrightarrow{f} E_1 \to 0 \to \cdots, \quad \rk(E_0) = \rk(E_1). \]
+The map $f$ induces a section $\det(f): \Oh_S \to \det(E_0)^\vee \otimes \det(E_1)$, and these local sections glue to a global section $\de_E \in \Ga(S, \det(E)^\vee)$. Moreover, the formation of this section commutes with pullbacks in the sense that if $\pi: S' \to S$ is a morphism of schemes, then the sections $\de_{\pi^*E}$ and $\pi^*\de_E$ are identified under the canonical isomorphism $\det(\pi^* E)^\vee \cong \pi^*(\det(E)^\vee)$. See \cite[\href{https://stacks.math.columbia.edu/tag/0FJX}{Tag 0FJX}]{stacks-project}. The following lemma gives a useful criterion for the existence and non-vanishing of a section.
+\begin{lem}\label{detsection}
+    Let $X$ be a smooth, projective variety and $S$ a scheme or an algebraic stack of finite type over $k$. Let $\sE \in D^b(S \times X)$ be an $S$-perfect complex, and let $F$ be a coherent sheaf on $X$.
+    \begin{enumerate}[(a)]
+        \item If for all $k$-points $t \in S$, we have $\Hh^i(X, \sE_t \otimes F) = 0$ whenever $i \neq 0, 1$, and 
+        \[ \chi(X, \sE_t \otimes^\LL F) = \dim \Hh^0(X, \sE_t \otimes^\LL F) - \dim \Hh^1(X, \sE_t \otimes^\LL F) = 0, \]
+        then the line bundle $\la_\sE(F)^\vee$ on $S$ has a canonical section $\de_F$.
+        \item In addition, if for some $t \in S$ we have 
+        \[ \Hh^0(X, \sE_t \otimes^\LL F) = \Hh^1(X, \sE_t \otimes^\LL F) = 0, \]
+        then the section $\de_F$ is nonzero at $t$.
+    \end{enumerate}
+\end{lem}
+\begin{proof}
+    For (a), cohomology and base change implies that $R^i p_*(\sE \otimes q^* F) = 0$ for $i \neq 0,1$, and thus locally on $S$, the object $R p_*(\sE \otimes q^*F)$ can be represented by a complex
+    \[ \cdots \to 0 \to \sG_0 \xrightarrow{f} \sG_1 \to 0 \to \cdots \]
+    where $\sG_0$ and $\sG_1$ are locally free of finite rank. By \cite[\href{https://stacks.math.columbia.edu/tag/0B91}{Tag 0B91}]{stacks-project}, forming $R p_*(\sE \otimes q^*F)$ commutes with base change, and so for any $t \in S$, we have 
+    \[ \sum_i (-1)^i \rk(\sG_i) = \sum_i (-1)^i \rk(\sG_i|_t) = \sum_i (-1) \dim \Hh^i(X, \sE_t \otimes F) = 0, \]
+    so $\rk \sG_0 = \rk \sG_1$.
+    
+    For (b), if moreover $\Hh^1(X, \sE_t \otimes F) = 0$, by cohomology and base change $R^1 p_*(\sE \otimes q^*F) = 0$ in a neighborhood of $t$, so the map $f: \sE_0 \to \sE_1$ is surjective in a neighborhood of $t$, hence an isomorphism, and so its determinant is nonzero at $t$.
+\end{proof}
+
+\subsection{Stabilizer action}
+We now compute how the stabilizer of certain objects in $\sMom_X$ acts on a determinantal line bundle $\la_\sE(F)$. Let $X$ be a smooth, projective variety and let $E$ be a direct sum of simple objects in $D^b(X)$. If $F$ is a locally free sheaf on $X$, we want to know how $g \in \Aut(E)$ acts on the 1-dimensional vector space
+\[ \det R \Ga(X, E \otimes F) = \bigotimes_{i \in \Z} (\det \Hh^i(X, E \otimes F))^{(-1)^i}. \]
+First consider the case $E \cong S^{\oplus r}$ where $S$ is a simple object and $r \ge 1$, so that $\Aut(E) \cong \GL_r$, and we can view an element $g \in \Aut(E)$ as an invertible matrix $g = (g_{kl})$. Thus, $g$ acts on $\Hh^i(X, E \otimes F) \cong \Hh^i(X, S \otimes F)^{\oplus r}$ by a block diagonal matrix consisting of $\dim \Hh^i(X, S \otimes F)$ diagonal copies of $g$, and hence on
+\[ \det \Hh^i(X, E \otimes F) \cong (\det \Hh^i(X, S \otimes F))^{\otimes r} \]
+by multiplication by $\det(g)^{\dim \Hh^i(X, S \otimes F)}$, and on $\det R \Ga(X, E \otimes F)$ by
+\[ \prod_{i=0}^n \left((\det(g)^{\dim \Hh^i(X, S \otimes F)}\right)^{(-1)^i} = \det(g)^{\chi(X, S \otimes F)}. \]
+Next, consider the case $E \cong S_1^{\oplus r_1} \oplus \cdots \oplus S_m^{\oplus r_m}$ where $S_1, \ldots, S_m \in D^b(X)$ are simple objects and $\Hom(S_i, S_j) = 0$ for $i \neq j$. For example the $S_j$ could be nonisomorphic $\mu$-stable locally free sheaves with the same slope. Now
+\[ \Aut(E) \cong \GL_{r_1} \times \cdots \times \GL_{r_m}, \]
+and an element $g = (g_1, \ldots, g_m) \in \Aut(E)$ acts on
+\[ \Hh^i(X, E \otimes F) \cong \Hh^i(X, S_1 \otimes F)^{\oplus r_1} \oplus \cdots \oplus \Hh^i(X, S_m \otimes F)^{\oplus r_m} \]
+by a block diagonal matrix with the matrix $g_j$ on the diagonal $ \dim \Hh^i(X, S_j \otimes F)$ times. Thus, $g$ acts on $\det \Hh^i(X, E \otimes F)$ by multiplication by
+\[ \det(g_1)^{\dim \Hh^i(X, S_1 \otimes F)} \cdots \det(g_m)^{\dim \Hh^i(X, S_m \otimes F)}, \]
+and hence on $\det R \Ga(X, E \otimes F)$ by
+\[ \det(g_1)^{\chi(X, S_1 \otimes F)} \cdots \det(g_m)^{\chi(X, S_m \otimes F)}. \]
+The same analysis extends to the case where we replace $F$ by an element $u \in K(X)$, and so we have the following.
+\begin{prop}\label{lbtogms}
+    Let $\sE$ denote the universal complex on $\sMom_X \times X$, let $u \in K(X)$ be a class, and let $t \in \sMom_X$ be a $k$-point corresponding to an object $E \cong S_1^{\oplus r_1} \oplus \cdots \oplus S_m^{\oplus r_m}$ where each $S_i$ is simple and $\Hom(S_i, S_j) = 0$ for $i \neq j$. An element $g = (g_1,\ldots,g_m) \in \Aut(E)$ acts on the fiber of $\la_\sE(u)$ on $\sMom$ at $t$ by multiplication by
+    \[ \det(g_1)^{\chi(X, [S_1] \cdot u)} \cdots \det(g_m)^{\chi(X, [S_m] \cdot u)}. \]
+    In particular, if $\chi(X, [S_i] \cdot u) = 0$ for each $i$, then $\Aut(E)$ acts trivially on the fiber.
+\end{prop}
+
+\section{Moduli of vector bundles on a curve}
+In this section we recall elements of the construction of the moduli of vector bundles on a curve via determinantal line bundles. This approach was developed by Faltings in the more general context of Higgs bundles \cite{faltings} and specialized to $\mu$-semistable bundles by Seshadri \cite{seshadri}.
+
+Let $C$ be a smooth, projective, connected curve of genus $g \ge 2$. We have canonical isomorphisms
+\[ K(C) \xrightarrow{\sim} \Z \times \Pic(C), \qquad \Kn(C) \xrightarrow{\sim} \Z \times \Z \]
+given by $[F] \mapsto (\rk(F), \det(F))$ and $[F] \mapsto (\rk(F), \deg(F))$ respectively. Since the Hilbert polynomial of any coherent sheaf $E$ on $C$ has degree at most 1, Gieseker- and $\mu$-stability coincide, and the slope of a coherent sheaf $E$ now has the simple form
+\[ \mu(E) = \frac{\deg(E)}{\rk(E)}. \]
+Let $r$ and $d$ be integers with $r > 0$ and let $\sM^\mu_C(r,d)$ denote the stack of $\mu$-semistable locally free sheaves of rank $r$ and degree $d$ with universal locally free sheaf $\sE$. Consider the diagram
+\begin{center}
+    \begin{tikzpicture}
+    \matrix (m) [matrix of math nodes, row sep=1.5em, column sep=1.5em]
+    { & \sE &  \\
+    & \sM^\mu_C(r,d) \times C & \\
+    \sM^\mu_C(r,d) & & C \\};
+    \path[dotted]
+    (m-1-2) edge node[auto,swap] {$ $} (m-2-2)
+    ;
+    \path[->] 
+    (m-2-2) edge node[auto,swap] {$ p $} (m-3-1)
+    (m-2-2) edge node[auto] {$ q $} (m-3-3)
+    ;
+    \end{tikzpicture}
+\end{center}
+Recall that the Donaldson morphism
+\[ \la_\sE: K(C) \to \Pic(\sM^\mu_C(r,d)) \]
+is induced by sending a locally free sheaf $G$ to the line bundle $\la_\sE(G) = \det(R p_*(\sE \otimes q^*G))$. Since $C$ is 1-dimensional, we have $H^i(C, \sE_t \otimes G) = 0$ for $i \neq 0, 1$ and for all $k$-points $t \in \sM^\mu_C(r,d)$, implying that $R p_*(\sE \otimes q^*G)$ is locally represented by a two-term complex of locally free sheaves $\sG_0 \to \sG_1$. 
+
+Choose now an integer $r' > 0$ and a line bundle $L \in \Pic(C)$ such that
+\[ r \deg L + (d + r(1-g)) r' = 0. \]
+Denote $-w = (r', L) \in K(C) \cong \Z \times \Pic(C)$. If $G$ is a locally free sheaf on $C$ with $[G] = -w$, it follows from the Riemann-Roch theorem that $\chi(X, \sE_t \otimes G) = 0$ for any $t \in \sM^\mu_C(r,d)$, so by Lemma \ref{detsection}, the line bundle $\la_\sE(w)$ acquires a section 
+\[ \de_G \in \Ga(\sM^\mu_C(r,d), \la_\sE(w)). \]
+We emphasize that the line bundle $\la_\sE(w)$ only depends on the class $w \in K(C)$, but the section $\de_G$ depends on the sheaf $G$.
+
+The strategry of Faltings and Seshadri is to (i) show that for large enough $r' \gg 0$, the sections $\de_G$ generate the line bundle $\la_\sE(w)$ inducing a map from $\sM^\mu_C(r,d)$ to a projective space, (ii) prove that the only curves this map contracts are those parameterizing families of S-equivalent sheaves, and (iii) identify the normalization of the image of this map with the good moduli space $M^\mu_C(r,d)$ obtained from GIT. Key ingredients in the construction are the following two results.
+
+\begin{lem}[\hspace{-0.45em} {\cite[Lemma 3.1, ``First Main Lemma"]{seshadri}}]\label{seshadrimainlemma1}
+    Let $C$ be a smooth, projective, connected curve of genus $g \ge 2$, and let $E$ be a semistable locally free sheaf on $C$. There exists an integer $r_0$ such that if $r' \ge r_0$ and $L \in \Pic(C)$ is a line bundle such that
+    \[ \rk E \deg L + (\deg E + \rk E (1-g)) r' = 0. \]
+    then there exists a locally free sheaf $G$ with $\rk G = r'$ and $\det G \cong L$, and
+    \[ H^0(C, E \otimes G) = H^1(C, E \otimes G) = 0. \]
+\end{lem}
+\begin{rmk}\label{seshadri1converse}
+    The converse of Lemma \ref{seshadrimainlemma1} also holds. More precisely, if $E$ is a coherent sheaf on a smooth, projective, connected curve $C$ and there exists a locally free sheaf $G$ such that
+    \[ H^0(C, E \otimes G) = H^1(C, E \otimes G) = 0, \]
+    then $E$ is semistable. See \cite[Theorem 2.13]{MS} for a proof.
+\end{rmk}
+Lemma \ref{seshadrimainlemma1} implies that the section $\de_G \in \Ga(\sM^\mu_C(r,d), \la_\sE(w))$ is nonvanishing at the point representing $E$, and since we can choose such a $G$ for any $E$, we see that the line bundle $\la_\sE(w)$ is globally generated.
+
+\begin{lem}[\hspace{-0.45em} {\cite[Lemma 4.2, ``Second Main Lemma"]{seshadri}}]\label{seshadrimainlemma2}
+    Let $C$ and $S$ be two smooth, projective, connected curves, and let $\sE \in \Coh(S \times C)$ be a family of semistable locally free sheaves on $C$ of rank $r > 0$ and degree $d$. Let $G \in \Coh(C)$ be a locally free sheaf such that
+    \[ r \deg G + (d + r(1-g)) \rk G = 0. \]
+    The line bundle $\la_{\sE}(G) \in \Pic(S)$ has degree 0 if and only if the semistable sheaves $\sE_s$ are all S-equivalent.
+\end{lem}
+\begin{proof}
+For the forward implication we refer to \cite{seshadri}. For the converse, the condition on the rank and degree of $G$ together with Lemma \ref{lbtogms} shows that $\la_\sE(G)$ descends to a line bundle $L$ on the good moduli space $M^\mu_C(r,d)$. If $\sE \in \Coh(S \times X)$ is a family of S-equivalent semistable sheaves, the induced map
+\[ S \to \sM^\mu_C(r,d) \to M^\mu_C(r,d) \]
+must be constant, so the pullback of $L$, and hence of $\la_\sE(G)$, to $S$ is trivial.
+\end{proof}
+
+\iffalse
+From a contemporary perspective, the construction of $M^{\text{ss}}_C(r,d)$ as a projective variety can be broken up into the following steps.
+\begin{enumerate}
+    \item Show that the substack $\sM^{\text{ss}}_C(r,d) \subs \sMom_C$ is quasicompact and open.
+    \begin{itemize}
+        \item Quasicompactness follows from the embedding into Quot. \tuomas{Openness of $\Coh$??}
+    \end{itemize}
+    \item Show that $\sM^{\text{ss}}_C(r,d)$ admits a good moduli space $M^{\text{ss}}_C(r,d)$ as an algebraic space.
+    \begin{itemize}
+        \item \tuomas{S-completeness and $\Theta$-reductivity}
+    \end{itemize}
+    \item Show that $\sM^{\text{ss}}_C(r,d)$ satisfies the valuative criterion for universal closedness, and conclude that $M^{\text{ss}}_C(r,d)$ is proper.
+    \begin{itemize}
+        \item \tuomas{Langton}
+    \end{itemize}
+    \item Show that the line bundle $\la_\sE(w)$ descends to a line bundle $L_w$ on $M^{\text{ss}}_C(r,d)$.
+    \begin{itemize}
+        \item \tuomas{Criterion above}
+    \end{itemize}
+    \item Show that $\la_\sE(w)$, and hence $L_w$, is globally generated when $\rk(-w)$ is sufficiently large.
+    \begin{itemize}
+        \item \tuomas{First main lemma}
+    \end{itemize}
+    \item Show that the map $M^{\text{ss}}_C(r,d) \to |L_w|$ is finite and conclude that $M^{\text{ss}}_C(r,d)$ is projective.
+    \begin{itemize}
+        \item \tuomas{Second main lemma}
+    \end{itemize}
+\end{enumerate}
+\fi
+
